@@ -1,11 +1,19 @@
 /* ---------------------------------------------------------
                            Font-face
    ---------------------------------------------------------*/
-@include font-face("RobotoBold", "../fonts/RobotoBold/RobotoBold");
-@include font-face("RobotoCondensedBold", "../fonts/RobotoCondensedBold/RobotoCondensedBold");
-@include font-face("RobotoCondensedLight", "../fonts/RobotoCondensedLight/RobotoCondensedLight");
-@include font-face("RobotoCondensedRegular", "../fonts/RobotoCondensedRegular/RobotoCondensedRegular");
-@include font-face("RobotoLight", "../fonts/RobotoLight/RalewayLight");
-@include font-face("RobotoRegular", "../fonts/RobotoRegular/RobotoRegular");
 
-//@include font-face("FiraSans", "../fonts/FiraSansRegular/FiraSansRegular");
+
+@include font-face("HelveticaNeueLTStd-Roman", "../fonts/HelveticaNeueLTStd-Roman/HelveticaNeueLTStd-Roman");
+@include font-face("HelveticaNeueLTStd-Md", "../fonts/HelveticaNeueLTStd-Md/HelveticaNeueLTStd-Md");
+@include font-face("HelveticaNeueLTStd-Bd", "../fonts/HelveticaNeueLTStd-Bd/HelveticaNeueLTStd-Bd");
+@include font-face("HelveticaNeue-Bold", "../fonts/HelveticaNeue-Bold/helvetica-neue-bold");
+@include font-face("MyriadProRegular", "../fonts/MyriadProRegular/MyriadProRegular");
+@include font-face("MyriadPro-BlackIt", "../fonts/MyriadPro-BlackIt/MyriadPro-BlackIt");
+@include font-face("MyriadProSemiBold", "../fonts/MyriadProSemiBold/MyriadProSemiBold");
+@include font-face("MyriadProBlackSmCnIt", "../fonts/MyriadProBlackSmCnIt/MyriadProBlackSemiCondensedItalic");
+@include font-face("NevisBold", "../fonts/NevisBold/nevis-webfont");
+
+
+//@include font-face("RobotoBold", "../fonts/RobotoBold/RobotoBold");
+//@include font-face("RobotoRegular", "../fonts/RobotoRegular/RobotoRegular");
+//@include font-face("Mutlu", "../fonts/Mutlu/mutlu");

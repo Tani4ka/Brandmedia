@@ -8,16 +8,21 @@ h4, .h4,
 h5, .h5,
 h6, .h6,
 .h {
-  font-family: $headings-font-family;
+  //font-family: $headings-font-family;
+  .fontFaceObserver & {
+    font-family: 'NevisBold';
+  }
   font-weight: bold;         // or bold
-  margin: 0 0 0.5em;
+  margin: 0;
   color: $headings-color;
   text-transform: uppercase;  // tanya add
-  line-height: 1.4;           // $line-height-base - 3.5
+  line-height: 1.2;           // $line-height-base - 3.5
 }
 
 h1, .h1 {
   font-size: $h1-font-size;
+  color: $black;
+  text-transform: none;
 }
 
 h2, .h2 {

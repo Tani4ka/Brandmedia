@@ -1,5 +1,29 @@
+
 $(function() {
-                             /**** Common scripts ****/
+    initSlickCarousel();
+    initFitVids();
+
+    // slick init
+    function initSlickCarousel() {
+        jQuery('.slick').slick({
+            slidesToScroll: 1,
+            rows: 0,
+            arrows: false,
+            //prevArrow: $('.prev'),
+            //nextArrow: $('.next'),
+            dots: true,
+            dotsClass: 'slick-dots'
+        });
+    }
+
+    // handle flexible video size
+    function initFitVids() {
+        jQuery('.ishome').fitVids();
+    }
+
+
+
+    /**** Common scripts ****/
     /* SVG Fallback */
 
     //if(!Modernizr.svg) {
@@ -17,27 +41,34 @@ $(function() {
 
 
     /* Retina cover plugin*/
+
     //$('.bg-stretch').retinaCover();
 
 
-    /* E-mail Ajax Send */
+    /* Preloader Tanya */
 
-    //Documentation & Example: https://github.com/agragregra/uniMail
-    $("form").submit(function() { //Change
-        var th = $(this);
-        $.ajax({
-            type: "POST",
-            url: "mail.php", //Change
-            data: th.serialize()
-        }).done(function() {
-            alert("Thank you!");
-            setTimeout(function() {
-                // Done Functions
-                th.trigger("reset");
-            }, 1000);
-        });
-        return false;
-    });
+    //$(window).on('load', function () {
+    //    $('.preloader').delay(1000).fadeOut('slow');
+    //});
+
+
+    /* Preloader */
+
+    //var hellopreloader = document.getElementById("hellopreloader_preload");
+    //function fadeOutnojquery(el){
+    //    el.style.opacity = 1;
+    //    var interhellopreloader = setInterval(function(){
+    //        el.style.opacity = el.style.opacity - 0.05;
+    //        if (el.style.opacity <=0.05){
+    //            clearInterval(interhellopreloader);
+    //            hellopreloader.style.display = "none";}
+    //    },16);
+    //}
+    //window.onload = function(){
+    //    setTimeout(function(){
+    //        fadeOutnojquery(hellopreloader);
+    //    },1000);
+    //};
 
 
     /* E-mail Ajax Send example */
@@ -96,17 +127,33 @@ $(function() {
         $('html, body').stop().animate({scrollTop: 0}, 'slow', 'swing');
     });
 
+    /* No touch device :hover */
+    if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+        console.log('this is a touch device');
+        document.body.classList.add('touch');
+    } else {
+        console.log('this is not a touch device');
+        document.body.classList.add('no-touch');
+    }
 
-    /* Preloader */
 
-    $(window).on('load', function () {
-        $('.preloader').delay(1000).fadeOut('slow');
-    });
+    /* disable hover while scrolling */
 
+    //var body = document.body,
+    //  timer;
+    //window.addEventListener('scroll', function() {
+    //    clearTimeout(timer);
+    //    if(!body.classList.contains('disable-hover')) {
+    //        body.classList.add('disable-hover')
+    //    }
+    //    timer = setTimeout(function(){
+    //        body.classList.remove('disable-hover')
+    //    },500);
+    //}, false);
 
 
                         /***** Aditional scripts *****/
-    /* Equalheight without plug plugin */
+    /* Equalheight without plugin */
 
     //(function ($) {
     //    $.fn.equalHeights = function () {
@@ -217,15 +264,66 @@ $(function() {
     //});
 
 
-    /* Blocks the same height for owl-carousel for images */
+    /* Blocks the same height for video */
 
-    //function carouselService() {
-    //    $('.carousel-services__item').each(function () {
-    //        var ths = $(this),
-    //            thsh = ths.find('.carousel-services__content').outerHeight();
-    //        ths.find('.carousel-services__image').css('min-height', thsh);
-    //    });
-    //}carouselService();
+    function videoWrapHeight() {
+        $('.slick-track').each(function () {
+            var ths = $(this),
+                thsh = ths.find('.slick__item').outerHeight();
+                thsh1 = ths.find('.slick__list').outerWidth();
+            $('.video__overlay').css('height', thsh);
+            $('.video__overlay').css('width', thsh1);
+        });
+
+    }videoWrapHeight();
+    window.onresize = function () {
+        videoWrapHeight();
+    };
+
+    /* Custom arrows in slick for video */
+
+    $('.controls__prev').click(function(){
+        $('.slick').slick('slickPrev');
+    })
+    $('.controls__next').click(function(){
+        $('.slick').slick('slickNext');
+    })
+
+
+    /* iframe controls */
+    function videoControls() {
+        var slickCurrent = $(".slick-current").find(".iframe")[0];
+        var player = new Vimeo.Player(slickCurrent);
+        player.play();
+        //slickCurrent.src += "?autoplay=1";
+        $(".video__overlay").fadeOut('slow');
+        $(".controls_wrap").fadeOut('slow');
+
+        player.on('ended', function() {
+            $(".controls_wrap").fadeIn('slow');
+        });
+        //player.on('ended', function() {
+        //    console.log('Ended');
+        //    $(".controls_wrap").fadeIn('slow');
+        //});
+    };
+
+    function videoEnded() {
+        $('.slick__item').each(function () {
+            var ths = $(this);
+            var iframeCurrent = ths.find(".iframe")[0];
+            var player = new Vimeo.Player(iframeCurrent);
+
+            player.on('ended', function() {
+                $(".controls_wrap").fadeIn('slow');
+            });
+        });
+    };
+
+    $(".controls__btn").click(function() {
+        videoControls();
+        videoEnded();
+    });
 
 
     /* Blocks the same height */
@@ -263,6 +361,15 @@ $(function() {
     //$('.start .heading__header').each(function () {
     //    var ths = $(this);
     //    ths.html(ths.html().replace(/(\w+\'\w+\s+\w+\!)$/, '<span>$1</span>')); // выделяет 2 последнее слово в span
+    //});
+
+    // Add two last words in span
+    //$('.skills .heading_wrap .h2').each(function(){
+    //    var $this = $(this), text=$this.text().trim(), words = text.split(/\s+/);
+    //    var lastWords = words.splice(-2);
+    //    var join = lastWords.join(' ');
+    //    words.push('<span class="h2_orange">' + join + '</span>');
+    //    $this.html(words.join(' '));
     //});
 
     /* Selectize */
@@ -324,48 +431,66 @@ $(function() {
     //</section>
 
 
+
     /* Mmenu */
 
-    //$(".mobile-mnu").after("<div id='my-menu'>");
-    //$(".sf-menu").clone().appendTo("#my-menu");
+    $(".mobile-mnu").after("<div id='my-menu'>");
+    $(".menu").clone().appendTo("#my-menu");
     //$("#my-menu").find("*").attr("style", "");
-    //$("#my-menu").find("ul").removeClass("sf-menu");
-    //$("#my-menu").mmenu({
-    //    extensions: [ 'theme-white', 'pagedim-black', 'fx-menu-slide'],    // 'widescreen' -don"t work
-    //    navbar: {
-    //        title: 'Меню'
-    //    }
-    //});
+    //$("#my-menu").find(".menu__link_home").html("Home");
+    $("#my-menu").find("ul").removeClass("menu");
 
 
-    /* Mmenu */
+    $("#my-menu").mmenu({
+        "slidingSubmenus": false,
+        "extensions": [
+            "theme-black",
+            "effect-menu-slide",
+            "pagedim-black",
+            //"border-none",
+            "fx-listitems-slide",
+            "shadow-panels",
+            "position-right"
+        ],
+        "autoHeight": true,
+        navbar: {
+            title: 'Menu'
+        }
+    });
 
-    //var $menu = $('#my-menu').mmenu({
-    //    extensions: [ 'theme-black', 'effect-menu-slide', 'pagedim-black' ],    // 'widescreen' -don"t work
-    //    navbar: {
-    //        title: '<img src="img/logo.svg" alt="Салон красоты Смитлер">'
-    //    },
-    //    offCanvas: {
-    //        position: 'right'
-    //    }
-    //});
 
+    /* Submenu centered */
+
+    $(".menu .submenu").each(function(){
+        var $this = $(this),
+          currentWidth = $this.outerWidth(),
+          parentWidth = $this.closest('li').outerWidth(),
+          leftPos = (parentWidth / 2) - (currentWidth / 2);
+
+        $(this).css('left', leftPos);
+    });
 
     /* Gamburger for menu */
 
     // https://codepen.io/agragregra/pen/bEbbmZ
-    //$(".mobile-mnu").click(function() {
-    //    var mmApi = $("#my-menu").data( "mmenu" );
-    //    mmApi.open();
-    //    var thiss = $(this).find(".toggle-mnu");
-    //    thiss.addClass("on");
-    //    $(".main-mnu").slideToggle();
-    //    return false;
-    //});
-    //
-    //$(".ishome").click(function() {
-    //    $(".toggle-mnu").removeClass("on");
-    //});
+    $(".mobile-mnu").click(function() {
+        var mmApi = $("#my-menu").data( "mmenu" );
+        mmApi.open();
+        var thiss = $(this).find(".toggle-mnu");
+        thiss.addClass("on");
+        return false;
+    });
+    $(".mm-page__blocker").click(function() {
+        $('.toggle-mnu').removeClass("on");
+    });
+
+
+    /* Menu active link */
+
+    $('.menu__link').click(function(){
+        $('.menu__link').removeClass("menu__link_active");
+        $(this).addClass("menu__link_active");
+    });
 
 
     /* Magnific-popup */
@@ -388,6 +513,54 @@ $(function() {
     //$('a[href="#callback"]').click(function() {      // возьмет из кнопки зачение data-form и вставит в input[type=hidden] value с этим значением, чтобы знать с какой фрмы пришла заявка
     //    $('#callback .formname').val($(this).data('form'));
     //});
+
+
+
+    /* FontFaceObserver initialization fonts (в 2 раза быстрее загружается шрифт)*/
+
+    //var helvetica = new FontFaceObserver('HelveticaNeueLTStd-Roman');
+    //helvetica.load().then(function() {
+    //    document.documentElement.className += " fontFaceObserver";
+    //    console.log('fontFaceObserver is available');
+    //}, function () {
+    //    console.log('fontFaceObserver is not available');
+    //});
+
+    var helveticaNeueLTStd = new FontFaceObserver('HelveticaNeueLTStd-Roman');
+    var helveticaNeueBold = new FontFaceObserver('HelveticaNeue-Bold');
+    var helveticaNeueLTStdBd = new FontFaceObserver('HelveticaNeueLTStd-Bd');
+    var helveticaNeueLTStdMd = new FontFaceObserver('HelveticaNeueLTStd-Md');
+    var myriadProBlackIt = new FontFaceObserver('MyriadPro-BlackIt');
+    var myriadProBlackSmCnIt = new FontFaceObserver('MyriadProBlackSmCnIt');
+    var myriadProRegular = new FontFaceObserver('MyriadProRegular');
+    var myriadProSemiBold = new FontFaceObserver('MyriadProSemiBold');
+    var nevisBold = new FontFaceObserver('NevisBold');
+
+
+    Promise.all([helveticaNeueLTStd.load(),
+        helveticaNeueBold.load(),
+        helveticaNeueLTStdBd.load(),
+        helveticaNeueLTStdMd.load(),
+        myriadProBlackIt.load(),
+        myriadProBlackSmCnIt.load(),
+        myriadProRegular.load(),
+        myriadProSemiBold.load(),
+        nevisBold.load()]).then(function () {
+        document.documentElement.className += " fontFaceObserver";
+        console.log('Fonts have loaded');
+    });
+
+    //var primary = new FontFaceObserver('Primary');
+    //var secondary = new FontFaceObserver('Secondary');
+    //
+    //primary.load().then(function () {
+    //    console.log('Загружен основной шрифт')
+    //
+    //    secondary.load().then(function () {
+    //        console.log('Загружен второстепенный шрифт')
+    //    });
+    //});
+
 
 
 });

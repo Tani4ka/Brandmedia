@@ -1,0 +1,508 @@
+/* ---------------------------------------------------------
+                           Mixins
+   ---------------------------------------------------------*/
+// vertical align el inside parent with fixed height/min-height
+// usage 
+// html - .parent>.child
+// scss - @include v-align;
+//     or @include v-align(250px);
+//     or @include v-align(250px, bottom, before);
+//
+@mixin v-align($va-height: 100%, $va-direction: middle, $va-pseudo: after) {
+  white-space: nowrap;
+  text-align: center;
+  min-height: $va-height;
+
+  &:#{$va-pseudo} {
+    content: '';
+    display: inline-block;
+    vertical-align: $va-direction;
+    width: 0;
+    height: $va-height;
+  }
+
+  > * {
+    white-space: normal;
+    display: inline-block;
+    vertical-align: $va-direction;
+    max-width: 99%;
+  }
+}
+
+// vertical align a pair of child el inside parent
+// usage 
+// html - .post>.image+.text
+// scss - @include v-align-pair(image, text);
+//     or @include v-align-pair(image, text, bottom);
+//     or @include v-align-pair(image, text, middle, 200px);
+//
+@mixin v-align-pair($child-name1, $child-name2, $valign: middle, $width1: auto, $width2: auto ) {
+  display: table;
+  .#{$child-name1}{
+    display: table-cell;
+    vertical-align: $valign;
+    width: $width1;
+  }
+  .#{$child-name2} {
+    display: table-cell;
+    vertical-align: $valign;
+    width: $width2;
+  }
+}
+
+
+// vertical align el
+// usage: @include vertical-align-el;
+
+@mixin vertical-align-el {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/// Mixin helping defining both `width` and `height` simultaneously.
+/// @author Hugo Giraudel
+///
+/// @access public
+///
+/// @param {Length} $width - Element’s `width`
+/// @param {Length} $height ($width) - Element’s `height`
+///
+/// @example scss - Usage
+///   .foo {
+///     @include size(10em);
+///   }
+///
+///   .bar {
+///     @include size(100%, 10em);
+///   }
+///
+/// @example css - CSS output
+///   .foo {
+///     width: 10em;
+///     height: 10em;
+///   }
+///
+///   .bar {
+///     width: 100%;
+///     height: 10em;
+///   }
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// font-smothing
+/// @include font-smoothing(on);
+/// @include font-smoothing(off);
+@mixin font-smoothing($value:on){
+  @if $value == on{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  @else{
+    -webkit-font-smoothing:subpixel-antialiased;
+    -moz-osx-font-smoothing:auto;
+  }
+}
+
+/// Hides the text in an element, commonly used to show an image. Some elements will need block-level styles applied.
+/// @link http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
+///
+/// @example scss - Usage
+///   .element {
+///     @include hide-text;
+///   }
+///
+/// @example css - CSS Output
+///   .element {
+///     overflow: hidden;
+///     text-indent: 101%;
+///     white-space: nowrap;
+///   }
+
+@mixin hide-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/// Creates a visual triangle. 
+/// Mixin takes ($size, $color, $direction)
+/// The $size argument can take one or two values—width height.
+/// The $color argument can take one or two 
+/// values—foreground-color background-color.
+/// 
+/// @author http://bourbon.io/docs/#triangle
+///
+/// $direction: 
+/// up, down, left, right, up-right, up-left, down-right, down-left
+/// @example scss - Usage
+///   @include triangle(12px, gray, down);
+///   @include triangle(12px 6px, gray blue, up-left);
+
+//@mixin triangle($size, $color, $direction) {
+//  $width: nth($size, 1);
+//  $height: nth($size, length($size));
+//  $foreground-color: nth($color, 1);
+//  $background-color: if(length($color) == 2, nth($color, 2), transparent);
+//  height: 0;
+//  width: 0;
+//
+//  @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+//    $width: $width / 2;
+//    $height: if(length($size) > 1, $height, $height/2);
+//
+//    @if $direction == up {
+//      border-bottom: $height solid $foreground-color;
+//      border-left: $width solid $background-color;
+//      border-right: $width solid $background-color;
+//    } @else if $direction == right {
+//      border-bottom: $width solid $background-color;
+//      border-left: $height solid $foreground-color;
+//      border-top: $width solid $background-color;
+//    } @else if $direction == down {
+//      border-left: $width solid $background-color;
+//      border-right: $width solid $background-color;
+//      border-top: $height solid $foreground-color;
+//    } @else if $direction == left {
+//      border-bottom: $width solid $background-color;
+//      border-right: $height solid $foreground-color;
+//      border-top: $width solid $background-color;
+//    }
+//  } @else if ($direction == up-right) or ($direction == up-left) {
+//    border-top: $height solid $foreground-color;
+//
+//    @if $direction == up-right {
+//      border-left:  $width solid $background-color;
+//    } @else if $direction == up-left {
+//      border-right: $width solid $background-color;
+//    }
+//  } @else if ($direction == down-right) or ($direction == down-left) {
+//    border-bottom: $height solid $foreground-color;
+//
+//    @if $direction == down-right {
+//      border-left:  $width solid $background-color;
+//    } @else if $direction == down-left {
+//      border-right: $width solid $background-color;
+//    }
+//  } @else if ($direction == inset-up) {
+//    border-color: $background-color $background-color $foreground-color;
+//    border-style: solid;
+//    border-width: $height $width;
+//  } @else if ($direction == inset-down) {
+//    border-color: $foreground-color $background-color $background-color;
+//    border-style: solid;
+//    border-width: $height $width;
+//  } @else if ($direction == inset-right) {
+//    border-color: $background-color $background-color $background-color $foreground-color;
+//    border-style: solid;
+//    border-width: $width $height;
+//  } @else if ($direction == inset-left) {
+//    border-color: $background-color $foreground-color $background-color $background-color;
+//    border-style: solid;
+//    border-width: $width $height;
+//  }
+//}
+
+/// Animate css properties
+// usage 
+// scss - @include animate(color);
+//     or @include animate(color width);
+//     or @include animate(color width, 1s, linear);
+//
+$animation-speed: .3s !default;
+
+@mixin animate($properties, $duration: $animation-speed, $easing: ease-in-out) {
+  $list:();
+  @each $prop in $properties {
+    $str: #{$prop} #{$duration} #{$easing};
+    $list: join($list, #{$str}, comma);
+  }
+  transition: $list;
+}
+
+/// Mixin for styling form-placeholders
+/// @example scss - Usage
+///   @include placeholder {
+///    color: #333;
+///   }
+///
+///   input[type='text'],
+///   input[type='tel'],
+///   input[type='email'] {
+///     @include placeholder {
+///      color: red;
+///     }
+///   }
+
+/// Font-size px to rem calc
+/// @example scss - Usage
+/// selector {
+///    @include rem-font-size(16px);
+/// }
+
+@mixin rem-font-size($pxSize) {
+  font-size: $pxSize;
+  font-size: ($pxSize / 16px) + rem;
+}
+
+// Tanya's mixin
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    src: url('#{$file-path}.woff2') format('woff2');
+    src: url('#{$file-path}.woff') format('woff'), url('#{$file-path}.eot') format('embedded-opentype'), url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.ttf') format('truetype');
+  }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+//$colors: $blue, $red, $accent;
+//@for $i from 1 through length($colors) {
+//  .carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i}) {  // (3n+1, 3n+2, 3n+3)
+//    background-color: nth($colors, $i);  // (blue, red, accent)
+//  }
+//}
+
+
+@mixin button($button-bg, $button-border, $button-border-color, $button-pad, $button-size, $button-line-height, $height-button, $button-radius) {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 0 0;
+  padding: 10px $button-pad 0 $button-pad;
+  background: $button-bg;
+  border: $button-border solid $button-border-color;
+  font-size: $button-size;
+  line-height: $button-line-height;
+  height: $height-button;
+  position: relative;
+  @include radius($button-radius);
+}
+
+@mixin font($font-s, $font-h, $font-c) {
+  font-size: $font-s;
+  line-height: $font-h;
+  color:$font-c;
+}
+
+
+// Start new mixins
+// Counters for ol
+@mixin counter($var) {
+  counter-reset: $var;
+  > li {
+    &:before {
+      content: counter($var);
+      counter-increment: $var;
+    }
+  }
+}
+
+@mixin coverdiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+ }
+
+@mixin vcenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transfom: translate(-50%,-50%);
+}
+
+@mixin hcenter {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  transfom: translate(0,-50%);
+}
+
+// Vertical align of blocks
+@mixin vertical {
+  text-align: center;
+  font-size: 0;
+
+  &:before {
+    content: "";
+    opacity: 1;
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+}
+
+// Placeholder color
+@mixin placeholder-color($color) {
+  &:-moz-placeholder,
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Placeholder
+@mixin placeholder {
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &.placeholder {
+    @content;
+  }
+}
+
+// Triangle (ширина, высота, фон, направление стрелки)
+@mixin arr($width, $height, $bg, $direction) {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  @if $direction == t {
+    border-width: 0 $width / 2 + px $height + px $width / 2 + px;
+    border-color: transparent transparent $bg transparent;
+  }
+  @if $direction == r {
+    border-width: $height / 2 + px 0 $height / 2 + px $width + px;
+    border-color: transparent transparent transparent $bg;
+  }
+  @if $direction == b {
+    border-width: $height + px $width / 2 + px 0 $width / 2 + px;
+    border-color: $bg transparent transparent transparent;
+  }
+  @if $direction == l {
+    border-width: $height / 2 + px $width + px $height / 2 + px 0;
+    border-color: transparent $bg transparent transparent;
+  }
+  @if $direction == tl {
+    border-width: $height + px $width + px 0 0;
+    border-color: $bg transparent transparent transparent;
+  }
+  @if $direction == tr {
+    border-width: 0 $width + px $height + px 0;
+    border-color: transparent $bg transparent transparent;
+  }
+  @if $direction == br {
+    border-width: 0 0 $height + px $width + px;
+    border-color: transparent transparent $bg transparent;
+  }
+  @if $direction == bl {
+    border-width: $height + px 0 0 $width + px;
+    border-color: transparent transparent transparent $bg;
+  }
+}
+
+// Подключени шрифтов (Название шрифта, название файла)
+@mixin font($alias, $name) {
+  @font-face;
+  font-family: $alias;
+  src: url("../fonts/" + $name + ".eot");
+  src: url("../fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), url("../fonts/" + $name + ".woff2") format('woff2'), url("../fonts/" + $name + ".woff?ver1.0") format("woff"), url("../fonts/" + $name + ".ttf") format("truetype"), url("../fonts/" + $name + ".svg#" + $name + "") format("svg");
+  @content;
+}
+
+// @include font-smoothing();
+//@mixin font-smoothing($val: antialiased) {
+//  -webkit-font-smoothing: $val;
+//  -moz-osx-font-smoothing: $val;
+//  -ms-font-smoothing: $val;
+//  -o-font-smoothing: $val;
+//}
+
+// Скрываем текст и показываем 3 точки
+@mixin text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin bg($img, $position: 0 0, $color: null, $repeat: no-repeat ) {
+  background: $color url("../img/#{$img}.png") $repeat $position;
+}
+
+@mixin pulse($time: 1.5s, $iteration: infinite) {
+  animation-name: pulse;
+  animation-duration: $time;
+  animation-iteration-count: $iteration;
+}
+
+@mixin k-pulse {
+  @keyframes pulse {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.9);
+      opacity: 0.9;
+    }
+  }
+}
+
+@mixin bounce($time: 2s, $iteration: infinite) {
+  animation-name: bounce;
+  animation-duration: $time;
+  animation-iteration-count: $iteration;
+}
+
+@mixin k-bounce {
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0)
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+
+
+// @include text-overflow;                  // lorem...
+// @include font-smoothing(on);             // or off
+// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
+// @include counter(list);
+// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
+// @include animate(color)                  // or (color width) or (color width, 1s, linear)
+// @include size(16px)                      // (15px, 4px);
+// @include v-align(100%);                  // vertical align el inside parent with fixed height/min-height
+// @include placeholder-color(red);         // or (red !important)
+// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
+// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
+// @include center_transform();             // left:50%; top:50%; transform:translate(-50%, -50%); position:absolute;
+// @include verrical_center_transform();    // left:0; top:50%; width: 100%; transform:translate(0, -50%); position:absolute;
+// @include font(14px, 18px, #000);         // font-size, line-height, color
+// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
+
+

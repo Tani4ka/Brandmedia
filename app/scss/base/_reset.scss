@@ -23,8 +23,14 @@ body {
   opacity: 1;                // for preloader
   color: $base-text-color;
   background: $base-background-color;
-  font: #{$font-size-base}/#{$line-height-base} $base-font-family;
+  //font: #{$font-size-base}/#{$line-height-base} $base-font-family;
+  font: #{$font-size-base}/#{$line-height-base} $base-font-sans-serif; // with FontFaceObserver
   min-width: $base-min-width;
-  //-webkit-font-smoothing: antialiased;
-  //-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// with FontFaceObserver
+.fontFaceObserver body {
+  font-family: $base-font-family;
 }

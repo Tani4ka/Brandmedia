@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="en" dir="ltr">
 <head>
 
 	<meta charset="utf-8">
+	<title>Brandmedia</title>
 
-	<title>Tanya-template</title>
 	<meta name="description" content="">
-
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+	<meta name="description" content="Описание страницы короче 150 символов">
 	<meta property="og:image" content="path/to/image.jpg">
-	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+	<link rel="manifest" href="img/favicons/manifest.json">
+	<link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+
+	<!-- Помогает избежать проблем с дублированным контентом -->
+	<link rel="canonical" href="http://example.com/2017/09/a-new-article-to-red.html">
 
 	<!-- Chrome, Firefox OS and Opera -->
 	<meta name="theme-color" content="#000">
@@ -24,49 +27,218 @@
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
 
+	<!-- HTML5 Shiv - полифил, позволяющий обеспечивать базовые стили HTML5 для IE 6-8, Safari 4.x, Firefox 3.x. и iPhone 3.x. -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/html5shiv-printshiv.min.js"></script>
+	<![endif]-->
+	<!-- HTML5 Shiv or Modernizr -->
+	<!--<script src="js/modernizr-custom.js"></script>-->
+
 	<style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+	<link rel="stylesheet" href="css/main.min.css">
+
+	<!--<script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>-->
 
 </head>
 
 <body class="ishome">
 
-	<!--preloader-->
-	<!--<div class="preloader"><div class="pulse"></div></div>-->
+	<!-- Front-End-Checklist -->
+	<!--
+	<a href="#" target="_blank" rel="noopener"></a>
+	<header role="banner"></header>
+	<nav role="navigation" aria-label="Разделы"></nav>
+	<main role="main"></main>
+	<aside role="complementary" aria-label="Боковое меню"></aside> // complementary - участок с некой дополнительной информацией, не имеющей прямого отношение к основному содержимому
+	<footer role="contentinfo"></footer>-->
 
-	<div class="container">
-		<div class="row">
+	<!-- my-page start -->
+	<div id="my-page">
 
-			<div class="col-sm-10 col-sm-offset-1">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque culpa dolor doloribus eligendi et exercitationem iste ut veritatis! Assumenda, doloremque.</p>
-			</div>
+		<!-- my-header start -->
+		<div id="my-header">
+
+			<!-- header start -->
+			<header class="header" role="banner">
+				<div class="container header__top">
+					<div class="row">
+
+						<div class="col-10 col-lg-5 col-md-4 header__logo">
+							<div class="logo">
+								<!--<i class="logo__icon fas fa-plus-square"></i>-->
+								<a href="#" class="logo__link">
+									<i class="logo__icon icon-plus-squared"></i><span class="logo__name">BRANDMEDIA</span>
+								</a>
+								<span class="logo__descr hide-tablet">We love beautiful things</span>
+							</div>
+						</div>
+
+						<nav class="col-lg-7 col-md-8 hide-tablet">
+							<ul class="menu main-mnu">
+
+								<li class="menu__item menu__item_active">
+									<a href="#" class="menu__link menu__link_home">
+										<i class="menu__icon icon-home hide-tablet"></i>
+										<span class="menu__link-name">Home</span>
+									</a>
+								</li>
+								<li class="menu__item"><a href="company.html" class="menu__link">About us</a></li>
+
+								<li class="menu__item"><a href="#" class="menu__link">Portfolio</a>
+									<ul class="submenu">
+										<li class="submenu__item"><a href="#" class="submenu__link">App Media</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Branding</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Case Study</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Staff</a></li>
+										<li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">
+											Tutorials</a></li>
+									</ul>
+								</li>
+
+								<li class="menu__item"><a href="#" class="menu__link">Services</a></li>
+
+								<li class="menu__item">
+									<a href="#" class="menu__link">Blog</a>
+									<ul class="submenu">
+										<li class="submenu__item"><a href="#" class="submenu__link">App Media</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Branding</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Case Study</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Devices</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Jobs</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Networks</a></li>
+										<li class="submenu__item"><a href="#" class="submenu__link">Staff</a></li>
+										<li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">
+											Tutorials</a></li>
+									</ul>
+								</li>
+
+								<li class="menu__item"><a href="#" class="menu__link">Contact</a></li>
+							</ul>
+						</nav>
+
+						<div class="col-2 col-md-1 justify-content-end mobile-mnu hide-desktop">
+							<a href="#" class="toggle-mnu"><span>Open menu</span></a>
+						</div>
+
+					</div>
+				</div>
+			</header>
+			<!-- header end -->
+		</div>
+		<!-- my-header end -->
+
+		<!-- my-content start -->
+		<div id="my-content">
+
+			<!-- section dreams start -->
+			<section class="dreams container-fluid">
+				<div class="container">
+						<div class="dreams__wrap">
+
+								<div class="dreams__content">
+									<div class="d-content">
+										<span class="d-content__supname">Creative Agency</span>
+										<h1 class="h1 d-content__heading">We Make Dreams</h1>
+										<p class="d-content__text">Beautiful interfaces and creative solutions</p>
+
+										<div class="d-buttons">
+											<a href="#" class="btn btn_blue-light d-buttons__first">Read more</a>
+											<a href="#" class="btn btn_white d-buttons__last">Portfolio</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="video">
+
+									<div class="video__overlay"></div>
+									<div class="controls_wrap">
+										<button class="controls__prev icon-fast-backward" style=""></button>
+										<button class="controls__btn icon-play"></button>
+										<button class="controls__next icon-fast-forward" style=""></button>
+									</div>
+
+									<!-- slick gallery start -->
+									<div class="slick video__slick">
+										<div class="slick__item">
+											<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/cMGDmuMvZ_c" rameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+											<iframe class="iframe" src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+										</div>
+										<div class="slick__item">
+											<iframe class="iframe" src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/4Kvd-uquuhI" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/8yvGCAvOAfM" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+											<iframe class="iframe" src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/Y6Z8uR-YBk4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/i2rugD5xLZM" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/fef2pXysYD4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/cMGDmuMvZ_c" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/4Kvd-uquuhI" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/8yvGCAvOAfM" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/Y6Z8uR-YBk4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/i2rugD5xLZM" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/fef2pXysYD4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/8yvGCAvOAfM" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+										<div class="slick__item">
+												<iframe class="iframe" src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+												<!--<iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/Y6Z8uR-YBk4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
+										</div>
+									</div>
+									<!-- slick gallery end -->
+								</div>
+							</div>
+						</div>
+
+			</section>
+			<!-- section dreams end -->
 
 		</div>
-	</div>
+		<!-- my-content end -->
 
-
-	<div class="header-bg">
-
-		<!-- retina plugin start -->
-		<!--<div class="bg-stretch">-->
-			<!--<span data-srcset="img/img1-small.jpg, img/img1-small-2x.jpg 2x"></span>-->
-			<!--<span data-srcset="img/img1-medium.jpg, img/img1-medium-2x.jpg 2x" data-media="(min-width: 375px)"></span>-->
-			<!--<span data-srcset="img/img1-large.jpg" data-media="(min-width: 768px)"></span>-->
-		<!--</div>-->
-		<!-- retina plugin end -->
-
-
-		<!-- picturefill plugin start -->
-		<!-- first example works without picturefull in new browsers -->
-		<!--<picture id="picture-bg">-->
-			<!--<source srcset="img/img1-small.jpg" media="(max-width: 768px)">-->
-			<!--<source srcset="img/img1-medium.jpg" media="(max-width: 992px)">-->
-			<!--<source srcset="img/img1-large.jpg">-->
-			<!--<img class="img" csrcset="img/img1-large.jpg" alt="Booleon field image"> &lt;!&ndash; <img alt="…"> for wrong im=age in safari&ndash;&gt;-->
-		<!--</picture>-->
-		<!-- picturefill plugin end -->
+		<!-- my-footer start -->
+		<div id="my-footer" style="margin: 20px; background: gray;">
+			<a href="#" class="btn btn_blue icon-search">Read more</a>
+			<a href="#" class="btn">Portfolio<i class="icon-plus-button"></i></a>
+			<a href="#" class="btn btn_blue-dark">Portfolio</a>
+			<a href="#" class="btn btn_white">Portfolio</a>
+		</div>
+		<!-- my-footer end -->
 
 	</div>
-
+	<!-- my-page end -->
 
 
 	<!--buttot to top-->
@@ -107,20 +279,21 @@
 		<!--</div>-->
 	</div>
 
+	<!-- preloader -->
+	<!--<div id="hellopreloader"><div id="hellopreloader_preload"></div></div>-->
+
 
                               <!-- Scripts -->
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')</script>
 
-    <!-- HTML5 Shiv - полифил, позволяющий обеспечивать базовые стили HTML5 для
-	IE 6-8, Safari 4.x, Firefox 3.x. и iPhone 3.x. -->
-	<!--[if lt IE 9]>
-	<script src="libs/html5shiv/es5-shim.min.js"></script>
-	<script src="libs/html5shiv/html5shiv.min.js"></script>
-	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
-	<script src="libs/respond/respond.min.js"></script>
-	<![endif]-->
-
-	<link rel="stylesheet" href="css/style.min.css">
+	<!--<script src="https://player.vimeo.com/api/player.js"></script>-->
 	<script src="js/scripts.min.js"></script>
+
+
+	<!-- Map -->
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer></script>-->
+	<!--<script type="text/javascript" src="js/map.min.js" defer></script>-->
 
 </body>
 </html>
