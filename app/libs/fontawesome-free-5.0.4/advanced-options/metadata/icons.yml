@@ -4175,8 +4175,8 @@ heading:
   label: heading
   search:
     terms:
-      - header
-      - header
+      - head
+      - head
   styles:
     - solid
   unicode: f1dc

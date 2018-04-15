@@ -1,0 +1,54 @@
+
+mixin header(data)
+  +b.HEADER.header(role="banner")
+    +e.DIV.top
+      +e.DIV.logo
+        +b.DIV.logo
+          +e.A.link(href='#')
+            +e.I.icon.icon-plus-squared
+            +e.SPAN.name
+              |BRANDMEDIA
+            +e.SPAN.descr.hide-tablet
+              |We love beautiful things
+      +e.NAV.nav.hide-tablet
+        +b.UL.menu.main-mnu
+            +e.LI.item.menu__item_active
+              +e.A.link.menu__link_home(href='#')
+                +e.I.icon.icon-home.hide-tablet
+                +e.SPAN.link-name Home
+            +e.LI.item
+              +e.A.link(href='https://caniuse.com/#search=resize') About us
+            +e.LI.item
+              +e.A.link(href='#') Portfolio
+            +e.LI.item
+              +e.A.link(href='#') Services
+            +e.LI.item
+              +e.A.link(href='#') Blog
+              +b.UL.submenu
+                  +e.LI.item
+                    +e.A.link(href='#') App media
+                  +e.LI.item
+                    +e.A.link(href='#') Branding
+                  +e.LI.item
+                    +e.A.link(href='#') Case study
+                  +e.LI.item
+                    +e.A.link(href='#') Devices
+                  +e.LI.item
+                    +e.A.link(href='#') Jobs
+                  +e.LI.item
+                    +e.A.link(href='#') Networks
+                  +e.LI.item
+                    +e.A.link(href='#') Staff
+                  +e.LI.item.submenu__item_last
+                    +e.A.link(href='#') Tutorials
+            +e.LI.item
+              +e.A.link(href='#') Tutorials
+            +e.LI.item
+              +e.A.link(href='#') Contact
+
+
+      +e.DIV.btn.mobile-mnu.hide-desktop
+        +b.A.toggle-mnu(href="#")
+          +e.SPAN Open menu
+
+

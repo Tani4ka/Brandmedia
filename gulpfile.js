@@ -21,9 +21,28 @@ var gulp           = require('gulp'),
 	order          = require("gulp-order"),
 	critical       = require('critical').stream,
 	csslint 			 = require('gulp-csslint'),
-	sourcemaps     = require('gulp-sourcemaps');
+	sourcemaps     = require('gulp-sourcemaps'),
+  jade           = require('gulp-jade');
 
 
+// jade
+gulp.task('jade', function() {
+	return gulp.src(['blocks/**/*.jade', '!blocks/template.jade'])
+		.pipe(jade({pretty: true}))
+		.pipe(gulp.dest('app/'))
+		.pipe(browserSync.stream())
+});
+
+// pug
+//gulp.task('pug', function() {
+//	return gulp.src(['app/pug/**/*.pug', '!app/pug/template.pug'])
+//		.pipe(plumber())
+//		.pipe(pug({pretty: true}))
+//		.pipe(gulp.dest('app/'))
+//		.pipe(browserSync.stream())
+//});
+
+// js
 gulp.task('common-js', function() {
 	var all = gulp.src([
 		'app/js/common.js',
@@ -73,13 +92,14 @@ gulp.task('js', ['common-js'], function() {
 	return gulp.src([
 		//'app/libs/jquery/jquery-3.3.1.min.js',
 		'app/libs/fontfaceobserver/fontfaceobserver.js',
-		'app/libs/plugins-scroll/plugins-scroll.js',
+		//'app/libs/plugins-scroll/plugins-scroll.js',
 		'app/libs/jQuery.mmenu/dist/jquery.mmenu.all.js',
 		'app/libs/slick-custom/slick-custom.js',
 		'app/libs/fitVids/fitVids.js',
 		'app/libs/vimeo-player-js/dist/player.min.js',
+		'app/libs/jQuery-EasyTabs-master/lib/jquery.easytabs.min.js',
 
-
+		'app/js/new-age.js',
 		'app/js/common.min.js', // Always in the end
 	])
 		.pipe(sourcemaps.init())
@@ -101,8 +121,8 @@ gulp.task('browser-sync', function() {
 	});
 });
 
-gulp.task('sass', function() {
-	return gulp.src('app/scss/main.scss')
+gulp.task('scss', function() {
+	return gulp.src('blocks/main.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass({'bundleExec': true}).on("error", notify.onError())) // sass({outputStyle: 'expand'})
 		.pipe(csso({
@@ -129,10 +149,11 @@ gulp.task('sass', function() {
 });
 
 // Watch
-gulp.task('watch', ['sass', 'js', 'browser-sync'], function() {
-	gulp.watch('app/scss/**/*.scss', ['sass']);
-	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
-	gulp.watch('app/*.html', browserSync.reload);
+gulp.task('watch', ['scss', 'js', 'browser-sync'], function() {
+	gulp.watch('blocks/**/*.jade', ['jade']);
+	gulp.watch('blocks/**/*.scss', ['scss']);
+	gulp.watch(['libs/**/*.js', 'app/js/common.js', 'app/js/new-age.js'], ['js']);
+	//gulp.watch('app/*.html', browserSync.reload);
 });
 
 // Minify
@@ -150,7 +171,7 @@ gulp.task('imagemin', function() {
 });
 
 // Build tack fix-css
-gulp.task('build', ['removedist', 'imagemin', 'sass', 'js', 'minify'], function() {
+gulp.task('build', ['removedist', 'imagemin', 'jade', 'scss', 'js', 'minify'], function() {
 
 	var buildFiles = gulp.src([
 		//'app/*.html',

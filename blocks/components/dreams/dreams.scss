@@ -1,0 +1,474 @@
+/* ---------------------------------------------------------
+                            Dreams
+   ---------------------------------------------------------*/
+.dreams {
+  background: #333;
+  padding: 16px 14px;
+
+  &__wrap {
+    @include container();
+    flex-direction: column;
+    border-radius: 5px;
+    background: #999;
+    background-image: radial-gradient(center top, $white, #999);
+    padding: 35px 38px 17px 43px;
+
+    @include media('<tablet') {
+      padding: 35px 10px 17px 10px;
+      margin: 0;
+    }
+    @include media('>=992px') {
+      flex-direction: row;
+    }
+
+    @include media('<992px') {
+      padding-top: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+
+    @include media('>=992px') {
+      width: 44%;
+    }
+  }
+}
+
+.d-content {
+  margin: auto 0;
+  padding-top: 52px;
+  padding-bottom: 30px;
+
+  .fontFaceObserver & {
+    font-family: 'MyriadPro-BlackIt';
+  }
+  &__heading {
+    .fontFaceObserver & {
+      font-family: 'MyriadPro-BlackIt' !important;
+    }
+  }
+
+  &__heading {
+    letter-spacing: -2px;
+    margin-top: 5px;
+  }
+  &__text {
+    font-size: 1.25em;
+  }
+}
+.d-buttons {
+  margin-top: 35px;
+  &__first,
+  &__last {
+    @include size(102px, 30px);
+  }
+
+  &__first {
+    margin-right: 15px;
+  }
+}
+
+ //video
+.video {
+  position: relative;
+
+  @include media('>=992px') {
+    width: 56%;
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: $btn-dark-blue;
+    background-image: url('../img/video.png'), radial-gradient(ellipse, #83baee 0, #79abde 25%, #79abde 25%, #3366cc 100%);
+    background-size: cover;
+    box-shadow: inset 0 27px 0 -10px $gray-black, inset 0 -25px 0 -10px $gray-black;
+
+    @include media("<1200px", ">=992px") {
+      //height: 271px !important;
+      width: auto !important;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-70%);
+  z-index: 15;
+  border-radius: 5px;
+  background-color: #76A6CD;
+  background-image: linear-gradient(#A9CAE9,  #76A6CD);
+  @include size(50%, 26%);
+  box-shadow:  0 0.5px 1px 1px rgb(69, 101, 151);
+
+  @include media("<480px") {
+     @include size(60%, 30%);
+   }
+
+  &__btn {
+    margin: auto;
+  }
+}
+
+.controls__btn,
+.controls__prev,
+.controls__next {
+  margin: auto;
+  @extend %transition;
+  background: #666;
+  background-image: linear-gradient(#666, #333);
+  border: none;
+  border-radius: 5px;
+  box-shadow: inset 0 10px 15px -10px $black;
+  padding: 10px;
+  color: $white;
+  font-size: 1.5em;
+  cursor: pointer;
+
+  @include media("<480px") {
+    font-size: 1.2em;
+  }
+
+  &:after {
+    margin: 0 1px;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background: lighten(#666, 10%);
+    background-image: linear-gradient(lighten(#666, 10%), lighten(#333, 10%));
+  }
+}
+
+// slick
+.slick {
+  position: relative;
+
+  &__item {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .fluid-width-video-wrapper {
+    iframe {
+      margin: 0;
+      min-height: auto;
+      border: none;
+
+    }
+  }
+}
+
+.slick-dots{
+  @extend %listreset;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  & > li {
+    border-radius: 50%;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    background: $gray-black;
+    border-radius: 50%;
+  }
+  button {
+    display: none;
+  }
+  
+  .slick-active {
+    background: #3399cc;
+  }
+}
+
+
+                  /* aboutus */
+.aboutus {
+  padding: 39px 0;
+  background: rgb(22, 23, 26);
+}
+
+.tab {
+
+  &__list {
+    @extend %listreset;
+    display: flex;
+    text-align: center;
+    background: rgb(186, 192, 200);
+    box-shadow: inset 0 20px 35px 0px rgb(209, 213, 218);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    transition: background 0.3s ease;
+    background: rgb(186, 192, 200);
+    box-shadow: inset 0 20px 35px 0px rgb(209, 213, 218);
+    text-shadow: 0 -1px #ccc;
+    zoom:1;
+
+    @include media('<tablet') {
+      flex-grow: 1;
+    }
+    @include media('>=992px') {
+      flex-basis: 17.5%;
+    }
+
+    &:hover,
+    &.active {
+      background: #27292F;
+      box-shadow: -1px 0 0 0px rgba(0, 0, 0, 0.2), inset -1px 0 0 0px rgba(0, 0, 0, 0.2), inset 0 30px 30px 0px rgb(65, 68, 77);
+      text-shadow: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 15px 10px 10px;
+    text-decoration: none;
+    color: $white;
+    font-size: 1.33em;
+    line-height: 1.1em;
+    text-transform: uppercase;
+
+    .fontFaceObserver & {
+      font-family: 'NevisBold';
+    }
+
+    @include media('<tablet') {
+      padding: 15px 10px;
+      font-size: 1.1em;
+    }
+  }
+  
+  &__descr {
+    font-size: 14px;
+    text-transform: none;
+    color: #7A7D89;
+
+    .fontFaceObserver & {
+      font-family: 'MyriadPro-BlackIt';
+    }
+
+    @include media('<tablet') {
+      display: none;
+    }
+  }
+
+  &__content {
+    padding: 38px 0 0;
+  }
+}
+
+.tab-content {
+  display: flex;
+  color: #7C8893;
+
+  @include media('<tablet') {
+    flex-direction: column;
+  }
+
+  &__content {
+    @include media('>=tablet') {
+      flex-basis: 64%;
+    }
+  }
+
+  &__header {
+    margin-bottom: 13px;
+    color: #7C8893;
+    font-size: 1.16em;
+    line-height: 1.5em;
+
+    .fontFaceObserver & {
+      font-family: 'HelveticaNeueLTStd-Bd';
+    }
+  }
+
+  &__text {
+    line-height: 1.7em;
+
+    .fontFaceObserver & {
+      font-family: 'HelveticaNeueLTStd-Roman';
+    }
+  }
+}
+
+.tab__img {
+  position: relative;
+  border-radius: 5px;
+  padding: 25px 0 20px;
+  background-color: #1D242B;
+  background-image: radial-gradient(circle at 40% 30%, #35404E, #1D242B);
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $white;
+  text-align: center;
+
+  .fontFaceObserver & {
+    font-family: 'HelveticaNeueLTStd-Bd';
+  }
+
+  @include media('>=tablet') {
+    flex-basis: 30%;
+    margin-left: auto;
+    margin-right: 6px;
+  }
+  @include media('<tablet') {
+    margin-top: 30px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    @include arr(20, 50, #1D242B, l);
+
+    @include media('<tablet') {
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      @include arr(50, 20, #1D242B, t);
+    }
+  }
+}
+
+.tab-img {
+  display: flex;
+  position: relative;
+  text-align: center;
+  filter: drop-shadow(0 0 1px #4b5b70);
+
+  &__image {
+    margin: auto;
+  }
+
+  &__img {
+    display: block;
+    margin-bottom: 17px;
+  }
+
+  &__text {
+    display: block;
+    font-size: 1.5em;
+  }
+
+  &__search {
+    position: absolute;
+    right: 13px;
+    bottom: 11px;
+    @include size(35px, 25px);
+    background: $black;
+    border-radius: 35%/50%;
+  }
+
+  .icon-search:after {
+    margin: 3px auto 0;
+    font-size: 16px;
+  }
+}
+
+// tab btn
+.about-btn {
+  @extend %clearfix;
+
+  &__btn {
+    margin-top: 21px;
+    margin-right: 20px;
+    min-width: 133px;
+
+    &:after {
+      font-size: 20px;
+    }
+
+    &_last {
+      min-width: 145px;
+      margin-right: 3px;
+
+      @include media('>=tablet') {
+        float: right;
+      }
+    }
+  }
+}
+
+//.tab-container .tab__list {
+//  background: #fff;
+//  border: solid #666 1px;
+//  padding: 10px;
+//  -moz-border-radius: 0 4px 4px 4px;
+//  -webkit-border-radius: 0 4px 4px 4px;
+//}
+
+
+
+
+// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
+// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
+// @extend %transition;     // (all 0.5s ease)
+// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
+// @extend %ellipsis;       // Match text...
+
+
+// @include size(16px)                      // or (15px, 4px)
+// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
+// @include font(14px, 18px, #000);         // font-size, line-height, color
+// @include animate(color)                  // or (color width) or (color width, 1s, linear)
+// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
+// @include font-smoothing(on);             // or (off)
+// @include text-overflow;                  // lorem...
+// @include counter(list);                  // for ul
+// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
+// @include placeholder-color(red);         // or (red !important)
+// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
+// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
+
+// font: italic 15px/1.75em 'Times New Roman';
+
+//.fontFaceObserver & {
+//  font-family: 'Mutlu';
+//}
+
+//@include media("<480px") {}
+
+//@include media(">=480px") {}
+
+//@include media("<tablet") {}
+
+//@include media(">=tablet") {}
+
+//@include media("<992px") {}
+
+//@include media(">=992px") {}
+
+//@include media("<1200px") {}
+
+//@include media(">=1200px") {}
+
+//@include media("<1200px", ">=992px") {}
+
+
+
+
+
+
+
+

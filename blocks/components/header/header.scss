@@ -1,0 +1,399 @@
+/* ---------------------------------------------------------
+                           Header
+   ---------------------------------------------------------*/
+.header {
+  z-index: 20;
+  &__top {
+   @include container();
+    padding: 12px 10px 14px;
+
+    @include media('<tablet') {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+    @include col(9);
+
+
+    @include media('>=768px') {
+      @include col(4);
+    }
+    @include media('>=992px') {
+      @include col(5);
+    }
+    @include media('>=1200px') {
+      @include col(6);
+    }
+  }
+  &__nav {
+    @include col(3);
+
+    @include media('>=768px') {
+      @include col(8);
+    }
+    @include media('>=992px') {
+      @include col(7);
+    }
+    @include media('>=1200px') {
+      @include col(6);
+    }
+  }
+}
+
+.logo {
+  font-family: 'NevisBold';
+
+  &__link {
+    display: inline-block;
+    color: #fff;
+    @extend %transition;
+
+    &:hover {
+      color: darken($white, 25%);
+    }
+  }
+  &__icon {
+    display: inline-block;
+    &:after {
+      font-size: 26px;
+      margin-right: 5px;
+      margin-left: 0;
+      padding-top: 5px;
+    }
+  }
+  &__name {
+    margin: 0 10px;
+    font-size: 1.46em;
+    text-decoration: none;
+  }
+  &__descr {
+    font-size: 1.1em;
+    color: #A6AAA9;
+    white-space: nowrap;
+  }
+}
+
+.menu {
+  position: relative;
+  margin: 0;
+  padding: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+
+  &__item {
+    position: relative;
+    @extend %listreset;
+    flex-grow: 1;
+
+    &:hover .submenu {
+      @include media('>=tablet') {
+        display: flex;
+        opacity: 1;
+        z-index: 10;
+        margin-top: 0;
+        left: 0;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &_active{
+      .menu__link {
+        color: $red;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    @extend %transition;
+    width: 100%;
+    padding: 13px 7px 30px;
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'NevisBold';
+    font-size: 1em;
+
+    @include media('>=tablet') {
+      text-align: center;
+    }
+    @include media('<992px') {
+      padding: 13px 6px 30px;
+    }
+
+    &_home {
+      padding: 6px 7px;
+      height: 100%;
+    }
+
+    &-name {
+      @include media('>=tablet') {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 2em;
+
+    &:after {
+      margin: 0;
+    }
+  }
+}
+
+$colors: #4F5155,
+darken(#4F5155, 0%),
+darken(#4F5155, 1%),
+darken(#4F5155, 2%),
+darken(#4F5155, 3%),
+darken(#4F5155, 4%),
+darken(#4F5155, 5%),
+darken(#4F5155, 6%),
+darken(#4F5155, 7%),
+darken(#4F5155, 8%),
+darken(#4F5155, 9%),
+darken(#4F5155, 10%);
+
+$colors2: #3C3E42,
+darken(#3C3E42, 0%),
+darken(#3C3E42, 1%),
+darken(#3C3E42, 2%),
+darken(#3C3E42, 3%),
+darken(#3C3E42, 4%),
+darken(#3C3E42, 5%),
+darken(#3C3E42, 6%),
+darken(#3C3E42, 7%),
+darken(#3C3E42, 8%),
+darken(#3C3E42, 9%),
+darken(#3C3E42, 10%);
+
+.submenu {
+  @extend %listreset;
+  @extend %transition;
+
+  @include media('>=tablet') {
+    opacity: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    margin-top: -100vh;
+    border-radius: 5px;
+    border-top: 1px solid #505258;
+    border-bottom: 1px solid $light-black;
+    box-shadow: 0 0 10px 0px $light-black;
+    background: $dark-gray;
+    width: 152px;
+    padding-top: 8px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      border-bottom: 10px solid #3C3E42;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+  }
+
+  @include media('>=tablet') {
+    @for $i from 1 through length($colors) {
+      .submenu__item:nth-child(odd):nth-child(#{length($colors)}n+#{$i}) {
+        background: nth($colors, $i);
+      }
+    }
+    @for $i from 1 through length($colors2) {
+      .submenu__item:nth-child(even):nth-child(#{length($colors2)}n+#{$i}) {
+        background: nth($colors2, $i);
+      }
+    }
+  }
+
+  &__item_last {
+    @include media('>=tablet') {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    @include media('>=tablet') {
+      padding: 8px 15px 7px;
+
+      &:hover,
+      &:focus {
+        color: #96A9B7;
+      }
+    }
+  }
+}
+
+.mm-listitem_vertical>.mm-panel {
+  padding-left: 0;
+  box-shadow: 0 0 0 1px rgba(65, 65, 65, 0.5);
+}
+.mm-menu_theme-black .mm-listitem_opened>.mm-btn_next, .mm-menu_theme-black .mm-listitem_opened>.mm-panel {
+  background: $light-black;
+}
+.mm-menu_theme-black .mm-navbar a, .mm-menu_theme-black .mm-navbar>* {
+  color: $red;
+  font-size: 1.5em;
+}
+.mm-menu_theme-black .mm-listitem_selected>a:not(.mm-btn_next), .mm-menu_theme-black .mm-listitem_selected>span {
+  background: $black;
+}
+.submenu .mm-listitem>a, .mm-listitem>span {
+  padding-left: 50px;
+  text-transform: uppercase;
+  font-family: 'NevisBold';
+  font-size: 0.9em;
+  transition: 0.3s background ease;
+
+  &:hover,
+  &:focus {
+    background: $black;
+  }
+}
+.mm-listitem, .mm-listitem .mm-btn_next, .mm-listitem .mm-btn_next:before, .mm-listitem:after, .mm-listview {
+  border-color: rgba(65, 65, 65, 0.3);
+}
+
+
+
+// toggle-menu
+.mobile-mnu {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-mnu {
+  display: block;
+  width: 28px;
+  height: 20px;
+  float: left;
+  font-size: 0;
+
+  span:after,
+  span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+  }
+
+  span:after {
+    top: 18px;
+  }
+
+  span {
+    position: relative;
+    display: block;
+  }
+
+  span,
+  span:after,
+  span:before {
+    width: 100%;
+    height: 2px;
+    background-color: $white;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    border-radius: 2px;
+    transition: all 0.8s ease;
+  }
+
+  &.on span {
+    background-color: transparent;
+  }
+
+  &.on span:before {
+    transform: rotate(45deg) translate(-1px, 0px);
+  }
+
+  &.on span:after {
+    transform: rotate(-45deg) translate(6px, -7px);
+  }
+}
+
+
+
+
+
+
+// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
+// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
+// @extend %transition;     // (all 0.5s ease)
+// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
+// @extend %ellipsis;       // Match text...
+
+
+// @include size(16px)                      // or (15px, 4px)
+// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
+// @include font(14px, 18px, #000);         // font-size, line-height, color
+// @include animate(color)                  // or (color width) or (color width, 1s, linear)
+// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
+// @include font-smoothing(on);             // or (off)
+// @include text-overflow;                  // lorem...
+// @include counter(list);                  // for ul
+// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
+// @include placeholder-color(red);         // or (red !important)
+// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
+// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
+
+// font: italic 15px/1.75em 'Times New Roman';
+
+//.fontFaceObserver & {
+//  font-family: 'Mutlu';
+//}
+
+//@include media("<480px") {}
+
+//@include media(">=480px") {}
+
+//@include media("<tablet") {}   // 768
+
+//@include media(">=tablet") {}
+
+//@include media("<desktop") {}  // 1024
+
+//@include media(">=desktop") {}
+
+//@include media("<1200px") {}
+
+//@include media(">=1200px") {}
+
+//@include media("<1200px", ">=992px") {}
+
+
+
+
+
+
+
+
+
+
+
+

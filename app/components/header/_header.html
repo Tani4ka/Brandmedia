@@ -1,0 +1,65 @@
+
+<!--mixin header(data)-->
+<!--  +b.HEADER.header-->
+<!--    +e.DIV.container-->
+<!--      +e.DIV.logo-->
+<!--        +b.A.logo(href='##')-->
+<!--          +e.IMG.img(src="img/home.png")-->
+<!--      +e.DIV.nav-->
+<!--        +b.NAV.header-nav-->
+<!--          each item in data.menu-->
+<!--            +e.DIV.item-->
+<!--              +e.A.link(href=item.href)= item.text-->
+<!--      +e.DIV.btn-->
+<!--        +b.BUTTON.btn(class="--header")-->
+
+<header class="header" role="banner">
+<div class="container header__top">
+<div class="row">
+<div class="col-10 col-lg-5 col-md-4 header__logo">
+<div class="logo">
+<!--<i class="logo__icon fas fa-plus-square"></i>-->
+<a href="#" class="logo__link">
+<i class="logo__icon icon-plus-squared"></i><span class="logo__name">BRANDMEDIA</span>
+</a>
+<span class="logo__descr hide-tablet">We love beautiful things</span>
+</div>
+</div>
+<nav class="col-lg-7 col-md-8 hide-tablet">
+<ul class="menu main-mnu">
+<li class="menu__item menu__item_active">
+<a href="#" class="menu__link menu__link_home">
+<i class="menu__icon icon-home hide-tablet"></i>
+<span class="menu__link-name">Home</span>
+</a>
+</li>
+<li class="menu__item"><a href="company.html" class="menu__link">About us</a></li>
+<li class="menu__item"><a href="#" class="menu__link">Portfolio</a>
+<ul class="submenu">
+<li class="submenu__item"><a href="#" class="submenu__link">App Media</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Branding</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Case Study</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Staff</a></li>
+<li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">
+<Tutorials></a></li></Tutorials></ul>
+</li>
+<li class="menu__item"><a href="#" class="menu__link">Services</a></li>
+<li class="menu__item">
+<a href="#" class="menu__link">Blog</a>
+<ul class="submenu">
+<li class="submenu__item"><a href="#" class="submenu__link">App Media</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Branding</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Case Study</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Devices</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Jobs</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Networks</a></li>
+<li class="submenu__item"><a href="#" class="submenu__link">Staff</a></li>
+<li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">
+<Tutorials></a></li></Tutorials></ul>
+</li>
+<li class="menu__item"><a href="#" class="menu__link">Contact</a></li>
+</ul>
+</nav>
+<div class="col-2 col-md-1 justify-content-end mobile-mnu hide-desktop">
+<a href="#" class="toggle-mnu"><span>Open menu</span></a>
+</div>

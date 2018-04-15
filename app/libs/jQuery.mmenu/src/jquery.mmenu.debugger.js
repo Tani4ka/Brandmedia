@@ -214,7 +214,7 @@
 		//	Options 5.1
 		if ( typeof this.opts.header != 'undefined' )
 		{
-			deprc( 'The "header" add-on', 'the "navbars" add-on', '5.1' );
+			deprc( 'The "head" add-on', 'the "navbars" add-on', '5.1' );
 		}
 		if ( typeof this.opts.footer != 'undefined' )
 		{
@@ -228,7 +228,7 @@
 		//	Configuration 5.1
 		if ( typeof this.conf.classNames.header != 'undefined' )
 		{
-			deprc( 'The "header" add-on', 'the "navbars" add-on', '5.1' );
+			deprc( 'The "head" add-on', 'the "navbars" add-on', '5.1' );
 		}
 		if ( typeof this.conf.classNames.footer != 'undefined' )
 		{

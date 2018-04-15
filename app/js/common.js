@@ -297,10 +297,10 @@ $(function() {
         player.play();
         //slickCurrent.src += "?autoplay=1";
         $(".video__overlay").fadeOut('slow');
-        $(".controls_wrap").fadeOut('slow');
+        $(".controls").fadeOut('slow');
 
         player.on('ended', function() {
-            $(".controls_wrap").fadeIn('slow');
+            $(".controls").fadeIn('slow');
         });
         //player.on('ended', function() {
         //    console.log('Ended');
@@ -315,7 +315,7 @@ $(function() {
             var player = new Vimeo.Player(iframeCurrent);
 
             player.on('ended', function() {
-                $(".controls_wrap").fadeIn('slow');
+                $(".controls").fadeIn('slow');
             });
         });
     };
@@ -430,6 +430,12 @@ $(function() {
     //    </div>
     //</section>
 
+    /* Menu active link */
+
+    $('.menu__item').click(function(){
+        $('.menu__item').removeClass("menu__item_active");
+        $(this).addClass("menu__item_active");
+    });
 
 
     /* Mmenu */
@@ -485,12 +491,6 @@ $(function() {
     });
 
 
-    /* Menu active link */
-
-    $('.menu__link').click(function(){
-        $('.menu__link').removeClass("menu__link_active");
-        $(this).addClass("menu__link_active");
-    });
 
 
     /* Magnific-popup */
@@ -562,6 +562,9 @@ $(function() {
     //});
 
 
+    /* tabs */
+
+    $('.js-tab').easytabs();
 
 });
 

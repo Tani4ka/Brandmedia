@@ -124,7 +124,7 @@
 
 			(this.$orig || this.$menu)
 				.closest( '.navbar' )
-				.find( '.navbar-header' )
+				.find( '.navbar-head' )
 				.find( '.navbar-toggle' )
 				.off( 'click' )
 				.on( 'click', function( e ) {

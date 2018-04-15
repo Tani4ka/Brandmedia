@@ -1,0 +1,20 @@
+{
+  "name": "Brandmedia_pug",
+  "description": "gulp_pug_sass_bem_boilerplate",
+  "main": "index.js",
+  "authors": [
+    "Tatiana Granchenko <tatyana.granchenko@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mdi": "^1.9.33"
+  }
+}

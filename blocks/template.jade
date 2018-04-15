@@ -1,0 +1,58 @@
+include _assets/bemto/bemto
+- set_bemto_settings({ modifier: "--" })
+
+include components/head/head
+include components/header/header
+include components/title/title
+
+
+doctype html
+html(lang="ru" dir="ltr")
+
+	block head
+		head
+			+head({
+				"title": "Bramdmedia_pug",
+				"author": "Tatyana Granchenko",
+				"description": "Bramdmedia test progect"
+			})
+			
+		+b.BODY.ishome
+			+b.DIV.my-page
+				// my-page start
+				+b.DIV.my-header
+					//my-header start
+					block header
+						+header()
+
+					// my-content start
+					block content
+						+content()
+
+					// my-footer start
+					block footer
+						footer.my-footer
+
+
+
+			block scripts
+				script( src="http://code.jquery.com/jquery-3.3.1.min.js"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+				script.
+					window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')
+
+				// build:js js/main.js
+				script( src="js/scripts.min.js")
+				// endbuild
+
+				// build:js js/map.js
+				// script( src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer)
+				// script( src="js/map.min.js" defer)
+				// endbuild
+
+				// vimeo
+				// script( src="https://player.vimeo.com/api/player.js")
+
+
+
+

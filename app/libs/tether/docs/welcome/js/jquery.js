@@ -5833,7 +5833,7 @@ function createSafeFragment( document ) {
 }
 
 var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|" +
-        "header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
+        "head|hgroup|mark|meter|nav|output|progress|section|summary|time|video",
     rinlinejQuery = / jQuery\d+="(?:null|\d+)"/g,
     rnoshimcache = new RegExp("<(?:" + nodeNames + ")[\\s/>]", "i"),
     rleadingWhitespace = /^\s+/,
@@ -7626,7 +7626,7 @@ jQuery.extend({
     // Counter for holding the number of active queries
     active: 0,
 
-    // Last-Modified header cache for next request
+    // Last-Modified head cache for next request
     lastModified: {},
     etag: {},
 
@@ -7785,7 +7785,7 @@ jQuery.extend({
                     return state === 2 ? responseHeadersString : null;
                 },
 
-                // Caches the header
+                // Caches the head
                 setRequestHeader: function( name, value ) {
                     var lname = name.toLowerCase();
                     if ( !state ) {
@@ -7795,7 +7795,7 @@ jQuery.extend({
                     return this;
                 },
 
-                // Overrides response content-type header
+                // Overrides response content-type head
                 overrideMimeType: function( type ) {
                     if ( !state ) {
                         s.mimeType = type;
@@ -7886,7 +7886,7 @@ jQuery.extend({
         s.hasContent = !rnoContent.test( s.type );
 
         // Save the URL in case we're toying with the If-Modified-Since
-        // and/or If-None-Match header later on
+        // and/or If-None-Match head later on
         cacheURL = s.url;
 
         // More options handling for requests with no content
@@ -7911,7 +7911,7 @@ jQuery.extend({
             }
         }
 
-        // Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+        // Set the If-Modified-Since and/or If-None-Match head, if in ifModified mode.
         if ( s.ifModified ) {
             if ( jQuery.lastModified[ cacheURL ] ) {
                 jqXHR.setRequestHeader( "If-Modified-Since", jQuery.lastModified[ cacheURL ] );
@@ -7921,12 +7921,12 @@ jQuery.extend({
             }
         }
 
-        // Set the correct header, if data is being sent
+        // Set the correct head, if data is being sent
         if ( s.data && s.hasContent && s.contentType !== false || options.contentType ) {
             jqXHR.setRequestHeader( "Content-Type", s.contentType );
         }
 
-        // Set the Accepts header for the server, depending on the dataType
+        // Set the Accepts head for the server, depending on the dataType
         jqXHR.setRequestHeader(
             "Accept",
             s.dataTypes[ 0 ] && s.accepts[ s.dataTypes[0] ] ?
@@ -8023,7 +8023,7 @@ jQuery.extend({
             // If successful, handle type chaining
             if ( status >= 200 && status < 300 || status === 304 ) {
 
-                // Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+                // Set the If-Modified-Since and/or If-None-Match head, if in ifModified mode.
                 if ( s.ifModified ) {
                     modified = jqXHR.getResponseHeader("Last-Modified");
                     if ( modified ) {
@@ -8504,11 +8504,11 @@ if ( xhrSupported ) {
                         xhr.overrideMimeType( s.mimeType );
                     }
 
-                    // X-Requested-With header
+                    // X-Requested-With head
                     // For cross-domain requests, seeing as conditions for a preflight are
                     // akin to a jigsaw puzzle, we simply never set it to be sure.
                     // (it can always be set on a per-request basis or even using ajaxSetup)
-                    // For same-domain requests, won't change header if already provided.
+                    // For same-domain requests, won't change head if already provided.
                     if ( !s.crossDomain && !headers["X-Requested-With"] ) {
                         headers["X-Requested-With"] = "XMLHttpRequest";
                     }
