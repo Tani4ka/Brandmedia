@@ -25,17 +25,27 @@ html(lang="ru" dir="ltr")
 					block header
 						+header()
 
-					// my-content start
-					block content
-						+content()
+				// my-content start
+				block content
+					+content()
 
-					// my-footer start
-					block footer
-						footer.my-footer
+				// my-footer start
+				block footer
+					footer.my-footer
+
+				// buttot to top
+				+b.DIV.top(title="Наверх")
+					+e.DIV.icon
+						+e.SPAN.arrow
+						+e.SPAN.arrow.top__arrow_last
+
+				// preloader
+				//+b.DIV#hellopreloader
+				//	+b.DIV#hellopreloader_preload
 
 
 
-			block scripts
+	block scripts
 				script( src="http://code.jquery.com/jquery-3.3.1.min.js"
 				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
 				script.

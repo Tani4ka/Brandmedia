@@ -91,6 +91,7 @@
   border-radius: 50%;
   opacity: .5;
   @extend %transition;
+  display: flex;
   
   &:hover {
     background: $accent;
@@ -98,6 +99,27 @@
   }
   &.active {
     right: 25px;
+  }
+
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 18px auto;
+    width: 17px;
+    height: 20px;
+  }
+  &__arrow {
+    display: block;
+    margin: auto;
+    @include size(11px, 11px);
+    border-right: 2px solid $red;
+    border-top: 2px solid $red;
+    transform: rotate(-45deg);
+
+    &_last {
+      margin-top: -5px;
+    }
   }
 }
 
@@ -151,5 +173,56 @@ header, section, footer {
 //&::-moz-placeholder { color: red; }
 //&:-moz-placeholder  { color: red; }
 //&:-ms-input-placeholder { color: red; }
+
+
+
+
+// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
+// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
+// @extend %transition;     // (all 0.5s ease)
+// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
+// @extend %ellipsis;       // Match text...
+
+
+// @include size(16px)                      // or (15px, 4px)
+// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
+// @include font(14px, 18px, #000);         // font-size, line-height, color
+// @include animate(color)                  // or (color width) or (color width, 1s, linear)
+// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
+// @include font-smoothing(on);             // or (off)
+// @include text-overflow;                  // lorem...
+// @include counter(list);                  // for ul
+// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
+// @include placeholder-color(red);         // or (red !important)
+// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
+// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
+
+// font: italic 15px/1.75em 'Times New Roman';
+
+//.fontFaceObserver & {
+//  font-family: 'Mutlu';
+//}
+
+//@include media("<480px") {}
+
+//@include media(">=480px") {}
+
+//@include media("<tablet") {}
+
+//@include media(">=tablet") {}
+
+//@include media("<992px") {}
+
+//@include media(">=992px") {}
+
+//@include media("<1200px") {}
+
+//@include media(">=1200px") {}
+
+//@include media("<1200px", ">=992px") {}
+
+
+
+
 
 
