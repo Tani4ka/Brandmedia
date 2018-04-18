@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!--include components/form/form--><!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
     <title>Bramdmedia_pug</title>
@@ -18,11 +19,11 @@
     <!-- Помогает избежать проблем с дублированным контентом-->
     <link rel="canonical" href="http://example.com/2017/09/a-new-article-to-red.html"/>
     <!-- Chrome, Firefox OS and Opera-->
-    <meta name="theme-color" content="#000"/>
+    <meta name="theme-color" content="#16171A"/>
     <!-- Windows Phone-->
-    <meta name="msapplication-navbutton-color" content="#000"/>
+    <meta name="msapplication-navbutton-color" content="#16171A"/>
     <!-- iOS Safari-->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="#16171A"/>
     <!-- HTML5 Shiv - полифил, позволяющий обеспечивать базовые стили HTML5 для IE 6-8, Safari 4.x,Firefox 3.x. и iPhone 3.x.-->
     <!--[if lt IE 9]-->
     <script src="js/html5shiv.min.js"></script>
@@ -48,7 +49,7 @@
             </div>
             <nav class="header__nav hide-tablet">
               <ul class="menu main-mnu">
-                <li class="menu__item menu__item_active"><a href="#" class="menu__link menu__link_home"><i class="menu__icon icon-home hide-tablet"></i><span class="menu__link-name">Home</span></a>
+                <li class="menu__item menu__item_active"><a href="#" class="menu__link menu__link menu__link_home"><i class="menu__icon icon-home hide-tablet"></i><span class="menu__link-name">Home</span></a>
                 </li>
                 <li class="menu__item"><a href="https://caniuse.com/#search=resize" class="menu__link">About us</a>
                 </li>
@@ -96,7 +97,7 @@
                 </h1>
                 <p class="d-content__text">Beautiful interfaces and creative solutions
                 </p>
-                <div class="d-buttons"><a href="#" class="d-buttons__first btn btn_blue-light">Read more</a><a href="#" class="d-buttons__last btn btn_white">Portfolio</a>
+                <div class="d-buttons"><a href="#" class="d-buttons__btn btn btn_blue-light">Read more</a><a href="#" class="d-buttons__btn btn btn_white">Portfolio</a>
                 </div>
               </div>
             </div>
@@ -179,7 +180,7 @@
           <div class="aboutus__container">
             <div class="js-tab">
               <ul class="tab">
-                <li class="tab__item"><a href="#tabs1" class="tab__link">Who are we<span class="tab__descr">Something about us</span></a>
+                <li class="tab__item tab__item_first"><a href="#tabs1" class="tab__link">Who are we<span class="tab__descr">Something about us</span></a>
                 </li>
                 <li class="tab__item"><a href="#tabs2" class="tab__link">Why hire us<span class="tab__descr">Look at how we work</span></a>
                 </li>
@@ -188,10 +189,10 @@
                 <li class="tab__item"><a href="#tabs4" class="tab__link">Testimonails<span class="tab__descr">Customers testimonials</span></a>
                 </li>
               </ul>
-              <div>
-                <div id="tabs1" class="tab-content tab-content_padd">
+              <div class="tab-content tab-content_padding">
+                <div id="tabs1" class="tab-content">
                   <div class="tab-content__content">
-                    <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid eaque error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.
+                    <h3 class="tab-content__header h3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl felis, lobortis ac vulputate et, cursus eget tellus. Donec in ipsum nec tellus malesuada sodales non ac sem. Aliquam erat volutpat. Proin in velit nec tellus egestas auctor et eget nulla.
                     </h3>
                     <p class="tab-content__text">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
@@ -211,7 +212,7 @@
                     </div>
                   </div>
                 </div>
-                <div id="tabs2" class="tab-content tab-content_padd">
+                <div id="tabs2" class="tab-content">
                   <div class="tab-content__content">
                     <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid eaque error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.
                     </h3>
@@ -229,7 +230,7 @@
                     </div>
                   </div>
                 </div>
-                <div id="tabs3" class="tab-content tab-content_padd">
+                <div id="tabs3" class="tab-content">
                   <div class="tab-content__content">
                     <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid
                       <eaque>error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.</eaque>
@@ -250,7 +251,7 @@
                     </div>
                   </div>
                 </div>
-                <div id="tabs4" class="tab-content tab-content_padd">
+                <div id="tabs4" class="tab-content">
                   <div class="tab-content__content">
                     <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid eaque error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.
                     </h3>
@@ -268,41 +269,70 @@
                 </div>
               </div>
             </div>
-            <div class="about-btn"><a href="#" class="about-btn__btn btn btn-blue icon-plus-button">Read more</a><a href="#" class="about-btn__btn btn icon-twitter-bird">Follow us</a><a href="#" class="about-btn__btn btn btn_blue-dark icon-facebook">Fasebook</a><a href="#" class="about-btn__btn btn about-btn__btn_last icon-mail">Get in touch</a>
+            <div class="about-btn">
+              <div class="about-btn__wrap"><a href="#" class="about-btn__btn btn icon-plus-button">Read more</a><a href="#" class="about-btn__btn btn btn_blue icon-twitter-bird">Follow us</a><a href="#" class="about-btn__btn btn btn_blue-dark icon-facebook">Fasebook</a>
+              </div><a href="#" class="about-btn__btn about-btn__btn_last btn icon-mail">Get in touch</a>
             </div>
           </div>
         </section>
         <!-- section aboutus end-->
+        <!-- section offers start-->
+        <section class="offers">
+          <div class="offers__container">
+            <div class="offer tour tour_mod"><span class="offer__name">Brandmedia tour</span>
+              <div class="offer__content"><span class="offer__text">Watch now the video</span>
+                <div class="offer__heading">Vidoetour
+                </div>
+              </div>
+            </div>
+            <div class="offer apps"><span class="offer__name">Brandmedia apps</span>
+              <div class="offer__content"><span class="offer__text">Avaliable on the Apple</span>
+                <div class="offer__heading">App store
+                </div>
+              </div>
+            </div>
+            <div class="offer jobs"><span class="offer__name">Brandmedia jobs</span>
+              <div class="offer__content"><span class="offer__text">Find a Freelancer</span>
+                <div class="offer__heading">Job board
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- section offers end-->
       </main>
       <!-- my-footer start-->
       <footer class="my-footer"></footer>
       <!-- buttot to top-->
       <div title="Наверх" class="top">
-        <div class="top__icon"><span class="top__arrow"></span><span class="top__arrow top__arrow_last"></span>
+        <div class="top__icon"><span class="top__arrow"></span><span class="top__arrow top__arrow top__arrow_last"></span>
         </div>
       </div>
       <!-- preloader-->
       <!--+b.DIV#hellopreloader-->
       <!--	+b.DIV#hellopreloader_preload-->
       
+      <!-- for modal windows
+      //+form()
       
+      
+      -->
     </div>
-  </body>
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script>
-    window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+      window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')
+      
+    </script>
+    <!-- build:js js/main.js-->
+    <script src="js/scripts.min.js"></script>
+    <!-- endbuild-->
+    <!-- build:js js/map.js-->
+    <!-- script( src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer)-->
+    <!-- script( src="js/map.min.js" defer)-->
+    <!-- endbuild-->
+    <!-- vimeo-->
+    <!-- script( src="https://player.vimeo.com/api/player.js")-->
     
-  </script>
-  <!-- build:js js/main.js-->
-  <script src="js/scripts.min.js"></script>
-  <!-- endbuild-->
-  <!-- build:js js/map.js-->
-  <!-- script( src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer)-->
-  <!-- script( src="js/map.min.js" defer)-->
-  <!-- endbuild-->
-  <!-- vimeo-->
-  <!-- script( src="https://player.vimeo.com/api/player.js")-->
-  
-  
-  
+    
+  </body>
 </html>

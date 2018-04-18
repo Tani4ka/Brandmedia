@@ -8,8 +8,8 @@ mixin dreams()
           +e.P.text Beautiful interfaces and creative solutions
 
           +b.DIV.d-buttons
-            +e.A.first.btn.btn_blue-light(href='#') Read more
-            +e.A.last.btn.btn_white(href='#') Portfolio
+            +e.A.btn.btn(class="_blue-light" href='#') Read more
+            +e.A.btn.btn(class="_white" href='#') Portfolio
 
       +b.DIV.video
         +e.DIV.overlay
@@ -20,32 +20,10 @@ mixin dreams()
 
         // slick gallery start
         +b.DIV.slick.video__slick
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
-          +e.DIV.item
-            +b.IFRAME.iframe(src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+
+          -var videoCount = ["13955583", "19292559", "29833627", "13955583", "19292559", "29833627", "13955583", "19292559", "29833627", "13955583", "19292559", "29833627", "13955583", "19292559"]
+          for number in videoCount
+            +e.DIV.item
+              +b.IFRAME.iframe(src="https://player.vimeo.com/video/#{number}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+
 

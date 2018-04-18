@@ -1,0 +1,78 @@
+.forms {
+  @include  container();
+
+  background: $accent;
+  font-size: 16px;
+}
+.message {
+  position: relative;
+  padding: 50px;
+  height: 100%;
+  display: block;
+  border-radius: 3.5px;
+  background: $white;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+
+  &__success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    padding: 0 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    @extend %transition;
+    z-index: 10;
+    font-size: 1.7em;
+    color: $accent;
+
+    & ~ * {
+      transition: all .5s ease;
+    }
+
+    &.active {
+      & ~ * {
+        opacity: 5;
+        filter: blur(10px);
+      }
+    }
+  }
+}
+
+input.message__input,
+input.message__input:focus,
+textarea.message__textarea,
+textarea.message__textarea:focus {
+  margin-bottom: 23px;
+  padding: 6px 0 16px;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+  outline: none;
+  box-shadow: none;
+  color: $light-gray;
+  font-family: 'OpenSansSemiBold';
+
+  @include media("<1024px") {
+    margin-bottom: 20px;
+  }
+}
+.message__textarea {
+  min-height: 118px;
+  max-height: 500px;
+  overflow: scroll;
+  resize: none;
+
+  @include media("<1024px") {
+    min-height: 80px;
+  }
+}
+
+.message__btn {
+  margin: 7px 0 0;
+}
+

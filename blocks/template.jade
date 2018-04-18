@@ -1,10 +1,10 @@
 include _assets/bemto/bemto
-- set_bemto_settings({ modifier: "--" })
+- set_bemto_settings({ modifier: "_" })
 
 include components/head/head
 include components/header/header
 include components/title/title
-
+//include components/form/form
 
 doctype html
 html(lang="ru" dir="ltr")
@@ -16,7 +16,7 @@ html(lang="ru" dir="ltr")
 				"author": "Tatyana Granchenko",
 				"description": "Bramdmedia test progect"
 			})
-			
+
 		+b.BODY.ishome
 			+b.DIV.my-page
 				// my-page start
@@ -44,8 +44,11 @@ html(lang="ru" dir="ltr")
 				//	+b.DIV#hellopreloader_preload
 
 
+				// for modal windows
+					//+form()
 
-	block scripts
+
+			block scripts
 				script( src="http://code.jquery.com/jquery-3.3.1.min.js"
 				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
 				script.
@@ -62,7 +65,6 @@ html(lang="ru" dir="ltr")
 
 				// vimeo
 				// script( src="https://player.vimeo.com/api/player.js")
-
 
 
 

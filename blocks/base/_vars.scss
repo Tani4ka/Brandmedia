@@ -5,27 +5,27 @@
 // Common colors
 $black: #000;
 $white: #fff;
-$blue: #336699;
-$dark: #1a1a1a;  //for preloader
+$blue: #327595;               // btn, link
+$dark: #1a1a1a;               // preloader
+$overlay: #3D3D3D;
 
 // Site colors
-$light-black: #16171A;
-$gray-black: #333;
-$accent: #F9C869;
-$over: #3D3D3D;
-$gray: #666;      //text
-$light-gray: #ccc;
-$dark-gray: #3C3E42;
-$dark-blue: #336699;
-$red: #cc3333;
-$light-brown: #cc6633;
-$yellow: #ffcc33;
-$orange: #ff6633;
+$accent: #cc3333;
+$body-bg: #16171A;            // rgb(22, 23, 26)
+$section-bg: #202227;         // rgb(32, 34, 39);
+$circle-shadow: #374351;      // rgb(55, 67, 81);
+$dreams-bg: #7a8390;
+$text-color: #666;
+$h1-color: #2a2a2a;
+$submenu-color: #3C3E42;
+$gray: #333;
+$light: #BCD4DB;
 
+// Button colors
 $btn-blue-light: #789BBE;
-$btn-blue: rgba(49, 113, 145, 1);
-$btn-dark-blue: rgba(51, 78, 126, 1);
-$btn-gray: rgba(72, 78, 92, 1);
+$btn-bg: #317191;            // rgba(49, 113, 145, 1);
+$btn-dark-blue: #345283;     // rgba(51, 78, 126, 1);
+$btn-gray: #49515f;          // rgba(72, 78, 92, 1);
 
 
 
@@ -34,8 +34,8 @@ $base-font-sans-serif: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 
 // Body
-$base-text-color: $gray !default;
-$base-background-color: $black !default;
+$base-text-color: $text-color !default;
+$base-background-color: $body-bg !default;
 $font-size-base: 12px !default;
 $line-height-base: 1.2 !default;                          // 1.6 standart
 //$base-font-family: 'RobotoRegular', $base-font-sans-serif !default;
@@ -50,9 +50,9 @@ $base-link-color: $blue;
 
 // Buttons 
 $btn-color: $white !default;
-$btn-background: $btn-blue !default;
+$btn-background: $btn-bg !default;
 $btn-padding: 0.6em 0.9em 0.4em!default;
-$btn-border-radius: 4px;
+$btn-border-radius: 3px;
 $btn-font-size: 1.17em !default;
 $btn-line-height: 1em !default;
 $btn-font-family: 'Helvetica Neue' !default;

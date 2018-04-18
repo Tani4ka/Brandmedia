@@ -3,9 +3,9 @@
    ---------------------------------------------------------*/
                   /* aboutus */
 .aboutus {
-  padding-top: 39px;
+  padding-top: 38px;
   padding-bottom: 19px;
-  background: rgb(22, 23, 26);
+  background: $body-bg;
 
   &__container {
     @include container();
@@ -15,17 +15,16 @@
 .tab {
   @extend %listreset;
   display: flex;
+  overflow: hidden;
   text-align: center;
   background: rgb(186, 192, 200);
-  box-shadow: inset 0 20px 35px 0px rgb(209, 213, 218);
-  border-radius: 5px;
-  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
 
   &__item {
     display: flex;
     transition: background 0.3s ease;
     background: rgb(186, 192, 200);
-    box-shadow: inset 0 20px 35px 0px rgb(209, 213, 218);
     text-shadow: 0 -1px #ccc;
     zoom:1;
 
@@ -39,8 +38,20 @@
     &:hover,
     &.active {
       background: #27292F;
-      box-shadow: -1px 0 0 0px rgba(0, 0, 0, 0.2), inset -1px 0 0 0px rgba(0, 0, 0, 0.2), inset 0 30px 30px 0px rgb(65, 68, 77);
-      text-shadow: none;
+      box-shadow: inset 0 30px 30px 0px rgb(65, 68, 77);
+
+      .tab__link {
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 #ffffff;
+      }
+      .tab__descr {
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      }
+    }
+    
+    &_first {
+      @include media('>=992px') {
+        flex-basis: 16.2%;
+      }
     }
   }
 
@@ -53,6 +64,8 @@
     line-height: 1.1em;
     text-transform: uppercase;
     width: 100%;
+    text-shadow: 0 -1px 0 rgba(83, 117, 131, 0.24);
+
 
     .fontFaceObserver & {
       font-family: 'NevisBold';
@@ -68,6 +81,7 @@
     font-size: 14px;
     text-transform: none;
     color: #7A7D89;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 
     .fontFaceObserver & {
       font-family: 'MyriadPro-BlackIt';
@@ -86,8 +100,8 @@
   display: flex;
   color: #7C8893;
 
-  &_padd {
-    padding: 38px 0 0;
+  &_padding {
+    padding: 40px 0 22px;
   }
 
   @include media('<tablet') {
@@ -102,9 +116,11 @@
 
   &__header {
     margin-bottom: 13px;
-    color: #7C8893;
     font-size: 1.16em;
-    line-height: 1.5em;
+    line-height: 1.43em;
+    color: #7c8994;
+    text-shadow: 0 1px 0 #0e0e10;
+
 
     .fontFaceObserver & {
       font-family: 'HelveticaNeueLTStd-Bd';
@@ -113,6 +129,8 @@
 
   &__text {
     line-height: 1.7em;
+    color: #67747f;
+    text-shadow: 0 1px 0 #0e0e10;
 
     .fontFaceObserver & {
       font-family: 'HelveticaNeueLTStd-Roman';
@@ -124,12 +142,26 @@
   position: relative;
   border-radius: 5px;
   padding: 25px 0 20px;
-  background-color: #1D242B;
-  background-image: radial-gradient(circle at 40% 30%, #35404E, #1D242B);
+  background-image: radial-gradient(circle at 38% 25%, #596775, #1D242B);
   background-position: center;
   background-repeat: no-repeat;
   color: $white;
   text-align: center;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1D242B;
+    z-index: -1;
+    opacity: .41;
+    mix-blend-mode: overlay;
+  }
 
   .fontFaceObserver & {
     font-family: 'HelveticaNeueLTStd-Bd';
@@ -148,15 +180,15 @@
     content: '';
     position: absolute;
     top: 50%;
-    left: -20px;
+    left: -25px;
     transform: translateY(-50%);
-    @include arr(20, 50, #1D242B, l);
+    @include arr(25, 50, rgb(40, 49, 57), l);
 
     @include media('<tablet') {
       top: -20px;
       left: 50%;
       transform: translateX(-50%);
-      @include arr(50, 20, #1D242B, t);
+      @include arr(50, 20, rgb(52, 63, 74), t);
     }
   }
 }
@@ -165,7 +197,7 @@
   display: flex;
   position: relative;
   text-align: center;
-  filter: drop-shadow(0 0 1px #4b5b70);
+  filter: drop-shadow(0 0 1px #566a7f);
 
   &__image {
     margin: auto;
@@ -179,6 +211,7 @@
   &__text {
     display: block;
     font-size: 1.5em;
+    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.15), 0 1px 0 #ffffff;
   }
 
   &__search {
@@ -199,15 +232,31 @@
 // tab btn
 .about-btn {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 20px;
+
+  &__wrap {
+    @include col(9);
+
+    @include media('<tablet') {
+      @include col(12);
+      display: flex;
+    }
+    @include media('<480px') {
+      flex-direction: column;
+    }
+  }
 
   &__btn {
     margin-right: 20px;
     min-width: 133px;
     padding: 0.35em 0.6em 0.4em 1.45em;
     margin-bottom: 20px;
+
+    @include media('<480px') {
+      margin-right: 0;
+    }
 
     &:after {
       font-size: 20px;
@@ -217,8 +266,11 @@
       min-width: 145px;
       margin-right: 0;
 
-      @include media('>=tablet') {
-        margin-left: auto;
+      @include media('<tablet') {
+        padding: .35em .6em .4em 1em;
+      }
+      @include media('<480px') {
+        width: 100%;
       }
     }
     &:after {
@@ -228,52 +280,6 @@
 }
 
 
-
-
-
-// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
-// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
-// @extend %transition;     // (all 0.5s ease)
-// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
-// @extend %ellipsis;       // Match text...
-
-
-// @include size(16px)                      // or (15px, 4px)
-// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
-// @include font(14px, 18px, #000);         // font-size, line-height, color
-// @include animate(color)                  // or (color width) or (color width, 1s, linear)
-// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
-// @include font-smoothing(on);             // or (off)
-// @include text-overflow;                  // lorem...
-// @include counter(list);                  // for ul
-// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
-// @include placeholder-color(red);         // or (red !important)
-// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
-// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
-
-// font: italic 15px/1.75em 'Times New Roman';
-
-//.fontFaceObserver & {
-//  font-family: 'Mutlu';
-//}
-
-//@include media("<480px") {}
-
-//@include media(">=480px") {}
-
-//@include media("<tablet") {}
-
-//@include media(">=tablet") {}
-
-//@include media("<992px") {}
-
-//@include media(">=992px") {}
-
-//@include media("<1200px") {}
-
-//@include media(">=1200px") {}
-
-//@include media("<1200px", ">=992px") {}
 
 
 

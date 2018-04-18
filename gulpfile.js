@@ -27,7 +27,7 @@ var gulp           = require('gulp'),
 
 // jade
 gulp.task('jade', function() {
-	return gulp.src(['blocks/**/*.jade', '!blocks/template.jade'])
+	return gulp.src(['blocks/**/*.jade', '!blocks/template.jade', '!blocks/_assets/**/*.jade'])
 		.pipe(jade({pretty: true}))
 		.pipe(gulp.dest('app/'))
 		.pipe(browserSync.stream())

@@ -2,6 +2,7 @@
 $(function() {
     initSlickCarousel();
     initFitVids();
+    initTabs();
 
     // slick init
     function initSlickCarousel() {
@@ -19,6 +20,11 @@ $(function() {
     // handle flexible video size
     function initFitVids() {
         jQuery('.ishome').fitVids();
+    }
+
+    // tabs
+    function initTabs() {
+        $('.js-tab').easytabs();
     }
 
 
@@ -562,10 +568,38 @@ $(function() {
     //});
 
 
-    /* tabs */
 
-    $('.js-tab').easytabs();
 
+
+                           /* For hidden form start */
+
+    /* E-mail Ajax Send */
+    //Documentation & Example: https://github.com/agragregra/uniMail
+    //$("#message").submit(function() { //Change
+    //    var th = $(this);
+    //    $.ajax({
+    //        //type: "POST",
+    //        //url: "mail.php", //Change
+    //        //data: th.serialize()
+    //    }).done(function() {
+    //        $(th).find('.message__success').addClass('active').css('display', 'flex').hide().fadeIn();
+    //        setTimeout(function() {
+    //            // Done Functions
+    //            th.trigger("reset");
+    //            $(th).find('.message__success').removeClass('active').fadeOut();
+    //        }, 1000);
+    //    });
+    //    return false;
+    //});
+
+    /* textarea autoheight*/
+    //var textarea = document.querySelector('#textarea');
+    //textarea.addEventListener('keyup', autoheight);
+    //
+    //function autoheight() {
+    //    var scrollHeihg = this.scrollHeight;
+    //    textarea.style.height = scrollHeihg+ "px";
+    //}                     /* For hidden form end */
 });
 
 

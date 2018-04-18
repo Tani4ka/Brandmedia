@@ -5,7 +5,7 @@
   z-index: 20;
   &__top {
    @include container();
-    padding: 12px 10px 14px;
+    padding: 12px 10px;
 
     @include media('<tablet') {
       padding-left: 16px;
@@ -15,7 +15,7 @@
   &__logo {
     display: flex;
     align-items: center;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
     @include col(9);
 
 
@@ -66,13 +66,16 @@
   }
   &__name {
     margin: 0 13px 0 7px;
-    font-size: 1.46em;
+    font-size: 1.5em;
     text-decoration: none;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+    letter-spacing: -0.45px;
   }
   &__descr {
-    font-size: 1.1em;
-    color: #A6AAA9;
+    font-size: 1.17em;
     white-space: nowrap;
+    letter-spacing: -0.35px;
+    color: #a6aab3;
   }
 }
 
@@ -105,7 +108,7 @@
     &:focus,
     &_active{
       .menu__link {
-        color: $red;
+        color: $accent;
       }
     }
   }
@@ -194,9 +197,9 @@ darken(#3C3E42, 10%);
     margin-top: -100vh;
     border-radius: 5px;
     border-top: 1px solid #505258;
-    border-bottom: 1px solid $light-black;
-    box-shadow: 0 0 10px 0px $light-black;
-    background: $dark-gray;
+    border-bottom: 1px solid $body-bg;
+    box-shadow: 0 0 10px 0px $body-bg;
+    background: $submenu-color;
     width: 152px;
     padding-top: 8px;
 
@@ -254,10 +257,10 @@ darken(#3C3E42, 10%);
   box-shadow: 0 0 0 1px rgba(65, 65, 65, 0.5);
 }
 .mm-menu_theme-black .mm-listitem_opened>.mm-btn_next, .mm-menu_theme-black .mm-listitem_opened>.mm-panel {
-  background: $light-black;
+  background: $body-bg;
 }
 .mm-menu_theme-black .mm-navbar a, .mm-menu_theme-black .mm-navbar>* {
-  color: $red;
+  color: $accent;
   font-size: 1.5em;
 }
 .mm-menu_theme-black .mm-listitem_selected>a:not(.mm-btn_next), .mm-menu_theme-black .mm-listitem_selected>span {

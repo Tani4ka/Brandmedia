@@ -1,0 +1,239 @@
+.offers {
+  position: relative;
+  z-index: 1;
+  height: 400px;
+  background-image: linear-gradient(to top, #1b1c1e, #2a313c), linear-gradient(#2f3035, #2f3035);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+  color: $white;
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .41;
+    z-index: -1;
+    background-image: radial-gradient(at 30% 5%, rgb(207, 242, 255) 0%, rgb(33 ,34, 37) 30%);
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: overlay;
+    content: '';
+  }
+
+  &__container {
+    @include container();
+
+    padding-top: 28px;
+    padding-bottom: 30px;
+  }
+}
+
+.tour,
+.apps,
+.jobs {
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  background: #000;
+  padding: 15px 17px 34px;
+  width: 27.5%;
+  box-shadow: 0 13px 10px -7px rgba(0, 0, 0, 0.3),
+  inset 0 0.5px 0 0 rgba(255, 255, 255, 0.34);
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(at 50% 10%, rgb(207, 242, 255), rgb(33 ,34, 37));
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: overlay;
+    content: '';
+  }
+}
+
+.offer {
+  &__content {
+    position: relative;
+    margin-top: 20px;
+    padding-left: 33%;
+
+    &::before {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url("../img/tour.png") no-repeat center;
+      width: 30%;
+      height: 100%;
+      content: '';
+    }
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-family: nevis;
+    text-shadow: 0 -1px 0 rgba(83, 117, 131, 0.24);
+
+    .fontFaceObserver & {
+      font-family: 'NevisBold';
+    }
+  }
+
+  &__text {
+    position: relative;
+    padding-bottom: 7px;
+    width: 100%;
+    font-size: 1.125em;
+    line-height: 1;
+    text-shadow: 0 -1px 0 rgba(83, 117, 131, 0.24);
+
+    .fontFaceObserver & {
+      font-family: 'HelveticaNeue-Bold';
+    }
+
+    &::before {
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: lighten($btn-gray, 8%);
+      width: 90%;
+      height: 1px;
+      content: '';
+    }
+  }
+
+  &__heading {
+    margin-top: 10px;
+    font-size: 2.5em;
+    line-height: 0.5;
+    text-shadow: 0 -1px 0 rgba(83, 117, 131, 0.24);
+    text-transform: capitalize;
+    white-space: nowrap;
+
+    .fontFaceObserver & {
+      font-family: 'HelveticaNeue-Bold';
+    }
+  }
+}
+
+.tour {
+  background: $btn-gray;
+  box-shadow: 0 13px 10px -7px rgba(0, 0, 0, 0.3),
+  inset 0 0.5px 0 0 rgba(255, 255, 255, 0.34);
+}
+
+.apps {
+  background: $blue;
+  
+  .offer__content:before {
+    background: url("../img/apps.png") no-repeat center;
+  }
+  .offer__text:before {
+    background: lighten($blue, 8%);
+  }
+}
+
+.jobs {
+  background: $light;
+  box-shadow: 0 13px 10px -7px rgba(0, 0, 0, 0.3),
+  inset 0 0.5px 0 0 #ffffff;
+  
+  .offer__content:before {
+    background: url("../img/jobs.png") no-repeat center;
+  }
+  .offer__text:before {
+    background: lighten($light, 8%);
+  }
+}
+
+
+
+
+
+
+
+
+// @extend don't work inside the @media
+
+// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
+// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
+// @extend %transition;     // (all 0.5s ease)
+// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
+// @extend %ellipsis;       // Match text...
+
+
+// @include size(16px)                      // or (15px, 4px)
+// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
+// @include font(14px, 18px, #000);         // font-size, line-height, color
+// @include animate(color)                  // or (color width) or (color width, 1s, linear)
+// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
+// @include font-smoothing(on);             // or (off)
+// @include text-overflow;                  // lorem...
+// @include counter(list);                  // for ul
+// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
+// @include placeholder-color(red);         // or (red !important)
+// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
+// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
+
+// font: italic 15px/1.75em 'Times New Roman';
+
+
+//@include media("<480px") {}
+//@include media(">=480px") {}
+//@include media("<tablet") {}
+//@include media(">=tablet") {}
+//@include media("<992px") {}
+//@include media(">=992px") {}
+//@include media("<1200px") {}
+//@include media(">=1200px") {}
+//@include media("<1200px", ">=992px") {}
+
+
+//.fontFaceObserver & {
+//  font-family: 'Mutlu';
+//}
+
+
+//.mix-blend-mode-example {
+//  position: relative;
+//  background-image: radial-gradient(at 35% top, rgb(70 ,80, 93) 0%, rgb(121, 171, 222) 30%);
+//  z-index: 1;
+//
+//  &::before {
+//    display: inline-block;
+//    position: absolute;
+//    opacity: 0.41;
+//    z-index: -1;
+//    top: 0;
+//    left: 0;
+//    background-image: url('../img/preview.jpg');
+//    width: 100%;
+//    height: 100%;
+//    mix-blend-mode: overlay;
+//    content: '';
+//  }
+//}
+
+
+//.map {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 0;
+//   background: $light-gray;
+// }
+
+
+//&::-webkit-input-placeholder { color: red; }
+//&::-moz-placeholder { color: red; }
+//&:-moz-placeholder  { color: red; }
+//&:-ms-input-placeholder { color: red; }
+

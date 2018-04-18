@@ -84,7 +84,7 @@
 .post-password-form,
 .search-form {
 	input[type='submit'] {
-		background: $orange;
+		background: $accent;
 		color: $btn-color;
 		height: 35px;
 		border: none;
@@ -159,7 +159,7 @@
 		}
 	}
 	a{
-		color:  $orange;
+		color:  $accent;
 	}
 
 	.next,
@@ -167,7 +167,7 @@
 		display: inline-block;
 		vertical-align: middle;
 		max-width: 50%;
-		background: $orange;
+		background: $accent;
 		color: $btn-color;
 		padding: .4em;
 		text-decoration: none;
@@ -188,7 +188,7 @@
 		float: left;
 		vertical-align: middle;
 		max-width: 50%;
-		background: $orange;
+		background: $accent;
 		color: $btn-color;
 		text-decoration: none;
 		&:hover{

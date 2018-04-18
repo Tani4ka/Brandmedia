@@ -1,0 +1,24 @@
+mixin form()
+  +b.DIV.forms
+    +b.DIV.hidden
+       +b.FORM.message#message(action="")
+          +e.DIV.success Thank you for a message!
+
+          // Hidden Required Fields
+          +e.INPUT(type="hidden" name="project-name" value="Brandmedia")
+             // можно указать в mail.php для конфединциальности вместо trim($_POST["admin_email"]);
+          +e.INPUT(type="hidden" name="admin-email" value="tatyana.granchenko@gmail.com")
+          +e.INPUT(type="hidden" name="form-subject" value="Message from the Bino site")
+          // END Hidden Required Fields
+
+          +e.INPUT(type="hidden" name="Page" value="")
+
+          +e.INPUT.input(type="text" name="name" placeholder="Name" autofocus required)
+          +e.INPUT.input(type="text" name="email" placeholder="Email" autofocus required)
+          +e.INPUT.input(type="text" name="subjact" placeholder="Subject" autofocus required)
+          +e.TEXTAREA.textarea(id="textarea" placeholder="Textarea")
+          +e.BUTTON.btn.btn(type="submit") Send message
+
+          +b.INPUT.formname(type="hidden" name="from which form we give the message")
+
+

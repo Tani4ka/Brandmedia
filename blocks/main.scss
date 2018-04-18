@@ -73,11 +73,15 @@ $media-expressions: (
 	4. Components
    ---------------------------------------------------------*/
 @import 'components/buttons';
-@import 'components/forms';
+//@import 'components/form/form';
 @import 'components/common';
+
 @import 'components/header/header';
+
 @import 'components/dreams/dreams';
 @import 'components/aboutus/aboutus';
+@import 'components/offers/offers';
+
 @import 'components/footer/footer';
 
 /* ---------------------------------------------------------

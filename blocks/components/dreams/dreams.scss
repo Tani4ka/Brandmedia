@@ -2,7 +2,9 @@
                             Dreams
    ---------------------------------------------------------*/
 .dreams {
-  background: #333;
+  background: $section-bg;
+  border-top: 1px solid lighten($section-bg, 5%);
+  border-bottom: 1px solid lighten($section-bg, 3%);
   padding: 16px 14px;
 
   @include media('>=768px') {
@@ -13,9 +15,10 @@
     @include container();
     flex-direction: column;
     border-radius: 5px;
-    background: #999;
-    background-image: radial-gradient(center top, $white, #999);
+    background: $dreams-bg;
+    background-image: radial-gradient(center top, $white, $dreams-bg);
     padding: 35px 38px 17px 43px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 
     @include media('<tablet') {
       padding: 0 10px 17px 10px;
@@ -52,23 +55,27 @@
     }
   }
 
+  &__supname {
+    color: #42474f;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  }
   &__heading {
-    letter-spacing: -2px;
     margin-top: 5px;
+    letter-spacing: -2px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   }
   &__text {
     font-size: 1.25em;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+
   }
 }
 .d-buttons {
   margin-top: 35px;
-  &__first,
-  &__last {
-    @include size(102px, 30px);
-  }
 
-  &__first {
-    margin-right: 15px;
+  &__btn {
+    margin-right: 20px;
   }
 }
 
@@ -103,7 +110,7 @@
     background-color: $btn-dark-blue;
     background-image: url('../img/video.png'), radial-gradient(ellipse, #83baee 0, #79abde 25%, #79abde 25%, #3366cc 100%);
     background-size: cover;
-    box-shadow: inset 0 27px 0 -10px $gray-black, inset 0 -25px 0 -10px $gray-black;
+    box-shadow: inset 0 27px 0 -10px $gray, inset 0 -25px 0 -10px $gray;
 
     @include media("<1200px", ">=992px") {
       width: auto !important;
@@ -112,7 +119,7 @@
 }
 
 .slick-list {
-  border-radius: 5px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -127,7 +134,8 @@
   background-color: #76A6CD;
   background-image: linear-gradient(#A9CAE9,  #76A6CD);
   @include size(50%, 26%);
-  box-shadow:  0 0.5px 1px 1px rgb(69, 101, 151);
+  box-shadow: 0 0.4px 0 1px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+
 
   @include media("<480px") {
      @include size(60%, 30%);
@@ -142,15 +150,18 @@
 .controls__next {
   margin: auto;
   @extend %transition;
-  background: #666;
-  background-image: linear-gradient(#666, #333);
+  //background: #666;
+  //background-image: linear-gradient(#666, #333);
   border: none;
   border-radius: 5px;
-  box-shadow: inset 0 10px 15px -10px $black;
+  //box-shadow: inset 0 10px 15px -10px $black;
   padding: 10px;
   color: $white;
   font-size: 1.5em;
   cursor: pointer;
+  opacity: 1;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)), linear-gradient(to top, #000000, #747474), linear-gradient(#1e1e1e, #1e1e1e);
+  box-shadow: 0 1px 0 0 #cdcdcd, inset 0 2px 3px 0 #000000;
 
   @include media("<480px") {
     font-size: 1.2em;
@@ -174,7 +185,7 @@
 
   &__item {
     position: relative;
-    border-radius: 5px;
+    border-radius: 4px;
     overflow: hidden;
   }
 
@@ -198,15 +209,18 @@
     margin: 0 5px;
     width: 10px;
     height: 10px;
-    background: $gray-black;
     border-radius: 50%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.55), #000000);
+    @extend %transition;
   }
   button {
     display: none;
   }
   
   .slick-active {
-    background: #3399cc;
+    background: #3a9cd0;
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.52), inset 0 1px 1px 0 rgba(0, 0, 0, 0.4);
+    @extend %transition;
   }
 }
 

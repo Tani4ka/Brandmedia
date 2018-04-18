@@ -76,6 +76,7 @@
 
 // button to top
 .top {
+  display: flex;
   position: fixed;
   bottom: 25px;
   right: -100px;
@@ -86,16 +87,20 @@
   font-size: 26px;
   line-height: 50px;
   text-align: center;
-  background: #e0e0e0;
+  background: $white;
   color: #666;
   border-radius: 50%;
-  opacity: .5;
+  opacity: .4;
   @extend %transition;
-  display: flex;
   
   &:hover {
     background: $accent;
+    color: $white;
     opacity: 1;
+    
+    .top__arrow {
+      border-color: $white;
+    }
   }
   &.active {
     right: 25px;
@@ -113,9 +118,10 @@
     display: block;
     margin: auto;
     @include size(11px, 11px);
-    border-right: 2px solid $red;
-    border-top: 2px solid $red;
+    border-right: 2px solid $accent;
+    border-top: 2px solid $accent;
     transform: rotate(-45deg);
+    @extend %transition;
 
     &_last {
       margin-top: -5px;
@@ -154,28 +160,12 @@ header, section, footer {
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba($over, .92);
+    background: rgba($overlay, .92);
   }
 }
 
-//.map {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 0;
-//   background: $light-gray;
-// }
 
-
-//&::-webkit-input-placeholder { color: red; }
-//&::-moz-placeholder { color: red; }
-//&:-moz-placeholder  { color: red; }
-//&:-ms-input-placeholder { color: red; }
-
-
-
+// @extend don't work inside the @media
 
 // @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
 // @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
@@ -199,30 +189,57 @@ header, section, footer {
 
 // font: italic 15px/1.75em 'Times New Roman';
 
+
+//@include media("<480px") {}
+//@include media(">=480px") {}
+//@include media("<tablet") {}
+//@include media(">=tablet") {}
+//@include media("<992px") {}
+//@include media(">=992px") {}
+//@include media("<1200px") {}
+//@include media(">=1200px") {}
+//@include media("<1200px", ">=992px") {}
+
+
 //.fontFaceObserver & {
 //  font-family: 'Mutlu';
 //}
 
-//@include media("<480px") {}
 
-//@include media(">=480px") {}
+//.mix-blend-mode-example {
+//  position: relative;
+//  background-image: radial-gradient(at 35% top, rgb(70 ,80, 93) 0%, rgb(121, 171, 222) 30%);
+//  z-index: 1;
+//
+//  &::before {
+//    content: '';
+//    display: inline-block;
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    background-image: url('../img/preview.jpg');
+//    z-index: -1;
+//    opacity: .41;
+//    mix-blend-mode: overlay;
+//  }
+//}
 
-//@include media("<tablet") {}
 
-//@include media(">=tablet") {}
-
-//@include media("<992px") {}
-
-//@include media(">=992px") {}
-
-//@include media("<1200px") {}
-
-//@include media(">=1200px") {}
-
-//@include media("<1200px", ">=992px") {}
+//.map {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 0;
+//   background: $light-gray;
+// }
 
 
-
-
-
+//&::-webkit-input-placeholder { color: red; }
+//&::-moz-placeholder { color: red; }
+//&:-moz-placeholder  { color: red; }
+//&:-ms-input-placeholder { color: red; }
 
