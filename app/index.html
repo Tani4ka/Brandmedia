@@ -1,5 +1,4 @@
-
-<!--include components/form/form--><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
     <title>Bramdmedia_pug</title>
@@ -11,82 +10,82 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta property="og:image" content="path/to/image.jpg"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png"/>
-    <link rel="manifest" href="img/favicons/manifest.json"/>
-    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5"/>
-    <!-- Помогает избежать проблем с дублированным контентом-->
-    <link rel="canonical" href="http://example.com/2017/09/a-new-article-to-red.html"/>
     <!-- Chrome, Firefox OS and Opera-->
     <meta name="theme-color" content="#16171A"/>
     <!-- Windows Phone-->
     <meta name="msapplication-navbutton-color" content="#16171A"/>
     <!-- iOS Safari-->
     <meta name="apple-mobile-web-app-status-bar-style" content="#16171A"/>
-    <!-- HTML5 Shiv - полифил, позволяющий обеспечивать базовые стили HTML5 для IE 6-8, Safari 4.x,Firefox 3.x. и iPhone 3.x.-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png"/>
+    <link rel="manifest" href="img/favicons/manifest.json"/>
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5"/>
+    <!-- Canonical - helps to avoid problems with duplicate content-->
+    <link rel="canonical" href="http://example.com/2017/09/a-new-article-to-red.html"/>
+    <!-- HTML5 Shiv or Modernizr-->
+    <!-- script(src="js/modernizr-custom.js")-->
+    <!-- HTML5 Shiv - polyphile which allow to provide basic styles HTML5 for IE 6-8, Safari 4.x,Firefox 3.x. и iPhone 3.x.-->
     <!--[if lt IE 9]-->
     <script src="js/html5shiv.min.js"></script>
     <script src="js/html5shiv-printshiv.min.js"></script>
     <!--![endif]-->
-    <!-- HTML5 Shiv or Modernizr-->
-    <!-- script(src="js/modernizr-custom.js")-->
-    <style>body {opacity: 0; overflow-x: hidden;} html {background-color: #000;}</style>
-    <!-- 	Main css-->
+    <!-- Styles for preloader-->
+    <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #000; }</style>
+    <!-- Main css-->
     <link rel="stylesheet" href="css/main.min.css"/>
-    <!-- script(defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js")-->
   </head>
   <body class="ishome">
+    <!-- my-page start-->
     <div class="my-page">
-      <!-- my-page start-->
-      <div class="my-header">
-        <!--my-header start-->
-        <header role="banner" class="header">
-          <div class="header__top">
-            <div class="header__logo">
-              <div class="logo"><a href="#" class="logo__link"><i class="logo__icon icon-plus-squared"></i><span class="logo__name">BRANDMEDIA</span><span class="logo__descr hide-tablet">We love beautiful things</span></a>
-              </div>
-            </div>
-            <nav class="header__nav hide-tablet">
-              <ul class="menu main-mnu">
-                <li class="menu__item menu__item_active"><a href="#" class="menu__link menu__link menu__link_home"><i class="menu__icon icon-home hide-tablet"></i><span class="menu__link-name">Home</span></a>
-                </li>
-                <li class="menu__item"><a href="https://caniuse.com/#search=resize" class="menu__link">About us</a>
-                </li>
-                <li class="menu__item"><a href="#" class="menu__link">Portfolio</a>
-                </li>
-                <li class="menu__item"><a href="#" class="menu__link">Services</a>
-                </li>
-                <li class="menu__item"><a href="#" class="menu__link">Blog</a>
-                  <ul class="submenu">
-                    <li class="submenu__item"><a href="#" class="submenu__link">App media</a>
-                    </li>
-                    <li class="submenu__item"><a href="#" class="submenu__link">Branding</a>
-                    </li>
-                    <li class="submenu__item"><a href="#" class="submenu__link">Case study</a>
-                    </li>
-                    <li class="submenu__item"><a href="#" class="submenu__link">Devices</a>
-                    </li>
-                    <li class="submenu__item"><a href="#" class="submenu__link">Jobs</a>
-                    </li>
-                    <li class="submenu__item"><a href="#" class="submenu__link">Networks</a>
-                    </li>
-                    <li class="submenu__item"><a href="#" class="submenu__link">Staff</a>
-                    </li>
-                    <li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">Tutorials</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="menu__item"><a href="#" class="menu__link">Contact</a>
-                </li>
-              </ul>
-            </nav>
-            <div class="header__btn mobile-mnu hide-desktop"><a href="#" class="toggle-mnu"><span>Open menu</span></a>
+      <!-- my-page end-->
+      <!-- my-header start-->
+      <header role="banner" class="header my-header">
+        <div class="header__top">
+          <div class="header__logo">
+            <div class="logo"><a href="#" class="logo__link"><i class="logo__icon icon-plus-squared"></i><span class="logo__name">BRANDMEDIA</span><span class="logo__descr hide-tablet">We love beautiful things</span></a>
             </div>
           </div>
-        </header>
-      </div>
-      <!-- my-content start-->
+          <nav class="header__nav hide-tablet">
+            <ul class="menu main-mnu">
+              <li class="menu__item menu__item_active"><a href="#" class="menu__link menu__link menu__link_home"><i class="menu__icon icon-home hide-tablet"></i><span class="menu__link-name">Home</span></a>
+              </li>
+              <li class="menu__item"><a href="https://caniuse.com/#search=resize" class="menu__link">About us</a>
+              </li>
+              <li class="menu__item"><a href="#" class="menu__link">Portfolio</a>
+              </li>
+              <li class="menu__item"><a href="#" class="menu__link">Services</a>
+              </li>
+              <li class="menu__item"><a href="#" class="menu__link">Blog</a>
+                <ul class="submenu">
+                  <li class="submenu__item"><a href="#" class="submenu__link">App media</a>
+                  </li>
+                  <li class="submenu__item"><a href="#" class="submenu__link">Branding</a>
+                  </li>
+                  <li class="submenu__item"><a href="#" class="submenu__link">Case study</a>
+                  </li>
+                  <li class="submenu__item"><a href="#" class="submenu__link">Devices</a>
+                  </li>
+                  <li class="submenu__item"><a href="#" class="submenu__link">Jobs</a>
+                  </li>
+                  <li class="submenu__item"><a href="#" class="submenu__link">Networks</a>
+                  </li>
+                  <li class="submenu__item"><a href="#" class="submenu__link">Staff</a>
+                  </li>
+                  <li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">Tutorials</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu__item"><a href="#" class="menu__link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__btn mobile-mnu hide-desktop"><a href="#" class="toggle-mnu"><span>Open menu</span></a>
+          </div>
+        </div>
+      </header>
+      <!-- my-header end-->
+      <!-- content start-->
       <main class="my-content">
         <!-- section dreams start-->
         <section class="dreams">
@@ -171,6 +170,7 @@
                   </iframe>
                 </div>
               </div>
+              <!-- slick gallery end-->
             </div>
           </div>
         </section>
@@ -270,8 +270,8 @@
               </div>
             </div>
             <div class="about-btn">
-              <div class="about-btn__wrap"><a href="#" class="about-btn__btn btn icon-plus-button">Read more</a><a href="#" class="about-btn__btn btn btn_blue icon-twitter-bird">Follow us</a><a href="#" class="about-btn__btn btn btn_blue-dark icon-facebook">Fasebook</a>
-              </div><a href="#" class="about-btn__btn about-btn__btn_last btn icon-mail">Get in touch</a>
+              <div class="about-btn__wrap"><a href="#" class="about-btn__btn btn btn_gray icon-plus-button">Read more</a><a href="#" class="about-btn__btn btn btn_blue icon-twitter-bird">Follow us</a><a href="#" class="about-btn__btn btn btn_blue-dark icon-facebook">Fasebook</a>
+              </div><a href="#" class="about-btn__btn about-btn__btn_last btn btn_gray btn icon-mail">Get in touch</a>
             </div>
           </div>
         </section>
@@ -279,30 +279,69 @@
         <!-- section offers start-->
         <section class="offers">
           <div class="offers__container">
-            <div class="offer tour tour_mod"><span class="offer__name">Brandmedia tour</span>
-              <div class="offer__content"><span class="offer__text">Watch now the video</span>
-                <div class="offer__heading">Vidoetour
+            <div class="offer">
+              <div class="tour"><span class="tour__name">Brandmedia tour</span>
+                <div class="tour__inner"><span class="tour__text">Watch now the video</span>
+                  <div class="tour__heading">Vidoetour
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="offer apps"><span class="offer__name">Brandmedia apps</span>
-              <div class="offer__content"><span class="offer__text">Avaliable on the Apple</span>
-                <div class="offer__heading">App store
+              <div class="offer-ct">
+                <div class="offer-ct__heading h3 icon-video-alt">Brandmedia tour video
                 </div>
+                <p class="offer-ct__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
+                </p><a href="#" class="offer-ct__btn btn btn_gray icon-eye">Go to tuor</a>
               </div>
             </div>
-            <div class="offer jobs"><span class="offer__name">Brandmedia jobs</span>
-              <div class="offer__content"><span class="offer__text">Find a Freelancer</span>
-                <div class="offer__heading">Job board
+            <div class="offer">
+              <div class="apps"><span class="apps__name">Brandmedia apps</span>
+                <div class="apps__inner"><span class="apps__text">Avaliable on the Apple</span>
+                  <div class="apps__heading">App store
+                  </div>
                 </div>
+              </div>
+              <div class="offer-ct">
+                <div class="offer-ct__heading h3 icon-mobile">App media applications
+                </div>
+                <p class="offer-ct__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
+                </p><a href="#" class="offer-ct__btn btn btn_gray icon-cart">App store</a>
+              </div>
+            </div>
+            <div class="offer">
+              <div class="jobs"><span class="jobs__name">Brandmedia jobs</span>
+                <div class="jobs__inner"><span class="jobs__text">Find a Freelancer</span>
+                  <div class="jobs__heading">Job board
+                  </div>
+                </div>
+              </div>
+              <div class="offer-ct">
+                <div class="offer-ct__heading h3 icon-suitcase">Professional jobs
+                </div>
+                <p class="offer-ct__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
+                </p><a href="#" class="offer-ct__btn btn btn_gray icon-coffee">Get a job</a>
               </div>
             </div>
           </div>
         </section>
         <!-- section offers end-->
       </main>
+      <!-- content end-->
       <!-- my-footer start-->
-      <footer class="my-footer"></footer>
+      <div class="sign">
+        <div class="sign__container">
+          <div class="signup"><i class="signup__icon icon-mail"></i><span class="signup__text">Join now to our newsletter</span><span class="signup__descr">Get the lastest news of BrandMedia</span>
+            <form action="" class="sign-form signup__form"><input type="mail" name="email" pleaseholder="Your email address"/>
+              <button type="submit" class="sign-form__btn btn">Sign up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer role="contentinfo" class="footer">
+        <div>
+        </div>
+      </footer>
+      <!-- my-footer end-->
       <!-- buttot to top-->
       <div title="Наверх" class="top">
         <div class="top__icon"><span class="top__arrow"></span><span class="top__arrow top__arrow top__arrow_last"></span>
@@ -311,28 +350,23 @@
       <!-- preloader-->
       <!--+b.DIV#hellopreloader-->
       <!--	+b.DIV#hellopreloader_preload-->
-      
-      <!-- for modal windows
+      <!-- form for modal windows
       //+form()
-      
       
       -->
     </div>
+    <!-- scripts-->
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script>
-      window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')
-      
-    </script>
-    <!-- build:js js/main.js-->
+    <script>window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')</script>
+    <!-- Main script-->
     <script src="js/scripts.min.js"></script>
-    <!-- endbuild-->
     <!-- build:js js/map.js-->
     <!-- script( src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer)-->
     <!-- script( src="js/map.min.js" defer)-->
     <!-- endbuild-->
     <!-- vimeo-->
     <!-- script( src="https://player.vimeo.com/api/player.js")-->
-    
-    
+    <!-- Fontawesome-->
+    <!-- script(defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js")-->
   </body>
 </html>

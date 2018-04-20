@@ -12,63 +12,78 @@
   border-radius: $btn-border-radius;
   outline: none;
   color: $btn-color;
-  background-color: $btn-gray;
+  background-color: $btn-background;
+  //font-family: $btn-font-family;
   text-decoration: none;
   font-size: $btn-font-size;
-  //font-family: $btn-font-family;
   line-height: $btn-line-height;
   text-transform: capitalize;
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.43);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-  inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
-  @extend %transition;
+  @include transition;
 
   .fontFaceObserver & {
     font-family: 'HelveticaNeueLTStd-Md';
   }
 
-  &:focus,
-  &:hover,
-  &:active {
-    background-color: lighten($btn-gray, 10%);
+  &:after {
+    margin-left: 0.55em;
   }
 
-  &_white {
-    color: $btn-gray;
-    background-image: linear-gradient(to top, #d9dde7, #e9eef3);
-    box-shadow: 0 1px 0 0 rgba(148, 148, 148, 0.8),
-    inset 0 1px 0 0 #ffffff;
+  &_gray {
+    background-color: $btn-gray;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
+                inset 0 15px 10px 0 rgb(96, 106, 125),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
 
     &:focus,
     &:hover,
     &:active {
-      background-color: darken($white, 10%);
-      box-shadow: 0 1px 0 0 rgba(148, 148, 148, 0.8),
-      inset 0 1px 0 0 #ffffff;
+      background-color: lighten($btn-gray, 10%);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
+                  inset 0 15px 10px 0 lighten(rgb(96, 106, 125), 10%),
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+    }
+  }
+
+  &_white {
+    color: $btn-gray;
+    background-color: $btn-white;
+    box-shadow: inset 0 15px 10px 0 rgb(237, 241, 245),
+                0 1px 0 0 rgba(148, 148, 148, 0.8),
+                inset 0 1px 0 0 #ffffff;
+
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: darken($btn-white, 10%);
+      box-shadow: inset 0 15px 20px 0 darken(rgb(237, 241, 245), 5%),
+                  0 1px 0 0 rgba(148, 148, 148, 0.8),
+                  inset 0 1px 0 0 #ffffff;
     }
   }
 
   &_blue-light {
     background-color: $btn-blue-light;
-    background-image: linear-gradient(to bottom, #9cbad9, #779cc0),
-    linear-gradient(to bottom, #819ebb, #779cc0);
-    box-shadow: 0 -0.3px 0 0.7px #6785a5,
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+    background-color: rgb(120, 156, 191);
+    box-shadow: inset 0 1px 1px 0 lighten($btn-blue-light, 20%),
+                inset 0 20px 10px 0 lighten($btn-blue-light, 5%),
+                0 -0.3px 0 0.7px #6785a5;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: darken($btn-blue-light, 10%);
-      box-shadow: inset 0 1px 2px 0 darken($btn-blue-light, 0%),
-      inset 0 2px 1px 0 lighten($btn-blue-light, 20%),
-      inset 0 20px 15px lighten($btn-blue-light, 5%);
+      background-color: darken($btn-blue-light, 3%);
+      box-shadow: inset 0 1px 1px 0 lighten($btn-blue-light, 17%),
+                  inset 0 20px 10px 0 lighten($btn-blue-light, 3%),
+                  0 -0.3px 0 0.7px #6785a5;
     }
   }
 
   &_blue {
     background-color: $blue;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
+                inset 0 20px 10px 0 rgb(67, 154, 182),
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
 
     &:focus,
@@ -76,6 +91,7 @@
     &:active {
       background-color: lighten($blue, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
+                  inset 0 20px 10px 0 lighten(rgb(67, 154, 182), 10%),
                   inset 0 1px 0 0 lighten($blue, 30%);
     }
   }
@@ -83,14 +99,16 @@
   &_blue-dark {
     background-color: $btn-dark-blue;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                inset 0 20px 10px 0 rgb(69, 106, 169),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
 
     &:focus,
     &:hover,
     &:active {
       background-color: lighten($btn-dark-blue, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                  inset 0 20px 10px 0 lighten(rgb(69, 106, 169), 10%),
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
     }
   }
 }

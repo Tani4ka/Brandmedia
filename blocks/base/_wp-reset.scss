@@ -1,13 +1,10 @@
 /* ---------------------------------------------------------
                          Wp-reset
    ---------------------------------------------------------*/
-/// #main { @extend %clearfix; }
-/// #content { float: left; width: 70%; }
-/// #sidebar { float: right; width: 25%; }
 
 .widget {
 	margin-bottom: $vertical-rhythm;
-	@extend %clearfix;
+	@include clearfix;
 	ul {
 		padding-left: 2em;
 	}
@@ -53,7 +50,7 @@
 }
 
 .search-form {
-	@extend %clearfix;
+	@include clearfix;
 	input {
 		float: left;
 		height: 35px;
@@ -69,7 +66,7 @@
 
 .post-password-form {
 	p {
-		@extend %clearfix;
+		@include clearfix;
 	}
 	input {
 		float: left;
@@ -181,7 +178,7 @@
 }
 
 .navigation-single{
-	@extend %clearfix;
+	@include clearfix;
 	margin-bottom: $vertical-rhythm;
 	.next,
 	.prev {

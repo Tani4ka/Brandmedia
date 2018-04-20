@@ -22,6 +22,7 @@ $gray: #333;
 $light: #BCD4DB;
 
 // Button colors
+$btn-white: #dfe2eb;
 $btn-blue-light: #789BBE;
 $btn-bg: #317191;            // rgba(49, 113, 145, 1);
 $btn-dark-blue: #345283;     // rgba(51, 78, 126, 1);
@@ -64,12 +65,12 @@ $form-element-focus-border-color: $blue !default;
 $placeholder-color: #898989 !default;
 
 // Headers
-$h1-font-size: 3.75em !default;  //45
-$h2-font-size: 1.5em !default;  //18
-$h3-font-size: 1.17em !default;   //14
-$h4-font-size: 19em !default;
-$h5-font-size: 17em !default;
-$h6-font-size: 15em !default;
+$h1-font-size: 3.75em !default;  // 45px
+$h2-font-size: 2.5em !default;   // 30px
+$h3-font-size: 1.5em !default;   // 18px
+$h4-font-size: 1.17em !default;  // 14px
+$h5-font-size: 19em !default;
+$h6-font-size: 17em !default;
 
 $headings-font-family: inherit !default;
 $headings-color: $white !default;

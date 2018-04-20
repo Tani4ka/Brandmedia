@@ -57,8 +57,8 @@ $media-expressions: (
 	3. Base
    ---------------------------------------------------------*/
 @import 'base/vars';
-@import 'base/helpers';
 @import 'base/mixins';
+@import 'base/helpers';
 
 @import 'base/reset';
 //@import 'base/cms-reset';
@@ -81,6 +81,7 @@ $media-expressions: (
 @import 'components/dreams/dreams';
 @import 'components/aboutus/aboutus';
 @import 'components/offers/offers';
+@import 'components/sign/sign';
 
 @import 'components/footer/footer';
 

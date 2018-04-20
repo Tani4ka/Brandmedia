@@ -3,68 +3,70 @@ include _assets/bemto/bemto
 
 include components/head/head
 include components/header/header
-include components/title/title
-//include components/form/form
+include components/sign/sign
+include components/footer/footer
+
 
 doctype html
 html(lang="ru" dir="ltr")
 
-	block head
-		head
-			+head({
-				"title": "Bramdmedia_pug",
-				"author": "Tatyana Granchenko",
-				"description": "Bramdmedia test progect"
-			})
+  block head
+    head
+      +head({
+        "title": "Bramdmedia_pug",
+        "author": "Tatyana Granchenko",
+        "description": "Bramdmedia test progect"
+      })
 
-		+b.BODY.ishome
-			+b.DIV.my-page
-				// my-page start
-				+b.DIV.my-header
-					//my-header start
-					block header
-						+header()
+    +b.BODY.ishome
+      // my-page start
+      +b.DIV.my-page
+        // my-page end
 
-				// my-content start
-				block content
-					+content()
+        // my-header start
+        block header
+          +header()
+        // my-header end
 
-				// my-footer start
-				block footer
-					footer.my-footer
+        // content start
+        block content
+          +content()
+        // content end
 
-				// buttot to top
-				+b.DIV.top(title="Наверх")
-					+e.DIV.icon
-						+e.SPAN.arrow
-						+e.SPAN.arrow.top__arrow_last
+        // my-footer start
+        block footer
+          +sign()
+          +footer()
+        // my-footer end
 
-				// preloader
-				//+b.DIV#hellopreloader
-				//	+b.DIV#hellopreloader_preload
+        // buttot to top
+        +b.DIV.top(title="Наверх")
+          +e.DIV.icon
+            +e.SPAN.arrow
+            +e.SPAN.arrow.top__arrow_last
 
+        // preloader
+        //+b.DIV#hellopreloader
+        //	+b.DIV#hellopreloader_preload
 
-				// for modal windows
-					//+form()
+        // form for modal windows
+          //+form()
 
+      // scripts
+      block scripts
+        script( src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+        script.
+          window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')
+        // Main script
+        script( src="js/scripts.min.js")
 
-			block scripts
-				script( src="http://code.jquery.com/jquery-3.3.1.min.js"
-				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
-				script.
-					window.jQuery || document.write('<script src="libs/jquery/jquery-3.3.1.min.js"><\/script>')
+        // build:js js/map.js
+        // script( src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer)
+        // script( src="js/map.min.js" defer)
+        // endbuild
 
-				// build:js js/main.js
-				script( src="js/scripts.min.js")
-				// endbuild
+        // vimeo
+        // script( src="https://player.vimeo.com/api/player.js")
 
-				// build:js js/map.js
-				// script( src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3D7OR3uR7q-aqJWW4HIRyDJxuKfH6d6E&callback=initMap" async defer)
-				// script( src="js/map.min.js" defer)
-				// endbuild
-
-				// vimeo
-				// script( src="https://player.vimeo.com/api/player.js")
-
-
-
+        // Fontawesome
+        // script(defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js")

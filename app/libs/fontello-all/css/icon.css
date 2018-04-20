@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'fontello';
-  src: url('../fonts/fontello/font/icon.eot?85982189');
-  src: url('../fonts/fontello/font/icon.eot?85982189#iefix') format('embedded-opentype'),
-       url('../fonts/fontello/font/icon.woff2?85982189') format('woff2'),
-       url('../fonts/fontello/font/icon.woff?85982189') format('woff'),
-       url('../fonts/fontello/font/icon.ttf?85982189') format('truetype'),
-       url('../fonts/fontello/font/icon.svg?85982189#icon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'fontello';
+    src: url('../fonts/Fontello-all/font/icon.eot?85982189');
+    src: url('../fonts/Fontello-all/font/icon.eot?85982189#iefix') format('embedded-opentype'),
+    url('../fonts/Fontello-all/font/icon.woff2?85982189') format('woff2'),
+    url('../fonts/Fontello-all/font/icon.woff?85982189') format('woff'),
+    url('../fonts/Fontello-all/font/icon.ttf?85982189') format('truetype'),
+    url('../fonts/Fontello-all/font/icon.svg?85982189#icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'icon';
-    src: url('../font/icon.svg?85982189#icon') format('svg');
+    src: url('../font/icon.svg?35221726#icon') format('svg');
   }
 }
 */
@@ -29,7 +29,7 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  margin-right: 0;
   text-align: center;
   /* opacity: .8; */
  
@@ -42,7 +42,7 @@
  
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
-  margin-left: .8em;
+  margin-left: .2em;
  
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */

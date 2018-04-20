@@ -91,7 +91,7 @@
   color: #666;
   border-radius: 50%;
   opacity: .4;
-  @extend %transition;
+  @include transition;
   
   &:hover {
     background: $accent;
@@ -121,7 +121,7 @@
     border-right: 2px solid $accent;
     border-top: 2px solid $accent;
     transform: rotate(-45deg);
-    @extend %transition;
+    @include transition;
 
     &_last {
       margin-top: -5px;
@@ -165,29 +165,26 @@ header, section, footer {
 }
 
 
-// @extend don't work inside the @media
 
-// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
-// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
-// @extend %transition;     // (all 0.5s ease)
-// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
-// @extend %ellipsis;       // Match text...
-
-
-// @include size(16px)                      // or (15px, 4px)
-// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
-// @include font(14px, 18px, #000);         // font-size, line-height, color
-// @include animate(color)                  // or (color width) or (color width, 1s, linear)
-// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
-// @include font-smoothing(on);             // or (off)
-// @include text-overflow;                  // lorem...
-// @include counter(list);                  // for ul
-// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
-// @include placeholder-color(red);         // or (red !important)
-// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
-// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
 
 // font: italic 15px/1.75em 'Times New Roman';
+
+// @include clearfix;                   // &:after { content:''; display:block; clear:both; }
+// @include transition;                 // (all 0.5s ease)
+// @include listreset;                  // (margin:0; padding:0; list-style: none;)
+// @include ellipsis;                   // Match text...
+// @include size(16px)                  // or (15px, 4px)
+// @include coverdiv;                   // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
+// @include font(14px, 18px, #000);     // font-size, line-height, color
+// @include animate(color)              // or (color width) or (color width, 1s, linear)
+// @include arr(50, 30, red, t);        // ($width, $height, $bg, $direction);
+// @include font-smoothing(on);         // or (off)
+// @include text-overflow;              // lorem...
+// @include counter(list);              // for ul
+// @include rem-font-size(20px);        // сначала нужно зайти в mixin и изменить базовый font-family
+// @include placeholder-color(red);     // or (red !important)
+// @include placeholder;                // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
+// @include hide-text;                  // overflow:hidden; text-indent:101%; white-space:nowrap;
 
 
 //@include media("<480px") {}
@@ -243,3 +240,37 @@ header, section, footer {
 //&:-moz-placeholder  { color: red; }
 //&:-ms-input-placeholder { color: red; }
 
+
+
+/* ---------------------------------------------------------
+                           HTML examples
+   ---------------------------------------------------------*/
+
+              /* Front-End-Checklist */
+
+//<a href="#" target="_blank" rel="noopener"></a>
+//<header role="banner"></header>
+//<nav role="navigation" aria-label="Разделы"></nav>
+//<main role="main"></main>
+//<aside role="complementary" aria-label="Боковое меню"></aside> // complementary - участок с некой дополнительной информацией, не имеющей прямого отношение к основному содержимому
+//<footer role="contentinfo"></footer>
+
+
+              /* retina plugin start */
+
+//<div class="bg-stretch">
+//<span data-srcset="img/img1-small.jpg, img/img1-small-2x.jpg 2x"></span>
+//<span data-srcset="img/img1-medium.jpg, img/img1-medium-2x.jpg 2x" data-media="(min-width: 375px)"></span>
+//<span data-srcset="img/img1-large.jpg" data-media="(min-width: 768px)"></span>
+//</div>
+
+
+            /* picturefill plugin start */
+
+// first example works without picturefull in new browsers
+//<picture id="picture-bg">
+//<source srcset="img/img1-small.jpg" media="(max-width: 768px)">
+//<source srcset="img/img1-medium.jpg" media="(max-width: 992px)">
+//<source srcset="img/img1-large.jpg">
+//<img class="img" csrcset="img/img1-large.jpg" alt="Booleon field image"> &lt;!&ndash; <img alt="…"> for wrong im=age in safari&ndash;&gt;
+//</picture>

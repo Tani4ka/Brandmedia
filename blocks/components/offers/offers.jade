@@ -2,21 +2,41 @@ mixin offers()
   +b.SECTION.offers
     +e.DIV.container
 
-      +b.DIV.offer.tour(class="_mod")
-        +e.SPAN.name Brandmedia tour
-        +e.DIV.content
-          +e.SPAN.text Watch now the video
-          +e.heading Vidoetour
+      +b.DIV.offer
+        +b.DIV.tour
+          +e.SPAN.name Brandmedia tour
+          +e.DIV.inner
+            +e.SPAN.text Watch now the video
+            +e.heading Vidoetour
 
-      +b.DIV.offer.apps
-        +e.SPAN.name Brandmedia apps
-        +e.DIV.content
-          +e.SPAN.text Avaliable on the Apple
-          +e.heading App store
+        +b.DIV.offer-ct
+          +e.heading.h3.icon-video-alt Brandmedia tour video
+          +e.P.text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
+          +e.A.btn.btn(class="_gray").icon-eye(href="#") Go to tuor
 
-      +b.DIV.offer.jobs
-        +e.SPAN.name Brandmedia jobs
-        +e.DIV.content
-          +e.SPAN.text Find a Freelancer
-          +e.heading Job board
+      +b.DIV.offer
+        +b.DIV.apps
+          +e.SPAN.name Brandmedia apps
+          +e.DIV.inner
+            +e.SPAN.text Avaliable on the Apple
+            +e.heading App store
+
+        +b.DIV.offer-ct
+          +e.heading.h3.icon-mobile App media applications
+          +e.P.text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
+          +e.A.btn.btn(class="_gray").icon-cart(href="#") App store
+
+      +b.DIV.offer
+        +b.DIV.jobs
+          +e.SPAN.name Brandmedia jobs
+          +e.DIV.inner
+            +e.SPAN.text Find a Freelancer
+            +e.heading Job board
+
+        +b.DIV.offer-ct
+          +e.heading.h3.icon-suitcase Professional jobs
+          +e.P.text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
+          +e.A.btn.btn(class="_gray").icon-coffee(href="#") Get a job
+
+
 

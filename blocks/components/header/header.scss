@@ -50,7 +50,7 @@
   &__link {
     display: inline-block;
     color: #fff;
-    @extend %transition;
+    @include transition;
 
     &:hover {
       color: darken($white, 25%);
@@ -91,7 +91,7 @@
 
   &__item {
     position: relative;
-    @extend %listreset;
+    @include listreset;
     flex-grow: 1;
 
     &:hover .submenu {
@@ -99,7 +99,7 @@
         display: flex;
         opacity: 1;
         z-index: 10;
-        margin-top: 0;
+        transform: scaleX(1);
         left: 0;
       }
     }
@@ -115,7 +115,7 @@
 
   &__link {
     display: block;
-    @extend %transition;
+    @include transition;
     width: 100%;
     padding: 13px 7px 30px;
     color: $white;
@@ -186,15 +186,16 @@ darken(#3C3E42, 9%),
 darken(#3C3E42, 10%);
 
 .submenu {
-  @extend %listreset;
-  @extend %transition;
+  @include listreset;
+  @include transition;
 
   @include media('>=tablet') {
     opacity: 0;
     flex-direction: column;
     position: absolute;
     top: 100%;
-    margin-top: -100vh;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
     border-radius: 5px;
     border-top: 1px solid #505258;
     border-bottom: 1px solid $body-bg;
@@ -281,7 +282,6 @@ darken(#3C3E42, 10%);
 .mm-listitem, .mm-listitem .mm-btn_next, .mm-listitem .mm-btn_next:before, .mm-listitem:after, .mm-listview {
   border-color: rgba(65, 65, 65, 0.3);
 }
-
 
 
 // toggle-menu
