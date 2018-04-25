@@ -2,11 +2,11 @@ mixin sign(data)
    +b.DIV.sign
       +e.DIV.container
          +b.DIV.signup
-          +e.I.icon.icon-mail
-          +e.SPAN.text Join now to our newsletter
-          +e.SPAN.descr Get the lastest news of BrandMedia
+          +e.DIV.text
+            +e.SPAN.name Join now to our newsletter
+            +e.SPAN.descr Get the lastest news of BrandMedia
           +b.FORM.sign-form.signup__form(action="")
-            +e.INPUT(type="mail" name="email" pleaseholder="Your email address")
-            +e.BUTTON.btn.btn(type="submit") Sign up
+            +e.INPUT.input(type="mail" name="email" value="Your email address")
+            +e.BUTTON.btn.btn(class="_red" type="submit") Sign up
 
 

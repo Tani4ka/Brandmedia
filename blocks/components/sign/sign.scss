@@ -16,48 +16,118 @@
 
 .signup {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
   border-radius: 4px;
   background-color: #3b3e43;
   background-image: linear-gradient(rgb(70, 74, 80), rgb(50, 53, 57));
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-  0 1px 0 0 rgba(255, 255, 255, 0.34);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 0 0 rgba(255, 255, 255, 0.34);
   width: 100%;
   overflow: hidden;
+  padding-left: 82px;
 
-  &__icon {
-    display: flex;
-    align-self: stretch;
+  @include media('<tablet') {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-image: linear-gradient(rgb(138, 146, 157), rgb(111, 113, 118));
     width: 64px;
+    height: 100%;
+    content: '';
+  }
 
-    &:after {
-      margin: auto;
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.46);
-      color: #efefef;
-      font-size: 20px;
-    }
+  &::after {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: url('../img/sprite.png') no-repeat -5px -4px;
+    width: 28px;
+    height: 20px;
+    content: '';
   }
 
   &__text {
-    margin: 0 16px;
-    font-size: 1.17em;
-    text-transform: uppercase;
-    line-height: 1.017;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 33px;
+    //flex-grow: 1;
+
+    @include media('<tablet') {
+      margin-top: 15px;
+    }
   }
 
+  &__name {
+    margin-right: 15px;
+    font-size: 1.17em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  }
   &__descr {
-    margin-right: 33px;
+    display: inline-block;
+    font-size: 1.167em;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
 .sign-form {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  @include media('<992px') {
+    width: 100%;
+  }
+
   &__btn {
-    margin: 15px 0;
+    margin: 15px 22px 15px 15px;
+
+    &::after {
+      margin-left: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__input {
+    border: 0;
+    border-radius: 4px;
+    background-image: linear-gradient($body-bg, $section-bg);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.07),
+                inset 0 3px 10px 0 rgba(0, 0, 0, 0.15);
+    flex-grow: 1;
+    padding: 11px 15px 8px;
+    color: $white;
+  }
+
+  &__btn {
+    border-radius: 4px;
+    font-size: 1.167em;
+    line-height: 1em;
+    text-transform: none;
+    padding: 0.65em 0.8em;
+
+    .fontFaceObserver & {
+      font-family: 'HelveticaNeue-Bold';
+    }
   }
 }
+
+
+
+
+
+
+
 
 // font: italic 15px/1.75em 'Times New Roman';
 

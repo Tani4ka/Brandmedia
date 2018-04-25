@@ -10,7 +10,8 @@ $dark: #1a1a1a;               // preloader
 $overlay: #3D3D3D;
 
 // Site colors
-$accent: #cc3333;
+$accent: #C83134;
+$orange: #BF5C46;             // rgb(191, 92, 70);
 $body-bg: #16171A;            // rgb(22, 23, 26)
 $section-bg: #202227;         // rgb(32, 34, 39);
 $circle-shadow: #374351;      // rgb(55, 67, 81);
@@ -28,6 +29,7 @@ $btn-bg: #317191;            // rgba(49, 113, 145, 1);
 $btn-dark-blue: #345283;     // rgba(51, 78, 126, 1);
 $btn-gray: #49515f;          // rgba(72, 78, 92, 1);
 
+$red-gradient: linear-gradient($orange, $accent);
 
 
 // Fonts
@@ -52,10 +54,10 @@ $base-link-color: $blue;
 // Buttons 
 $btn-color: $white !default;
 $btn-background: $btn-bg !default;
-$btn-padding: 0.6em 0.9em 0.4em!default;
+$btn-padding: 0.4em 0.5em 0em 0.9em !default;
 $btn-border-radius: 3px;
 $btn-font-size: 1.17em !default;
-$btn-line-height: 1em !default;
+$btn-line-height: 1.85em !default;
 $btn-font-family: 'Helvetica Neue' !default;
 
 // Forms

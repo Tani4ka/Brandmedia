@@ -29,7 +29,7 @@
 
   &__container {
     @include container();
-    padding-bottom: 31px;
+    padding-bottom: 30px;
     padding-top: 28px;
   }
 }
@@ -170,7 +170,7 @@
 
 .apps {
   background: $blue;
-  
+
   &__inner:before {
     background: url("../img/apps.png") no-repeat center;
   }
@@ -183,7 +183,7 @@
   background: $light;
   box-shadow: 0 13px 10px -7px rgba(0, 0, 0, 0.3),
   inset 0 0.5px 0 0 #ffffff;
-  
+
   &__inner:before {
     background: url("../img/jobs.png") no-repeat center;
   }
@@ -208,17 +208,35 @@
     @include media('<tablet', '>=480px') {
       margin-bottom: 10px;
     }
-    &:after {
+
+    &::after {
+      display: inline-block;
       position: absolute;
-      bottom: 3px;
+      bottom: -2px;
       right: 0;
+      background: url('../img/sprite.png') no-repeat -41px 0px;
+      width: 20px;
+      height: 28px;
       font-size: 1.25em;
+      content: '';
+    }
+
+    &_app {
+      &::after {
+        background: url('../img/sprite.png') no-repeat -67px -2px;
+      }
+    }
+    &_job {
+      &::after {
+        width: 28px;
+        background: url('../img/sprite.png') no-repeat -123px 1px;
+      }
     }
   }
 
   &__text {
     line-height: 1.67;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     hyphens: manual;
   }
 
@@ -226,10 +244,21 @@
     align-self: flex-start;
     margin-top: auto;
     min-width: 134px;
-    padding: .6em 1em .4em 1.3em;
 
-    &:after {
-      margin-left: 18px;
+    &_tour {
+      &::after {
+        background: url('../img/sprite.png') no-repeat -4px -28px;
+      }
+    }
+    &_app {
+      &::after {
+        background: url('../img/sprite.png') no-repeat -32px -28px;
+      }
+    }
+    &_job {
+      &::after {
+        background: url('../img/sprite.png') no-repeat -60px -30px;
+      }
     }
   }
 }
