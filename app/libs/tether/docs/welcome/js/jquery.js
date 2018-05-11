@@ -6521,7 +6521,7 @@ jQuery.extend({
         }
 
         // Reset defaultChecked for any radios and checkboxes
-        // about to be appended to the DOM in IE 6/7 (#8060)
+        // aboutus to be appended to the DOM in IE 6/7 (#8060)
         if ( !jQuery.support.appendChecked ) {
             jQuery.grep( getAll( nodes, "input" ), fixDefaultChecked );
         }

@@ -2,6 +2,7 @@
                             Sign
    ---------------------------------------------------------*/
 .sign {
+  background: $black;
   padding: 25px 0;
   color: $white;
 
@@ -58,7 +59,6 @@
 
   &__text {
     margin-right: 33px;
-    //flex-grow: 1;
 
     @include media('<tablet') {
       margin-top: 15px;
@@ -73,6 +73,7 @@
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   }
   &__descr {
+    margin-top: 5px;
     display: inline-block;
     font-size: 1.167em;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -87,18 +88,25 @@
   @include media('<992px') {
     width: 100%;
   }
+  @include media('<480px') {
+    flex-wrap: wrap;
+  }
 
   &__btn {
-    margin: 15px 22px 15px 15px;
+    margin: 15px 22px 15px 0;
+    min-width: 77px;
+
+    @include media('<480px') {
+      margin: 0 22px 15px 0;
+    }
 
     &::after {
-      margin-left: 0;
-      width: 0;
-      height: 0;
+      display: none;
     }
   }
 
   &__input {
+    margin: 15px 15px 15px 0;
     border: 0;
     border-radius: 4px;
     background-image: linear-gradient($body-bg, $section-bg);

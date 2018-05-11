@@ -1,3 +1,47 @@
 mixin footer(data)
-  +b.FOOTER.footer(role="contentinfo")
-    +e.DIV
+  +b.FOOTER.footer-wrap(role="contentinfo")
+    +b.DIV.footer
+
+      +b.NAV.footer-nav(class="footer__nav")
+        +e.DIV.item(class="_first")
+          +b.H4.h4 Site navigation
+          +b.UL.footer-menu
+            each item in data.site
+              +e.LI
+                +e.A.link(href=item.href)= item.text
+
+        +e.DIV.item
+          +b.H4.h4 Blog categories
+          +b.UL.footer-menu
+            each item in data.blog
+              +e.LI
+                +e.A.link(href=item.href)= item.text
+
+        +e.DIV.item
+          +b.H4.h4 Jobs board
+          +b.UL.footer-menu
+            each item in data.jobs
+              +e.LI
+                +e.A.link(href=item.href)= item.text
+
+        +e.DIV.item
+          +b.H4.h4 Connect
+          +b.UL.footer-menu
+            each item in data.connect
+              +e.LI
+                +e.A.link(href=item.href)= item.text
+
+      +b.DIV.copyright(class="footer__copyright")
+        +e.IMG.img.img(src="img/copyright-figure.png")
+        //+e.FIGURE.img
+
+        +e.DIV
+          +b.H4.h4 BrandMedia
+            +e.SPAN.small tm
+          +e.P.text Copyright © 2010-2011 BrandMedia. All rights reserved.
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            | Nullam elit turpis, semper sed consequat a, malesuada vel neque.
+          +b.UL.copyright-menu
+            each item in data.copyright
+              +e.LI
+                +e.A.link(href=item.href)= item.text

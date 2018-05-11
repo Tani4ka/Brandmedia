@@ -4,8 +4,8 @@
 .offers {
   position: relative;
   z-index: 1;
-  background-image: linear-gradient(to top, #1b1c1e, #2a313c), linear-gradient(#2f3035, #2f3035);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
+  background-image: $dark-gradient;
+  box-shadow: 0 1px 0 0 rgb(32, 32, 32),
               inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
   color: $white;
 
@@ -165,7 +165,7 @@
 .tour {
   background: $btn-gray;
   box-shadow: 0 13px 10px -7px rgba(0, 0, 0, 0.3),
-  inset 0 0.5px 0 0 rgba(255, 255, 255, 0.34);
+              inset 0 0.5px 0 0 rgba(255, 255, 255, 0.34);
 }
 
 .apps {
@@ -182,7 +182,7 @@
 .jobs {
   background: $light;
   box-shadow: 0 13px 10px -7px rgba(0, 0, 0, 0.3),
-  inset 0 0.5px 0 0 #ffffff;
+              inset 0 0.5px 0 0 #ffffff;
 
   &__inner:before {
     background: url("../img/jobs.png") no-repeat center;
@@ -266,83 +266,4 @@
 
 
 
-
-
-// @extend don't work inside the @media
-
-// @extend %flex;           // justify-content:space-between; align-items:center; display:flex;
-// @extend %clearfix;       // &:after { content:''; display:block; clear:both; }
-// @extend %transition;     // (all 0.5s ease)
-// @extend %listreset;      // (margin:0; padding:0; list-style: none;)
-// @extend %ellipsis;       // Match text...
-
-
-// @include size(16px)                      // or (15px, 4px)
-// @include coverdiv;                       // position:absolute; t:0; l:0; r:0; b:0; width:100%; height:100%;
-// @include font(14px, 18px, #000);         // font-size, line-height, color
-// @include animate(color)                  // or (color width) or (color width, 1s, linear)
-// @include arr(50, 30, red, t);            // ($width, $height, $bg, $direction);
-// @include font-smoothing(on);             // or (off)
-// @include text-overflow;                  // lorem...
-// @include counter(list);                  // for ul
-// @include rem-font-size(20px);            // сначала нужно зайти в mixin и изменить базовый font-family
-// @include placeholder-color(red);         // or (red !important)
-// @include placeholder;                    // input { @include placeholder {color: red;} } // (color: red !important if dom't work)
-// @include hide-text;                      // overflow:hidden; text-indent:101%; white-space:nowrap;
-
-// font: italic 15px/1.75em 'Times New Roman';
-
-
-//@include media("<480px") {}
-//@include media(">=480px") {}
-//@include media("<tablet") {}
-//@include media(">=tablet") {}
-//@include media("<992px") {}
-//@include media(">=992px") {}
-//@include media("<1200px") {}
-//@include media(">=1200px") {}
-//@include media("<1200px", ">=992px") {}
-
-
-//.fontFaceObserver & {
-//  font-family: 'Mutlu';
-//}
-
-
-//.mix-blend-mode-example {
-//  position: relative;
-//  background-image: radial-gradient(at 35% top, rgb(70 ,80, 93) 0%, rgb(121, 171, 222) 30%);
-//  z-index: 1;
-//
-//  &::before {
-//    display: inline-block;
-//    position: absolute;
-//    opacity: 0.41;
-//    z-index: -1;
-//    top: 0;
-//    left: 0;
-//    background-image: url('../img/preview.jpg');
-//    width: 100%;
-//    height: 100%;
-//    mix-blend-mode: overlay;
-//    content: '';
-//  }
-//}
-
-
-//.map {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 0;
-//   background: $light-gray;
-// }
-
-
-//&::-webkit-input-placeholder { color: red; }
-//&::-moz-placeholder { color: red; }
-//&:-moz-placeholder  { color: red; }
-//&:-ms-input-placeholder { color: red; }
 

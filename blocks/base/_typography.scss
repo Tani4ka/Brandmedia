@@ -8,12 +8,13 @@ h4, .h4,
 h5, .h5,
 h6, .h6,
 .h {
-  font-weight: bold;         // or bold
+  font-weight: bold;
   margin: 0;
   color: $headings-color;
-  text-transform: uppercase;  // tanya add
+  text-transform: uppercase;
   line-height: 1.2;           // $line-height-base - 3.5
   //font-family: $headings-font-family;
+
   .fontFaceObserver & {
     font-family: 'NevisBold';
   }
@@ -32,13 +33,27 @@ h2, .h2 {
 h3, .h3 {
   font-size: $h3-font-size;
   text-transform: capitalize;
+
   .fontFaceObserver & {
-    font-family: HelveticaNeueLTStd-Bd;
+    font-family: 'HelveticaNeueLTStd-Bd';
   }
 }
 
 h4, .h4 {
   font-size: $h4-font-size;
+  line-height: 1.43;
+  text-transform: capitalize;
+
+  .fontFaceObserver & {
+    font-family: 'HelveticaNeueLTStd-Bd';
+  }
+
+  &__small {
+    font-size: 0.6em;
+    margin-left: 2px;
+    text-transform: uppercase;
+    vertical-align: super;
+  }
 }
 
 h5, .h5 {

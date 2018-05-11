@@ -186,7 +186,7 @@ jasmine.isDomNode = function(obj) {
  * Returns a matchable 'generic' object of the class type.  For use in expecations of type when values don't matter.
  *
  * @example
- * // don't care about which function is passed in, as long as it's a function
+ * // don't care aboutus which function is passed in, as long as it's a function
  * expect(mySpy).toHaveBeenCalledWith(jasmine.any(Function));
  *
  * @param {Class} clazz

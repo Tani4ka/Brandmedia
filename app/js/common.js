@@ -161,27 +161,27 @@ $(function() {
                         /***** Aditional scripts *****/
     /* Equalheight without plugin */
 
-    //(function ($) {
-    //    $.fn.equalHeights = function () {
-    //        var $items = $(this);
-    //        function equalize() {
-    //            $items.height('initial');
-    //            var maxH = $items.eq(0).height();
-    //            $items.each(function () {
-    //                maxH = ($(this).height() > maxH) ? $(this).height() : maxH;
-    //            });
-    //            $items.height(maxH);
-    //        }
-    //        equalize();
-    //        $(window).bind('resize', function () {
-    //            equalize();
-    //        });
-    //    };
-    //})(jQuery);
-    //
-    //// call equalHeights
-    //$('.services__header').equalHeights();
-    //$('.services__text').equalHeights();
+    (function ($) {
+        $.fn.equalHeights = function () {
+            var $items = $(this);
+            function equalize() {
+                $items.height('initial');
+                var maxH = $items.eq(0).height();
+                $items.each(function () {
+                    maxH = ($(this).height() > maxH) ? $(this).height() : maxH;
+                });
+                $items.height(maxH);
+            }
+            equalize();
+            $(window).bind('resize', function () {
+                equalize();
+            });
+        };
+    })(jQuery);
+
+    // call equalHeights
+    $('.footer-nav__item .h4').equalHeights();
+
 
 
     /* Fixed sidebar block */

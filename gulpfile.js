@@ -153,7 +153,7 @@ gulp.task('watch', ['scss', 'js', 'browser-sync'], function() {
 	gulp.watch('blocks/**/*.jade', ['jade']);
 	gulp.watch('blocks/**/*.scss', ['scss']);
 	gulp.watch(['libs/**/*.js', 'app/js/common.js', 'app/js/new-age.js'], ['js']);
-	//gulp.watch('app/*.html', browserSync.reload);
+	gulp.watch('app/*.html', browserSync.reload);
 });
 
 // Minify

@@ -37,9 +37,7 @@
   }
 
   //&::after {
-  //  margin-left: 0;
-  //  width: 0;
-  //  height: 0;
+  //display: none;
   //}
 
   // for fontello
@@ -50,16 +48,16 @@
   &_gray {
     background-color: $btn-gray;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 15px 10px 0 rgb(96, 106, 125),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                inset 0 15px 10px 0 rgb(96, 106, 125);
 
     &:focus,
     &:hover,
     &:active {
       background-color: lighten($btn-gray, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 15px 10px 0 lighten(rgb(96, 106, 125), 10%),
-                  inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                  inset 0 15px 10px 0 lighten(rgb(96, 106, 125), 10%);
     }
   }
 
@@ -100,32 +98,33 @@
   &_blue {
     background-color: $blue;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 20px 10px 0 rgb(67, 154, 182),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                inset 0 20px 10px 0 rgb(67, 154, 182);
 
     &:focus,
     &:hover,
     &:active {
       background-color: lighten($blue, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 20px 10px 0 lighten(rgb(67, 154, 182), 10%),
-                  inset 0 1px 0 0 lighten($blue, 30%);
+                  inset 0 1px 0 0 lighten($blue, 30%),
+                  inset 0 20px 10px 0 lighten(rgb(67, 154, 182), 10%);
     }
   }
 
   &_blue-dark {
     background-color: $btn-dark-blue;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 20px 10px 0 rgb(69, 106, 169),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                inset 0 20px 10px 0 rgb(69, 106, 169);
 
     &:focus,
     &:hover,
     &:active {
       background-color: lighten($btn-dark-blue, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 20px 10px 0 lighten(rgb(69, 106, 169), 10%),
-                  inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                  inset 0 1px 0 0 lighten($btn-dark-blue, 30%),
+                  inset 0 20px 10px 0 lighten(rgb(69, 106, 169), 10%);
+
     }
   }
 
@@ -133,16 +132,17 @@
     min-width: 40px;
     background-color: $accent;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 15px 10px 0 $orange,
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                inset 0 15px 10px 0 $orange;
 
     &:focus,
     &:hover,
     &:active {
       background-color: lighten($accent, 5%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 15px 10px 0 lighten($orange, 3%),
-                  inset 0 1px 0 0 rgba(255, 255, 255, 0.34);
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                  inset 0 15px 10px 0 lighten($orange, 3%);
+
     }
   }
 }

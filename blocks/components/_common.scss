@@ -90,7 +90,7 @@
   background: $white;
   color: #666;
   border-radius: 50%;
-  opacity: .4;
+  opacity: .2;
   @include transition;
   
   &:hover {
@@ -165,7 +165,9 @@ header, section, footer {
 }
 
 
-
+//.fontFaceObserver & {
+//  font-family: 'Mutlu';
+//}
 
 // font: italic 15px/1.75em 'Times New Roman';
 
@@ -198,14 +200,11 @@ header, section, footer {
 //@include media("<1200px", ">=992px") {}
 
 
-//.fontFaceObserver & {
-//  font-family: 'Mutlu';
-//}
-
 
 //.mix-blend-mode-example {
 //  position: relative;
 //  background-image: radial-gradient(at 35% top, rgb(70 ,80, 93) 0%, rgb(121, 171, 222) 30%);
+// // background-image: linear-gradient(to top, #1b1c1e, #2a313c), linear-gradient(#2f3035, #2f3035);
 //  z-index: 1;
 //
 //  &::before {
@@ -217,6 +216,7 @@ header, section, footer {
 //    width: 100%;
 //    height: 100%;
 //    background-image: url('../img/preview.jpg');
+// // background-image: radial-gradient(at 65% 5%, rgb(207, 242, 255) 0%, rgb(33 ,34, 37) 15%);
 //    z-index: -1;
 //    opacity: .41;
 //    mix-blend-mode: overlay;
