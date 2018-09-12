@@ -1,31 +1,33 @@
 var gulp           = require('gulp'),
-	gutil          = require('gulp-util' ),
-	sass           = require('gulp-sass'),
-	browserSync    = require('browser-sync'),
-	concat         = require('gulp-concat'),
-	uglify         = require('gulp-uglify'),
-	cleanCSS       = require('gulp-clean-css'),
-	rename         = require('gulp-rename'),
-	del            = require('del'),
-	imagemin       = require('gulp-imagemin'),
-	cache          = require('gulp-cache'),
-	autoprefixer   = require('gulp-autoprefixer'),
-	ftp            = require('vinyl-ftp'),
-	notify         = require("gulp-notify"),
-	htmlmin 	     = require('gulp-html-minifier'),
-	rsync          = require('gulp-rsync'),
-	csso 		       = require('gulp-csso'),
-	babel          = require('gulp-babel'),
-	autopolyfiller = require('gulp-autopolyfiller'),
-	merge          = require('event-stream').merge,
-	order          = require("gulp-order"),
-	critical       = require('critical').stream,
-	csslint 			 = require('gulp-csslint'),
-	sourcemaps     = require('gulp-sourcemaps'),
-  jade           = require('gulp-jade');
+		gutil          = require('gulp-util' ),
+		sass           = require('gulp-sass'),
+		browserSync    = require('browser-sync'),
+		concat         = require('gulp-concat'),
+		uglify         = require('gulp-uglify'),
+		cleanCSS       = require('gulp-clean-css'),
+		rename         = require('gulp-rename'),
+		del            = require('del'),
+		imagemin       = require('gulp-imagemin'),
+		cache          = require('gulp-cache'),
+		autoprefixer   = require('gulp-autoprefixer'),
+		ftp            = require('vinyl-ftp'),
+		notify         = require("gulp-notify"),
+		htmlmin 	     = require('gulp-html-minifier'),
+		rsync          = require('gulp-rsync'),
+		babel          = require('gulp-babel'),
+		autopolyfiller = require('gulp-autopolyfiller'),
+		merge          = require('event-stream').merge,
+		order          = require("gulp-order"),
+		critical       = require('critical').stream,
+		sourcemaps     = require('gulp-sourcemaps'),
+		jade           = require('gulp-jade'),
+		checkCSS       = require('gulp-check-unused-css'),
+		purify         = require('gulp-purify-css'),
+		sassLint 			 = require('gulp-sass-lint');
 
 
-// jade
+
+// JADE
 gulp.task('jade', function() {
 	return gulp.src(['blocks/**/*.jade', '!blocks/template.jade', '!blocks/_assets/**/*.jade'])
 		.pipe(jade({pretty: true}))
@@ -33,7 +35,7 @@ gulp.task('jade', function() {
 		.pipe(browserSync.stream())
 });
 
-// pug
+// PUG
 //gulp.task('pug', function() {
 //	return gulp.src(['app/pug/**/*.pug', '!app/pug/template.pug'])
 //		.pipe(plumber())
@@ -42,7 +44,7 @@ gulp.task('jade', function() {
 //		.pipe(browserSync.stream())
 //});
 
-// js
+// JS
 gulp.task('common-js', function() {
 	var all = gulp.src([
 		'app/js/common.js',
@@ -71,6 +73,7 @@ gulp.task('common-js', function() {
 		.pipe(gulp.dest('app/js'));
 });
 
+// JS
 //gulp.task('common-js', function() {
 //	return gulp.src([
 //		'app/js/common.js',
@@ -80,6 +83,7 @@ gulp.task('common-js', function() {
 //	.pipe(gulp.dest('app/js'));
 //});
 
+// Map
 //gulp.task('map-js', function() {
 //	return gulp.src(['app/js/map.js'])
 //		.pipe(concat('map.min.js'))
@@ -92,6 +96,7 @@ gulp.task('js', ['common-js'], function() {
 	return gulp.src([
 		//'app/libs/jquery/jquery-3.3.1.min.js',
 		'app/libs/fontfaceobserver/fontfaceobserver.js',
+		'app/libs/jquery.nicescroll-master/dist/jquery.nicescroll.min.js',
 		//'app/libs/plugins-scroll/plugins-scroll.js',
 		'app/libs/jQuery.mmenu/dist/jquery.mmenu.all.js',
 		'app/libs/slick-custom/slick-custom.js',
@@ -110,6 +115,7 @@ gulp.task('js', ['common-js'], function() {
 		.pipe(browserSync.reload({stream: true}));
 });
 
+// Browser sync
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: {
@@ -121,17 +127,14 @@ gulp.task('browser-sync', function() {
 	});
 });
 
-gulp.task('scss', function() {
+// SCSS
+gulp.task('scss', ['scss-lint'], function() {
 	return gulp.src('blocks/main.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass({'bundleExec': true}).on("error", notify.onError())) // sass({outputStyle: 'expand'})
-		.pipe(csso({
-			restructure: false,
-			sourceMap: true,
-			debug: true
-		}))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(sourcemaps.write())
+
+		// .pipe(sass({'bundleExec': true}).on("error", notify.onError())) 
+    .pipe(sass({outputStyle: 'expanded'}).on('error', notify.onError()))
+
 		//.pipe(autoprefixer(['last 15 versions']))
 		.pipe(autoprefixer([
 			'Android 2.3',
@@ -143,6 +146,8 @@ gulp.task('scss', function() {
 			'Opera >= 12',
 			'Safari >= 6'
 		]))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(sourcemaps.write())
 		//.pipe(cleanCSS()) // comment while develop
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({stream: true}));
@@ -156,7 +161,7 @@ gulp.task('watch', ['scss', 'js', 'browser-sync'], function() {
 	gulp.watch('app/*.html', browserSync.reload);
 });
 
-// Minify
+// HTML minify
 gulp.task('minify', function() {
 	gulp.src('app/*.html')
 		.pipe(htmlmin({collapseWhitespace: true}))
@@ -166,41 +171,53 @@ gulp.task('minify', function() {
 // Imagemin
 gulp.task('imagemin', function() {
 	return gulp.src('app/img/**/*')
-		.pipe(cache(imagemin()))    // tiny png - сжимает лучьше, но оставляет артефакты (на 3% болюше в pagespeed insights)
+		.pipe(cache(imagemin()))  // tiny png - сжимает лучьше, но оставляет артефакты (на 3% болюше в pagespeed insights)
 		.pipe(gulp.dest('dist/img'));
 });
 
-// Build tack fix-css
-gulp.task('build', ['removedist', 'imagemin', 'jade', 'scss', 'js', 'minify'], function() {
-
-	var buildFiles = gulp.src([
-		//'app/*.html',
-		'app/.htaccess',
-	]).pipe(gulp.dest('dist'));
-
-	var buildCss = gulp.src([  // Run Stylelint
-		'app/css/main.min.css',
-	]).pipe(gulp.dest('dist/css'));
-
-	var buildJs = gulp.src([
-		'app/js/scripts.min.js',
-		'app/js/modernizr-custom.js',
-		'app/js/html5shiv.min.js',
-		'app/js/html5shiv-printshiv.min.js',
-		//'app/js/map.min.js',
-	]).pipe(gulp.dest('dist/js'));
-
-	var buildFonts = gulp.src([
-		'app/fonts/**/*',
-	]).pipe(gulp.dest('dist/fonts'));
-
+// Check unused css - show unused css or html classes
+gulp.task('unusedcss', function() {
+  return gulp.src(['app/css/*.css', 'app/*.html'])
+    .pipe(checkCSS());
 });
 
-// Csslint - Программы, предотвращающие ошибки, называются «линтерами»
-gulp.task('css-lint', function() {
-	gulp.src('app/css/*.css')
-		.pipe(csslint())
-		.pipe(csslint.formatter());
+// Check unused pyrify css - show unused css or html classes
+// gulp.task('unusedpyrifycss', function() {
+//   return gulp.src(['app/pyrify/*.css', 'app/*.html'])
+//     .pipe(checkCSS());
+// });
+
+// // Pyrify css - delete unused css or html classes
+// gulp.task('pyrify', function() {
+//   return gulp.src('app/css/*.css')
+//     .pipe(purify(['app/js/*.js', 'app/*.html']))
+//     .pipe(gulp.dest('app/pyrify'));
+// });
+
+// Scsslint - Программы, предотвращающие ошибки, называются «линтерами»
+gulp.task('scss-lint', function() {
+  return gulp.src('blocks/components/**/*.scss')
+    .pipe(sassLint({
+    	rules: {
+		    'no-ids': 0,    								// 0 - disabled, 1 - warning, 2 - error
+		    'property-sort-order': [ 2, { 'order': 'concentric' }],
+		    'class-name-format': [1, { 'convention': 'strictbem' }],
+		    'no-color-literals': 0,
+		    'leading-zero': [1, { include: true }],   // (0.3-true or .3-false)
+		    'empty-args': [1, { include: true }],    
+		    'no-transition-all': 0,   
+		    'no-qualifying-elements': [1, { 'allow-element-with-attribute': true }],
+		    'no-url-domains': 0,						// Domains in URLs are disallowed url('http://...')
+		    'no-url-protocols': 0,					// Protocols and domains in URLs are disallowed url('http://...')
+		    'force-attribute-nesting': 0,   // allow nesting attributes
+		    'force-pseudo-nesting': 0,      // Class should be nested within its parent Class
+		    'single-line-per-selector': 0,  // Selectors must be placed on new lines
+		    'force-element-nesting': 0,      // Class should be nested within its parent Class
+		    'no-vendor-prefixes': 0
+		  }
+    }))
+    .pipe(sassLint.format())
+    // .pipe(sassLint.failOnError())    // Enter from gulp if scss-lint find errors
 });
 
 // Critical CSS
@@ -219,9 +236,33 @@ gulp.task('critical', function () {
 		.pipe(gulp.dest('dist/'));
 });
 
+// Build 
+gulp.task('build', ['removedist', 'imagemin', 'jade', 'scss', 'js', 'minify', 'pyrify'], function() {
+	var buildFiles = gulp.src([
+		//'app/*.html',
+		'app/.htaccess',
+	]).pipe(gulp.dest('dist'));
+
+	var buildCss = gulp.src([  // Run Stylelint
+		'app/css/main.min.css',   // or 'app/pyrify/main.min.css'
+	]).pipe(gulp.dest('dist/css'));
+
+	var buildJs = gulp.src([
+		'app/js/scripts.min.js',
+		'app/js/modernizr-custom.js',
+		'app/js/html5shiv.min.js',
+		'app/js/html5shiv-printshiv.min.js',
+		//'app/js/map.min.js',
+	]).pipe(gulp.dest('dist/js'));
+
+	var buildFonts = gulp.src([
+		'app/fonts/**/*',
+	]).pipe(gulp.dest('dist/fonts'));
+
+});
+
 // Deploy
 gulp.task('deploy', function() {
-
 	var conn = ftp.create({
 		host:      'webdevgranchenko.esy.es',
 		user:      'u715394280',

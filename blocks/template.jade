@@ -2,9 +2,6 @@ include _assets/bemto/bemto
 - set_bemto_settings({ modifier: "_" })
 
 include components/head/head
-include components/header/header
-include components/sign/sign
-include components/footer/footer
 
 
 doctype html
@@ -13,11 +10,12 @@ html(lang="ru" dir="ltr")
   block head
     head
       +head({
-        "title": "Bramdmedia_pug",
+        "title": "Test-task",
         "author": "Tatyana Granchenko",
-        "description": "Bramdmedia test progect"
+        "description": "Test task"
       })
 
+    block body
     +b.BODY.ishome
       // my-page start
       +b.DIV.my-page
@@ -25,7 +23,7 @@ html(lang="ru" dir="ltr")
 
         // my-header start
         block header
-          +header()
+        //   +header()
         // my-header end
 
         // content start
@@ -35,127 +33,7 @@ html(lang="ru" dir="ltr")
 
         // my-footer start
         block footer
-          +sign()
-          +footer({
-            "site": [
-              {
-                "text": "Home",
-                "href": "index.html"
-              },
-              {
-                "text": "About",
-                "href": "about.html"
-              },
-              {
-                "text": "Portfolio",
-                "href": "index.html"
-              },
-              {
-                "text": "Services",
-                "href": "index.html"
-              },
-              {
-                "text": "Blog",
-                "href": "index.html"
-              },
-              {
-                "text": "Contact",
-                "href": "index.html"
-              }
-            ],
-            "blog": [
-              {
-                "text": "App Media",
-                "href": "index.html"
-              },
-              {
-                "text": "Branding",
-                "href": "index.html"
-              },
-              {
-                "text": "Case studio",
-                "href": "index.html"
-              },
-              {
-                "text": "Devices",
-                "href": "index.html"
-              },
-              {
-                "text": "Jobs",
-                "href": "index.html"
-              },
-              {
-                "text": "Networks",
-                "href": "index.html"
-              }
-            ],
-            "jobs": [
-              {
-                "text": "Animation",
-                "href": "index.html"
-              },
-              {
-                "text": "Brand Idently",
-                "href": "index.html"
-              },
-              {
-                "text": "Development",
-                "href": "index.html"
-              },
-              {
-                "text": "Graphic Design",
-                "href": "index.html"
-              },
-              {
-                "text": "Marketing",
-                "href": "index.html"
-              },
-              {
-                "text": "Web Design",
-                "href": "index.html"
-              }
-            ],
-            "connect": [
-              {
-                "text": "Twitter",
-                "href": "index.html"
-              },
-              {
-                "text": "Facebook",
-                "href": "index.html"
-              },
-              {
-                "text": "Youtube",
-                "href": "index.html"
-              },
-              {
-                "text": "Flickr",
-                "href": "index.html"
-              },
-              {
-                "text": "Vimeo",
-                "href": "index.html"
-              },
-              {
-                "text": "Tumblr",
-                "href": "index.html"
-              }
-            ],
-            "copyright": [
-              {
-                "text": "Terms & Conditions",
-                "href": "index.html"
-              },
-              {
-                "text": "Privacy",
-                "href": "index.html"
-              },
-              {
-                "text": "Contact Us",
-                "href": "index.html"
-              }
-            ]
-          })
+          // +footer()
         // my-footer end
 
         // buttot to top

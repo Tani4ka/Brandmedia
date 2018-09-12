@@ -1,19 +1,11 @@
 extends template
 
-include components/dreams/dreams
-include components/aboutus/aboutus
-include components/offers/offers
+include components/articles/articles
 
 block content
     main.my-content
-        // section dreams start
-        +dreams()
-        // section dreams end
-
         // section aboutus start
-        +aboutus()
+        +articles()
         // section aboutus end
 
-        // section offers start
-        +offers()
-        // section offers end
+        

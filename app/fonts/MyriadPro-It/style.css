@@ -1,0 +1,13 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "MyriadPro-It";
+  src: url("MyriadPro-It.eot"); /* IE9 Compat Modes */
+  src: url("MyriadPro-It.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("MyriadPro-It.otf") format("opentype"), /* Open Type Font */
+    url("MyriadPro-It.svg") format("svg"), /* Legacy iOS */
+    url("MyriadPro-It.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("MyriadPro-It.woff") format("woff"), /* Modern Browsers */
+    url("MyriadPro-It.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}

@@ -552,6 +552,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 /// @example scss - Mixing everything
 ///  @include media('>=350px', '<tablet', 'retina3x') { }
 ///
+
 @mixin media($conditions...) {
   @if ($im-media-support and length($conditions) == 0) or
       (not $im-media-support and im-intercepts-static-breakpoint($conditions...)) {
@@ -560,8 +561,8 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     @media #{unquote(parse-expression(nth($conditions, 1)))} {
       // Recursive call
       @include media(slice($conditions, 2)...) {
-      @content;
-    }
+        @content;
+      }
     }
   }
 }

@@ -48,6 +48,9 @@ $media-expressions: (
 @import 'vendors/animate';
 @import 'vendors/include-media';
 @import 'vendors/slick';
+@import 'vendors/_gutenberg-print';
+// @import 'vendors/_print';
+@import 'vendors/_icomoon';
 
 /* ---------------------------------------------------------
 	2. Utils
@@ -59,6 +62,7 @@ $media-expressions: (
 @import 'base/vars';
 @import 'base/mixins';
 @import 'base/helpers';
+@import 'base/functions';
 
 @import 'base/reset';
 //@import 'base/cms-reset';
@@ -76,15 +80,12 @@ $media-expressions: (
 //@import 'components/form/form';
 @import 'components/common';
 
-@import 'components/header/header';
 
-@import 'components/dreams/dreams';
-@import 'components/aboutus/aboutus';
-@import 'components/offers/offers';
-@import 'components/sign/sign';
-@import 'components/about/about';
+// Index page
+@import 'components/articles/articles';
 
-@import 'components/footer/footer';
+// Next page
+
 
 /* ---------------------------------------------------------
 	5. Layout

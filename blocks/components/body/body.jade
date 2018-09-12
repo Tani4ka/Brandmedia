@@ -1,0 +1,12 @@
+//mixin body(classname)
+//  +b.BODY(class="is#{classname}")
+
+//block body
+//  body
+//    +body("nohome")
+
+- var bodyClass = '';
+block vars
+
+body(class='#{bodyClass}')
+  block content

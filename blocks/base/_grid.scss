@@ -1,7 +1,7 @@
 $xxs: "(min-width: 320px)";
 $xs: "(min-width: 480px)";
-$sm: "(min-width: 768px)";
-$_sm: "(max-width: 767px)";
+$sm: "(min-width: 768px)"; 
+$_sm: "(max-width: 767px)"; 
 $md: "(min-width: 992px)";
 $_md: "(max-width: 991px)";
 $lg: "(min-width: 1200px)";
@@ -18,17 +18,17 @@ $gutter: 20px;
   display: flex;
 
   @media #{$xxs} {
-    width: 100%;
-    padding: 0 10px;
+    max-width: 700px;
+    padding: 0 15px;
   }
   @media #{$sm} {
-    //width: 750px;
+    max-width: 100%;
   }
   @media #{$md} {
-    max-width: 984px;
+    // max-width: 984px;
   }
   @media #{$lg} {
-    max-width: 1174px;
+    // max-width: 1174px;
   }
   @media #{$xlg} {
     //max-width: 1400px;
@@ -45,3 +45,12 @@ $gutter: 20px;
   width: calc( (((100% - (#{$gutter} * (#{$cols} - 1))) / #{$cols}) * #{$num}) + ( #{$gutter} * (#{$num} - 1)) );
 }
 
+
+// .test {
+//   display: flex;
+//   justify-content: space-between;
+  
+//   &>div {
+//     @include col(5);
+//   }
+// }

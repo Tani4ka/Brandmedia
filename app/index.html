@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
   <head>
-    <title>Bramdmedia_pug</title>
+    <title>Test-task</title>
     <meta charset="utf-8"/>
     <meta content="Tatyana Granchenko" name="author"/>
-    <meta content="Bramdmedia test progect" name="description"/>
+    <meta content="Test task" name="description"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="HandheldFriendly" content="true"/>
     <meta name="format-detection" content="telephone=no"/>
@@ -31,8 +31,9 @@
     <script src="js/html5shiv-printshiv.min.js"></script>
     <!--![endif]-->
     <!-- Styles for preloader-->
-    <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #000; }</style>
+    <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #16171A; }</style>
     <!-- Main css-->
+    <link rel="stylesheet" href="libs/jQuery.mmenu/dist/jquery.mmenu.all.css"/>
     <link rel="stylesheet" href="css/main.min.css"/>
   </head>
   <body class="ishome">
@@ -40,403 +41,60 @@
     <div class="my-page">
       <!-- my-page end-->
       <!-- my-header start-->
-      <header role="banner" class="header my-header">
-        <div class="header__top">
-          <div class="header__logo">
-            <div class="logo"><a href="#" class="logo__link"><i class="logo__icon icon-plus-squared"></i><span class="logo__name">BRANDMEDIA</span><span class="logo__descr hide-tablet">We love beautiful things</span></a>
-            </div>
-          </div>
-          <nav class="header__nav hide-tablet">
-            <ul class="menu main-mnu">
-              <li class="menu__item menu__item_active"><a href="./index.html" class="menu__link menu__link menu__link_home"><i class="menu__icon icon-home hide-tablet"></i><span class="menu__link-name">Home</span></a>
-              </li>
-              <li class="menu__item"><a href="./about.html" class="menu__link">About us</a>
-              </li>
-              <li class="menu__item"><a href="#" class="menu__link">Portfolio</a>
-              </li>
-              <li class="menu__item"><a href="#" class="menu__link">Services</a>
-              </li>
-              <li class="menu__item"><a href="#" class="menu__link">Blog</a>
-                <ul class="submenu">
-                  <li class="submenu__item"><a href="#" class="submenu__link">App media</a>
-                  </li>
-                  <li class="submenu__item"><a href="#" class="submenu__link">Branding</a>
-                  </li>
-                  <li class="submenu__item"><a href="#" class="submenu__link">Case study</a>
-                  </li>
-                  <li class="submenu__item"><a href="#" class="submenu__link">Devices</a>
-                  </li>
-                  <li class="submenu__item"><a href="#" class="submenu__link">Jobs</a>
-                  </li>
-                  <li class="submenu__item"><a href="#" class="submenu__link">Networks</a>
-                  </li>
-                  <li class="submenu__item"><a href="#" class="submenu__link">Staff</a>
-                  </li>
-                  <li class="submenu__item submenu__item_last"><a href="#" class="submenu__link">Tutorials</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu__item"><a href="#" class="menu__link">Contact</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="header__btn mobile-mnu hide-desktop"><a href="#" class="toggle-mnu"><span>Open menu</span></a>
-          </div>
-        </div>
-      </header>
+      <!--   +header()-->
       <!-- my-header end-->
       <!-- content start-->
       <main class="my-content">
-        <!-- section dreams start-->
-        <section class="dreams">
-          <div class="dreams__wrap">
-            <div class="dreams__content">
-              <div class="d-content"><span class="d-content__supname">Creative Agency</span>
-                <h1 class="d-content__heading h1">We Make Dreams
-                </h1>
-                <p class="d-content__text">Beautiful interfaces and creative solutions
-                </p>
-                <div class="d-buttons"><a href="#" class="d-buttons__btn btn btn_blue-light">Read more</a><a href="#" class="d-buttons__btn btn btn_white">Portfolio</a>
-                </div>
-              </div>
-            </div>
-            <div class="video">
-              <div class="video__overlay">
-              </div>
-              <div class="controls">
-                <button class="controls__prev icon-fast-backward">
-                </button>
-                <button class="controls__btn icon-play">
-                </button>
-                <button class="controls__next icon-fast-forward">
-                </button>
-              </div>
-              <!-- slick gallery start-->
-              <div class="slick video__slick">
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/29833627" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/13955583" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-                <div class="slick__item">
-                  <iframe src="https://player.vimeo.com/video/19292559" width="640" height="360" frameborder="0" webkitallowfullscreen="webkitallowfullscreen" mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen" class="iframe">
-                  </iframe>
-                </div>
-              </div>
-              <!-- slick gallery end-->
-            </div>
-          </div>
-        </section>
-        <!-- section dreams end-->
         <!-- section aboutus start-->
-        <section class="aboutus">
-          <div class="aboutus__container">
-            <div class="js-tab">
-              <ul class="tab">
-                <li class="tab__item tab__item_first"><a href="#tabs1" class="tab__link">Who are we<span class="tab__descr">Something about us</span></a>
-                </li>
-                <li class="tab__item"><a href="#tabs2" class="tab__link">Why hire us<span class="tab__descr">Look at how we work</span></a>
-                </li>
-                <li class="tab__item"><a href="#tabs3" class="tab__link">We can offer<span class="tab__descr">The best services</span></a>
-                </li>
-                <li class="tab__item"><a href="#tabs4" class="tab__link">Testimonails<span class="tab__descr">Customers testimonials</span></a>
-                </li>
-              </ul>
-              <div class="tab-content tab-content_padding">
-                <div id="tabs1" class="tab-content">
-                  <div class="tab-content__content">
-                    <h3 class="tab-content__header h3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl felis, lobortis ac vulputate et, cursus eget tellus. Donec in ipsum nec tellus malesuada sodales non ac sem. Aliquam erat volutpat. Proin in velit nec tellus egestas auctor et eget nulla.
-                    </h3>
-                    <p class="tab-content__text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-                      blanditiis debitis deserunt dignissimos distinctio doloribus earum excepturi
-                      facere facilis, fuga hic ipsum iste laboriosam magni, maiores maxime minima,
-                      modi molestiae nam neque possimus modi molestiae nam neque possimus provident
-                      quaerat quam quia rem repellat repudiandae saepe sapiente sequi sint tempore
-                      ullam veritatis voluptas! Dicta eaque eligendi molestiae perspiciatis quae
-                      quibusdam rem repudiandae sed unde veritatis? Lorem ipsum dolor sit amet,
-                      consectetur adipisicing elit. Assumenda, suscipit!
-                    </p>
-                  </div>
-                  <div class="tab-img tab__img">
-                    <div class="tab-img__image"><img src="img/about-img.png" alt="About us image" class="tab-img__img" title=""/><span class="tab-img__text">About us</span>
+        <section class="articles">
+          <div class="container">
+            <div class="news">
+              <div>
+                <div class="post">
+                  <h2 class="h2">Карантин не продовжили: чернігівських школярів чекають у понеділок на навчанні ВІДЕО
+                  </h2>
+                  <article class="content post__content">
+                    <div class="info content__info">
+                      <p class="info__text">Обмежувальні заході у школах Чернігова не продовжили. І тому школярі у понеділок, 19 лютого, вийдуть на навчання після...
+                      </p>
+                      <div class="info__img"><img src="/img/map.jpeg" alt="Image" class="info__image" title=""/>
+                      </div>
                     </div>
-                    <div class="tab-img__search icon-search">
+                    <div class="date content__date">
+                      <div class="date__day">15 лютого 2018
+                      </div>
+                      <div class="date__views icon-eye-1">4779
+                      </div>
                     </div>
-                  </div>
+                  </article>
                 </div>
-                <div id="tabs2" class="tab-content">
-                  <div class="tab-content__content">
-                    <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid eaque error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.
-                    </h3>
-                    <p class="tab-content__text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-                      blanditiis debitis deserunt dignissimos distinctio doloribus earum excepturi
-                      facere facilis, fuga hic ipsum iste laboriosam magni, maiores maxime minima,
-                      modi molestiae nam neque possimus modi molestiae nam neque possimus prov.
-                    </p>
-                  </div>
-                  <div class="tab-img tab__img">
-                    <div class="tab-img__image"><img src="img/aboutus-img.png" alt="About us image" class="tab-img__img" title=""/><span class="tab-img__text">About us</span>
+                <div class="post">
+                  <h2 class="h2">Карантин не продовжили: чернігівських школярів чекають у понеділок на навчанні ВІДЕО
+                  </h2>
+                  <article class="content post__content">
+                    <div class="info content__info">
+                      <p class="info__text">Обмежувальні заході у школах Чернігова не продовжили. І тому школярі у понеділок, 19 лютого, вийдуть на навчання після...
+                      </p>
+                      <div class="info__img"><img src="/img/map.jpeg" alt="Image" class="info__image" title=""/>
+                      </div>
                     </div>
-                    <div class="tab-img__search icon-search">
+                    <div class="date content__date">
+                      <div class="date__day">15 лютого 2018
+                      </div>
+                      <div class="date__views icon-eye-1">4779
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div id="tabs3" class="tab-content">
-                  <div class="tab-content__content">
-                    <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid
-                      <eaque>error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.</eaque>
-                    </h3>
-                    <p class="tab-content__text">
-                      Fuga hic ipsum iste laboriosam magni, maiores maxime minima,
-                      modi molestiae nam neque possimus modi molestiae nam neque possimus provident
-                      quaerat quam quia rem repellat repudiandae saepe sapiente sequi sint tempore
-                      ullam veritatis voluptas! Dicta eaque eligendi molestiae perspiciatis quae
-                      quibusdam rem repudiandae sed unde veritatis? Lorem ipsum dolor sit amet,
-                      consectetur adipisicing elit. Assumenda, suscipit!
-                    </p>
-                  </div>
-                  <div class="tab-img tab__img">
-                    <div class="tab-img__image"><img src="img/aboutus-img.png" alt="About us image" class="tab-img__img" title=""/><span class="tab-img__text">About us</span>
-                    </div>
-                    <div class="tab-img__search icon-search">
-                    </div>
-                  </div>
-                </div>
-                <div id="tabs4" class="tab-content">
-                  <div class="tab-content__content">
-                    <h3 class="tab-content__header h3">Lorem sit amet, consectetur adipisicing elit. Adipisci aliquid eaque error ipsa, itaque iure nulla odit pariatur qui, repellendus soluta suscipit vero. Aut corporis ea eum labore laudantium minus nam possimus, quam quibusdam sunt tenetur vel veritatis vero voluptates.
-                    </h3>
-                    <p class="tab-content__text">
-                      Tuibusdam rem repudiandae sed unde veritatis? Lorem ipsum dolor sit
-                      amet, consectetur adipisicing elit. Assumenda, suscipit!
-                    </p>
-                  </div>
-                  <div class="tab-img tab__img">
-                    <div class="tab-img__image"><img src="img/aboutus-img.png" alt="About us image" class="tab-img__img" title=""/><span class="tab-img__text">About us</span>
-                    </div>
-                    <div class="tab-img__search icon-search">
-                    </div>
-                  </div>
+                  </article>
                 </div>
               </div>
-            </div>
-            <div class="about-btn">
-              <div class="about-btn__wrap"><a href="#" class="about-btn__btn about-btn__btn_more btn btn_gray">Read more</a><a href="#" class="about-btn__btn about-btn__btn_we btn btn_blue">Follow us</a><a href="#" class="about-btn__btn about-btn__btn_fb btn btn_blue-dark">Fasebook</a>
-              </div><a href="#" class="about-btn__btn about-btn__btn_last btn btn_gray">Get in touch</a>
             </div>
           </div>
         </section>
         <!-- section aboutus end-->
-        <!-- section offers start-->
-        <section class="offers">
-          <div class="offers__container">
-            <div class="offer">
-              <div class="tour"><span class="tour__name">Brandmedia tour</span>
-                <div class="tour__inner"><span class="tour__text">Watch now the video</span>
-                  <div class="tour__heading">Vidoetour
-                  </div>
-                </div>
-              </div>
-              <div class="offer-ct">
-                <div class="offer-ct__heading offer-ct__heading_tour h3">Brandmedia tour video
-                </div>
-                <p class="offer-ct__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
-                </p><a href="#" class="offer-ct__btn offer-ct__btn_tour btn btn_gray">Go to tuor</a>
-              </div>
-            </div>
-            <div class="offer">
-              <div class="apps"><span class="apps__name">Brandmedia apps</span>
-                <div class="apps__inner"><span class="apps__text">Avaliable on the Apple</span>
-                  <div class="apps__heading">App store
-                  </div>
-                </div>
-              </div>
-              <div class="offer-ct">
-                <div class="offer-ct__heading offer-ct__heading_app h3 icon-mobile">App media applications
-                </div>
-                <p class="offer-ct__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
-                </p><a href="#" class="offer-ct__btn offer-ct__btn_app btn btn_gray">App store</a>
-              </div>
-            </div>
-            <div class="offer">
-              <div class="jobs"><span class="jobs__name">Brandmedia jobs</span>
-                <div class="jobs__inner"><span class="jobs__text">Find a Freelancer</span>
-                  <div class="jobs__heading">Job board
-                  </div>
-                </div>
-              </div>
-              <div class="offer-ct">
-                <div class="offer-ct__heading offer-ct__heading_job h3 icon-suitcase">Professional jobs
-                </div>
-                <p class="offer-ct__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et turpis et neque molestie mattis eu vitae lectus.
-                </p><a href="#" class="offer-ct__btn offer-ct__btn_job btn btn_gray">Get a job</a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- section offers end-->
       </main>
       <!-- content end-->
       <!-- my-footer start-->
-      <div class="sign">
-        <div class="sign__container">
-          <div class="signup">
-            <div class="signup__text"><span class="signup__name">Join now to our newsletter</span><span class="signup__descr">Get the lastest news of BrandMedia</span>
-            </div>
-            <form action="" class="sign-form signup__form"><input type="mail" name="email" value="Your email address" class="sign-form__input"/>
-              <button type="submit" class="sign-form__btn btn btn_red">Sign up
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <footer role="contentinfo" class="footer-wrap">
-        <div class="footer">
-          <nav class="footer-nav footer__nav">
-            <div class="footer-nav__item footer-nav__item_first">
-              <h4 class="h4">Site navigation
-              </h4>
-              <ul class="footer-menu">
-                <li><a href="index.html" class="footer-menu__link">Home</a>
-                </li>
-                <li><a href="about.html" class="footer-menu__link">About</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Portfolio</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Services</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Blog</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Contact</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-nav__item">
-              <h4 class="h4">Blog categories
-              </h4>
-              <ul class="footer-menu">
-                <li><a href="index.html" class="footer-menu__link">App Media</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Branding</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Case studio</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Devices</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Jobs</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Networks</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-nav__item">
-              <h4 class="h4">Jobs board
-              </h4>
-              <ul class="footer-menu">
-                <li><a href="index.html" class="footer-menu__link">Animation</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Brand Idently</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Development</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Graphic Design</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Marketing</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Web Design</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-nav__item">
-              <h4 class="h4">Connect
-              </h4>
-              <ul class="footer-menu">
-                <li><a href="index.html" class="footer-menu__link">Twitter</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Facebook</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Youtube</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Flickr</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Vimeo</a>
-                </li>
-                <li><a href="index.html" class="footer-menu__link">Tumblr</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div class="copyright footer__copyright"><img src="img/copyright-figure.png" class="copyright__img img" alt="" role="presentation"/>
-            <!--+e.FIGURE.img-->
-            <div>
-              <h4 class="h4">BrandMedia<span class="h4__small">tm</span>
-              </h4>
-              <p class="copyright__text">
-                Copyright © 2010-2011 BrandMedia. All rights reserved.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nullam elit turpis, semper sed consequat a, malesuada vel neque.
-              </p>
-              <ul class="copyright-menu">
-                <li><a href="index.html" class="copyright-menu__link">Terms &amp; Conditions</a>
-                </li>
-                <li><a href="index.html" class="copyright-menu__link">Privacy</a>
-                </li>
-                <li><a href="index.html" class="copyright-menu__link">Contact Us</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <!-- +footer()-->
       <!-- my-footer end-->
       <!-- buttot to top-->
       <div title="Наверх" class="top">

@@ -3,47 +3,43 @@
    ---------------------------------------------------------*/
 
 // Common colors
-$black: #000;
-$white: rgb(255, 255, 255);
-$blue: #327595;               // btn, link
-$dark: #1a1a1a;               // preloader
-$overlay: #3D3D3D;
+$black          : black;
+$white          : white;
+$blue           : #327595;             // btn, link
+$dark           : #1a1a1a;             // preloader 
+$overlay        : #3D3D3D;
 
 // Site colors
-$accent: #C83134;
-$orange: #BF5C46;             // rgb(191, 92, 70);
-$body-bg: #16171A;            // rgb(22, 23, 26)
-$section-bg: #202227;         // rgb(32, 34, 39);
-$circle-shadow: #374351;      // rgb(55, 67, 81);
-$dreams-bg: #7a8390;
-$text-color: #666;
-$h1-color: #2a2a2a;
-$submenu-color: #3C3E42;
-$gray: #333;
-$light: #BCD4DB;
-$footer-text: #9ea3b0;
+$accent         : #4E978D;
+$orange         : #BF5C46;             // rgb(191, 92, 70);
+$body-bg        : #525659;             // rgb(82, 86, 89)
+$dreams-bg      : #7a8390;
+$text-color     : $black;
+$h1-color       : #2a2a2a;
+$gray           : #CСС;
+$light          : #C0C0C0;
 
 // Button colors
-$btn-white: #dfe2eb;
-$btn-blue-light: #789BBE;
-$btn-bg: #317191;            // rgba(49, 113, 145, 1);
-$btn-dark-blue: #345283;     // rgba(51, 78, 126, 1);
-$btn-gray: #49515f;          // rgba(72, 78, 92, 1);
+$btn-white      : #dfe2eb;
+$btn-blue-light : #789BBE;
+$btn-bg         : #317191;            // rgba(49, 113, 145, 1);
+$btn-dark-blue  : #345283;     			  // rgba(51, 78, 126, 1);
+$btn-gray       : #49515f;            // rgba(72, 78, 92, 1);
 
-$red-gradient: linear-gradient($orange, $accent);
-$dark-gradient: linear-gradient(to top, #1b1c1e, #2a313c),
-                linear-gradient(#2f3035, #2f3035);  // footer background gragient
 
+// $red-gradient: linear-gradient($orange, $accent);
+// $dark-gradient: linear-gradient(to top, #1b1c1e, #2a313c),
+//                 linear-gradient(#2f3035, #2f3035);  // footer background gragient
 
 // Fonts
 $base-font-sans-serif: 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
 
 // Body
-$base-text-color: $text-color !default;
+$base-text-color: $black !default;
 $base-background-color: $body-bg !default;
-$font-size-base: 12px !default;
-$line-height-base: 1.2 !default;                          // 1.6 standart
+$font-size-base: 16px !default;
+$line-height-base: 1.6 !default;                          // 1.6 standart
 //$base-font-family: 'RobotoRegular', $base-font-sans-serif !default;
 $base-font-family: 'MyriadProRegular' !default; // with FontFaceObserver
 
@@ -71,13 +67,13 @@ $placeholder-color: #898989 !default;
 
 // Headers
 $h1-font-size: 3.75em !default;  // 45px
-$h2-font-size: 2.5em !default;   // 30px
+$h2-font-size: 1.6em !default;   // 30px
 $h3-font-size: 1.5em !default;   // 18px
 $h4-font-size: 1.17em !default;  // 14px
 $h5-font-size: 19em !default;
 $h6-font-size: 17em !default;
 
 $headings-font-family: inherit !default;
-$headings-color: $white !default;
+$headings-color: $black !default;
 
 $animation-speed: 0.3s;

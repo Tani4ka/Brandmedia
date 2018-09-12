@@ -1,8 +1,9 @@
 
 $(function() {
-    initSlickCarousel();
-    initFitVids();
-    initTabs();
+    // initSlickCarousel();
+    // initFitVids();
+    // initTabs();
+    // initNicescroll()
 
     // slick init
     function initSlickCarousel() {
@@ -27,6 +28,20 @@ $(function() {
         $('.js-tab').easytabs();
     }
 
+    // Nicescroll plugin 
+    function initNicescroll() {
+        // $("body").niceScroll();
+        $("body").niceScroll({
+            cursorcolor:"#345283",
+            cursorborder: "1px solid #000",
+             cursorborderradius: "5px", 
+            cursorwidth: "5px",
+            cursoropacitymin: 0, 
+            cursoropacitymax: 1, 
+            scrollspeed: 60, 
+            mousescrollstep: 40, 
+        });
+    }
 
 
     /**** Common scripts ****/
@@ -107,33 +122,33 @@ $(function() {
 
 
     /* Chrome Smooth Scroll */
-    try {
-        $.browserSelector();
-        if($("html").hasClass("chrome")) {
-            $.smoothScroll();
-        }
-    } catch(err) {};
-
+    // try {
+    //     $.browserSelector();
+    //     if($("html").hasClass("chrome")) {
+    //         $.smoothScroll();
+    //     }
+    // } catch(err) {};
 
     /* Prevent Drag for a, img */
 
-    $("img, a").on("dragstart", function(event) { event.preventDefault(); });
+    // $("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
 
     /* Scroll page to top */
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > $(this).height()) {
-            $('.top').addClass('active');
-        } else {
-            $('.top').removeClass('active');
-        }
-    });
-    $('.top').click(function () {
-        $('html, body').stop().animate({scrollTop: 0}, 'slow', 'swing');
-    });
+    // $(window).scroll(function () {
+    //     if ($(this).scrollTop() > $(this).height()) {
+    //         $('.top').addClass('active');
+    //     } else {
+    //         $('.top').removeClass('active');
+    //     }
+    // });
+    // $('.top').click(function () {
+    //     $('html, body').stop().animate({scrollTop: 0}, 'slow', 'swing');
+    // });
 
-    /* No touch device :hover */
+    // No touch device :hover 
+    
     if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
         console.log('this is a touch device');
         document.body.classList.add('touch');
@@ -161,26 +176,26 @@ $(function() {
                         /***** Aditional scripts *****/
     /* Equalheight without plugin */
 
-    (function ($) {
-        $.fn.equalHeights = function () {
-            var $items = $(this);
-            function equalize() {
-                $items.height('initial');
-                var maxH = $items.eq(0).height();
-                $items.each(function () {
-                    maxH = ($(this).height() > maxH) ? $(this).height() : maxH;
-                });
-                $items.height(maxH);
-            }
-            equalize();
-            $(window).bind('resize', function () {
-                equalize();
-            });
-        };
-    })(jQuery);
+    // (function ($) {
+    //     $.fn.equalHeights = function () {
+    //         var $items = $(this);
+    //         function equalize() {
+    //             $items.height('initial');
+    //             var maxH = $items.eq(0).height();
+    //             $items.each(function () {
+    //                 maxH = ($(this).height() > maxH) ? $(this).height() : maxH;
+    //             });
+    //             $items.height(maxH);
+    //         }
+    //         equalize();
+    //         $(window).bind('resize', function () {
+    //             equalize();
+    //         });
+    //     };
+    // })(jQuery);
 
     // call equalHeights
-    $('.footer-nav__item .h4').equalHeights();
+    // $('.footer-nav__item .h4').equalHeights();
 
 
 
@@ -272,64 +287,64 @@ $(function() {
 
     /* Blocks the same height for video */
 
-    function videoWrapHeight() {
-        $('.slick-track').each(function () {
-            var ths = $(this),
-                thsh = ths.find('.slick__item').outerHeight();
-                thsh1 = ths.find('.slick__list').outerWidth();
-            $('.video__overlay').css('height', thsh);
-            $('.video__overlay').css('width', thsh1);
-        });
+    // function videoWrapHeight() {
+    //     $('.slick-track').each(function () {
+    //         var ths = $(this),
+    //             thsh = ths.find('.slick__item').outerHeight();
+    //             thsh1 = ths.find('.slick__list').outerWidth();
+    //         $('.video__overlay').css('height', thsh);
+    //         $('.video__overlay').css('width', thsh1);
+    //     });
+    // }videoWrapHeight();
 
-    }videoWrapHeight();
-    window.onresize = function () {
-        videoWrapHeight();
-    };
+    // window.onresize = function () {
+    //     videoWrapHeight();
+    // };
 
     /* Custom arrows in slick for video */
 
-    $('.controls__prev').click(function(){
-        $('.slick').slick('slickPrev');
-    })
-    $('.controls__next').click(function(){
-        $('.slick').slick('slickNext');
-    })
+    // $('.controls__prev').click(function(){
+    //     $('.slick').slick('slickPrev');
+    // })
+    // $('.controls__next').click(function(){
+    //     $('.slick').slick('slickNext');
+    // })
 
 
     /* iframe controls */
-    function videoControls() {
-        var slickCurrent = $(".slick-current").find(".iframe")[0];
-        var player = new Vimeo.Player(slickCurrent);
-        player.play();
-        //slickCurrent.src += "?autoplay=1";
-        $(".video__overlay").fadeOut('slow');
-        $(".controls").fadeOut('slow');
+    // function videoControls() {
+    //     var slickCurrent = $(".slick-current").find(".iframe")[0];
+    //     var player = new Vimeo.Player(slickCurrent);
+    //     player.play();
+    //     //slickCurrent.src += "?autoplay=1";
+    //     $(".video__overlay").fadeOut('slow');
+    //     $(".controls").fadeOut('slow');
 
-        player.on('ended', function() {
-            $(".controls").fadeIn('slow');
-        });
-        //player.on('ended', function() {
-        //    console.log('Ended');
-        //    $(".controls_wrap").fadeIn('slow');
-        //});
-    };
+    //     player.on('ended', function() {
+    //         $(".controls").fadeIn('slow');
+    //     });
+    //     //player.on('ended', function() {
+    //     //    console.log('Ended');
+    //     //    $(".controls_wrap").fadeIn('slow');
+    //     //});
+    // };
 
-    function videoEnded() {
-        $('.slick__item').each(function () {
-            var ths = $(this);
-            var iframeCurrent = ths.find(".iframe")[0];
-            var player = new Vimeo.Player(iframeCurrent);
+    // function videoEnded() {
+    //     $('.slick__item').each(function () {
+    //         var ths = $(this);
+    //         var iframeCurrent = ths.find(".iframe")[0];
+    //         var player = new Vimeo.Player(iframeCurrent);
 
-            player.on('ended', function() {
-                $(".controls").fadeIn('slow');
-            });
-        });
-    };
+    //         player.on('ended', function() {
+    //             $(".controls").fadeIn('slow');
+    //         });
+    //     });
+    // };
 
-    $(".controls__btn").click(function() {
-        videoControls();
-        videoEnded();
-    });
+    // $(".controls__btn").click(function() {
+    //     videoControls();
+    //     videoEnded();
+    // });
 
 
     /* Blocks the same height */
@@ -438,63 +453,65 @@ $(function() {
 
     /* Menu active link */
 
-    $('.menu__item').click(function(){
-        $('.menu__item').removeClass("menu__item_active");
-        $(this).addClass("menu__item_active");
-    });
+    // $('.menu__item').click(function(){
+    //     $('.menu__item').removeClass("menu__item_active");
+    //     $(this).addClass("menu__item_active");
+    // });
 
 
     /* Mmenu */
 
-    $(".mobile-mnu").after("<div id='my-menu'>");
-    $(".menu").clone().appendTo("#my-menu");
-    //$("#my-menu").find("*").attr("style", "");
-    //$("#my-menu").find(".menu__link_home").html("Home");
-    $("#my-menu").find("ul").removeClass("menu");
+    // $(".mobile-mnu").after("<div id='my-menu'>");
+    // $(".menu").clone().appendTo("#my-menu");
+    // //$("#my-menu").find("*").attr("style", "");
+    // //$("#my-menu").find(".menu__link_home").html("Home");
+    // $("#my-menu").find("ul").removeClass("menu");
 
 
-    $("#my-menu").mmenu({
-        "slidingSubmenus": false,
-        "extensions": [
-            "theme-black",
-            "effect-menu-slide",
-            "pagedim-black",
-            //"border-none",
-            "fx-listitems-slide",
-            "shadow-panels",
-            "position-right"
-        ],
-        "autoHeight": true,
-        navbar: {
-            title: 'Menu'
-        }
-    });
+    // $("#my-menu").mmenu({
+    //     "slidingSubmenus": true,
+    //     "extensions": [
+    //         "theme-black",
+    //         "effect-menu-slide",
+    //         "pagedim-black",
+    //         //"border-none",
+    //         "fx-listitems-slide",
+    //         "shadow-panels",
+    //         "position-right"
+    //     ],
+    //     "autoHeight": {
+    //         height: true
+    //     },
+    //     navbar: {
+    //         title: 'Menu'
+    //     }
+    // });
 
 
     /* Submenu centered */
 
-    $(".menu .submenu").each(function(){
-        var $this = $(this),
-          currentWidth = $this.outerWidth(),
-          parentWidth = $this.closest('li').outerWidth(),
-          leftPos = (parentWidth / 2) - (currentWidth / 2);
+    // $(".menu .submenu").each(function(){
+    //     var $this = $(this),
+    //       currentWidth = $this.outerWidth(),
+    //       parentWidth = $this.closest('li').outerWidth(),
+    //       leftPos = (parentWidth / 2) - (currentWidth / 2);
 
-        $(this).css('left', leftPos);
-    });
+    //     $(this).css('left', leftPos);
+    // });
 
     /* Gamburger for menu */
 
     // https://codepen.io/agragregra/pen/bEbbmZ
-    $(".mobile-mnu").click(function() {
-        var mmApi = $("#my-menu").data( "mmenu" );
-        mmApi.open();
-        var thiss = $(this).find(".toggle-mnu");
-        thiss.addClass("on");
-        return false;
-    });
-    $(".mm-page__blocker").click(function() {
-        $('.toggle-mnu').removeClass("on");
-    });
+    // $(".mobile-mnu").click(function() {
+    //     var mmApi = $("#my-menu").data( "mmenu" );
+    //     mmApi.open();
+    //     var thiss = $(this).find(".toggle-mnu");
+    //     thiss.addClass("on");
+    //     return false;
+    // });
+    // $(".mm-page__blocker").click(function() {
+    //     $('.toggle-mnu').removeClass("on");
+    // });
 
 
 
@@ -541,6 +558,7 @@ $(function() {
     var myriadProRegular = new FontFaceObserver('MyriadProRegular');
     var myriadProSemiBold = new FontFaceObserver('MyriadProSemiBold');
     var nevisBold = new FontFaceObserver('NevisBold');
+    var nevisBold = new FontFaceObserver('OfficinaSerITCStd-ExtraBoldIta');
 
 
     Promise.all([helveticaNeueLTStd.load(),
@@ -552,7 +570,7 @@ $(function() {
         myriadProRegular.load(),
         myriadProSemiBold.load(),
         nevisBold.load()]).then(function () {
-        document.documentElement.className += " fontFaceObserver";
+        document.documentElement.className += " font-face-observer";
         console.log('Fonts have loaded');
     });
 
@@ -568,10 +586,7 @@ $(function() {
     //});
 
 
-
-
-
-                           /* For hidden form start */
+                           /* Form hidden form start */
 
     /* E-mail Ajax Send */
     //Documentation & Example: https://github.com/agragregra/uniMail
@@ -593,13 +608,25 @@ $(function() {
     //});
 
     /* textarea autoheight*/
+
     //var textarea = document.querySelector('#textarea');
     //textarea.addEventListener('keyup', autoheight);
     //
     //function autoheight() {
     //    var scrollHeihg = this.scrollHeight;
     //    textarea.style.height = scrollHeihg+ "px";
-    //}                     /* For hidden form end */
+    //}
+
+
+  // var iconClick = document.getElementById('loftblog_icon');
+  // console.log(iconClick);
+  // console.log("done");
+  
+  // iconClick.addEventListener('click', function() {
+  // this.classList.add('animate');
+  // })
+
+
 });
 
 

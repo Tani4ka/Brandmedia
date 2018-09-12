@@ -1,154 +1,139 @@
-/* ---------------------------------------------------------
-                      Buttons
-   ---------------------------------------------------------*/
+// Buttons
+
 // button DRY
 .btn {
-  position: relative;
-  padding: $btn-padding;
-  margin: 0;
+  @include transition();
   display: inline-block;
-  min-width: 100px;
-  border: none;
-  border-radius: $btn-border-radius;
+  position: relative;
+  margin: 0;
   outline: none;
-  color: $btn-color;
+  border: 0;
+  border-radius: $btn-border-radius;
   background-color: $btn-background;
-  //font-family: $btn-font-family;
-  text-decoration: none;
-  font-size: $btn-font-size;
-  line-height: $btn-line-height;
-  text-transform: capitalize;
+  padding: $btn-padding;
+  min-width: 100px;
   text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.43);
-  @include transition;
+  line-height: $btn-line-height;
+  color: $btn-color;
+  // font-family: $btn-font-family;
+  font-size: $btn-font-size;
 
-  .fontFaceObserver & {
+  .font-face-observer & {
     font-family: 'HelveticaNeueLTStd-Md';
   }
 
   &::after {
     display: inline-block;
-    margin-left: 10px;
-    margin-bottom: -4px;
-    background: url('../img/sprite.png') no-repeat -5px -28px;
+    position: relative;
+    bottom: -4px;
+    left: 5px;
     width: 26px;
     height: 19px;
-    content: '';
+    font-family: 'icomoon';
+    font-size: em(14);
   }
 
-  //&::after {
-  //display: none;
-  //}
-
-  // for fontello
-  //&:after {
-  //  margin-left: 0.55em;
-  //}
-
   &_gray {
-    background-color: $btn-gray;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                inset 0 15px 10px 0 rgb(96, 106, 125);
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    inset 0 15px 10px 0 rgb(96, 106, 125);
+    background-color: $btn-gray;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: lighten($btn-gray, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                  inset 0 15px 10px 0 lighten(rgb(96, 106, 125), 10%);
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+      inset 0 15px 10px 0 lighten(rgb(96, 106, 125), 10%);
+      background-color: lighten($btn-gray, 10%);
     }
   }
 
   &_white {
-    color: $btn-gray;
-    background-color: $btn-white;
     box-shadow: inset 0 15px 10px 0 rgb(237, 241, 245),
-                0 1px 0 0 rgba(148, 148, 148, 0.8),
-                inset 0 1px 0 0 #ffffff;
+    0 1px 0 0 rgba(148, 148, 148, 0.8),
+    inset 0 1px 0 0 #fff;
+    background-color: $btn-white;
+    color: $btn-gray;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: darken($btn-white, 10%);
       box-shadow: inset 0 15px 20px 0 darken(rgb(237, 241, 245), 5%),
-                  0 1px 0 0 rgba(148, 148, 148, 0.8),
-                  inset 0 1px 0 0 #ffffff;
+      0 1px 0 0 rgba(148, 148, 148, 0.8),
+      inset 0 1px 0 0 #fff;
+      background-color: darken($btn-white, 10%);
     }
   }
 
   &_blue-light {
-    background-color: $btn-blue-light;
-    background-color: rgb(120, 156, 191);
     box-shadow: inset 0 1px 1px 0 lighten($btn-blue-light, 20%),
-                inset 0 20px 10px 0 lighten($btn-blue-light, 5%),
-                0 -0.3px 0 0.7px #6785a5;
+    inset 0 20px 10px 0 lighten($btn-blue-light, 5%),
+    0 -0.3px 0 0.7px #6785a5;
+    background-color: $btn-blue-light;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: darken($btn-blue-light, 3%);
       box-shadow: inset 0 1px 1px 0 lighten($btn-blue-light, 17%),
-                  inset 0 20px 10px 0 lighten($btn-blue-light, 3%),
-                  0 -0.3px 0 0.7px #6785a5;
+      inset 0 20px 10px 0 lighten($btn-blue-light, 3%),
+      0 -0.3px 0 0.7px #6785a5;
+      background-color: darken($btn-blue-light, 3%);
     }
   }
 
   &_blue {
-    background-color: $blue;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                inset 0 20px 10px 0 rgb(67, 154, 182);
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    inset 0 20px 10px 0 rgb(67, 154, 182);
+    background-color: $blue;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: lighten($blue, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 0 lighten($blue, 30%),
-                  inset 0 20px 10px 0 lighten(rgb(67, 154, 182), 10%);
+      inset 0 1px 0 0 lighten($blue, 30%),
+      inset 0 20px 10px 0 lighten(rgb(67, 154, 182), 10%);
+      background-color: lighten($blue, 10%);
     }
   }
 
   &_blue-dark {
-    background-color: $btn-dark-blue;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                inset 0 20px 10px 0 rgb(69, 106, 169);
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    inset 0 20px 10px 0 rgb(69, 106, 169);
+    background-color: $btn-dark-blue;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: lighten($btn-dark-blue, 10%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 0 lighten($btn-dark-blue, 30%),
-                  inset 0 20px 10px 0 lighten(rgb(69, 106, 169), 10%);
-
+      inset 0 1px 0 0 lighten($btn-dark-blue, 30%),
+      inset 0 20px 10px 0 lighten(rgb(69, 106, 169), 10%);
+      background-color: lighten($btn-dark-blue, 10%);
     }
   }
 
   &_red {
-    min-width: 40px;
-    background-color: $accent;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                inset 0 15px 10px 0 $orange;
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    inset 0 15px 10px 0 $orange;
+    background-color: $accent;
+    min-width: 40px;
 
     &:focus,
     &:hover,
     &:active {
-      background-color: lighten($accent, 5%);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3),
-                  inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-                  inset 0 15px 10px 0 lighten($orange, 3%);
-
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+      inset 0 15px 10px 0 lighten($orange, 3%);
+      background-color: lighten($accent, 5%);
     }
   }
 }
-
-
-
 
 // WebDesignMaster
 

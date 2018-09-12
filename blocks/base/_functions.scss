@@ -1,0 +1,25 @@
+$base-font-size : 12;
+
+// font-size: em(20);
+@function em($pixels, $context: $base-font-size) {
+  @return ($pixels / $context) * 1em;
+}
+
+// font-size:rem(20);
+@function rem($pixels, $context: $base-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+// convert kerning to letter spacing
+// letter-spasing: calc-letter-spacing(2);  
+@function calc-letter-spacing($kerningValue) {
+  @return #{$kerningValue / 1000}em;
+}
+
+                

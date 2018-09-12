@@ -11,7 +11,6 @@ h6, .h6,
   font-weight: bold;
   margin: 0;
   color: $headings-color;
-  text-transform: uppercase;
   line-height: 1.2;           // $line-height-base - 3.5
   //font-family: $headings-font-family;
 
@@ -23,7 +22,6 @@ h6, .h6,
 h1, .h1 {
   font-size: $h1-font-size;
   color: $h1-color;
-  text-transform: none;
 }
 
 h2, .h2 {
@@ -32,21 +30,12 @@ h2, .h2 {
 
 h3, .h3 {
   font-size: $h3-font-size;
-  text-transform: capitalize;
-
-  .fontFaceObserver & {
-    font-family: 'HelveticaNeueLTStd-Bd';
-  }
 }
 
 h4, .h4 {
   font-size: $h4-font-size;
   line-height: 1.43;
   text-transform: capitalize;
-
-  .fontFaceObserver & {
-    font-family: 'HelveticaNeueLTStd-Bd';
-  }
 
   &__small {
     font-size: 0.6em;
